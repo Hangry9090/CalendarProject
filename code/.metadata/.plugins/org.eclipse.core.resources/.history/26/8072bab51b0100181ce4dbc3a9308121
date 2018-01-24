@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package calendarProject;
+
+/**
+ * @author jacobwalton
+ *
+ */
+public class Scheduler {
+	
+	
+	/**
+	 * Constructor
+	 */
+	public Scheduler(){
+		
+	}
+	
+	
+	
+	/**
+	 * This function parses a file.
+	 * 
+	 */
+
+}

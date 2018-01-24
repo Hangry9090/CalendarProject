@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package calendarProject;
+
+/**
+ * @author jacobwalton
+ *
+ */
+public class Scheduler {
+	
+	
+	
+	public Scheduler(){
+		
+	}
+
+}
