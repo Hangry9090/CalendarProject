@@ -1,4 +1,4 @@
-package calendarProjectW;
+package calendarProject;
 
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
