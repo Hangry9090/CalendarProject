@@ -21,7 +21,7 @@ import org.jsoup.select.Elements;
 public class Scheduler {
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public Scheduler() {
 
@@ -56,18 +56,10 @@ public class Scheduler {
 			}
 	}
 
+
 	public static void main(String args[]) throws IOException {
 		Scheduler schedule = new Scheduler();
 
-//		ArrayList<String> testList = schedule.readFile("sched.html");
-//		
-//		int count = 0;
-//		for (String str : testList){
-//			System.out.println(count + ": " + str);
-//			count++;
-//		}
-		
-		
 		ArrayList<String> mySchedule = new ArrayList<String>();
 		
 		
@@ -85,7 +77,7 @@ public class Scheduler {
 		
 		for (Element row: rows) {
 			
-			Elements cells=row.select("td");
+			Elements cells = row.select("td");
 			for (Element cell: cells) {
 				if (!cell.text().isEmpty()) {
 				//System.out.println(cell.text());
