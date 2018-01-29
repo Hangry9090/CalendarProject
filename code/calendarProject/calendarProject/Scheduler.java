@@ -1,5 +1,8 @@
 /**
- * 
+ * Name: GVSU Scheduler
+ * Description: Takes a schedule from GVSU's banner website,
+ * and creates a .ics file to be imported into other
+ * calendar apps.
  */
 package calendarProject;
 
@@ -38,11 +41,15 @@ public class Scheduler {
 	/**
 	 * Open and read a file, and return the lines in the file as a list of
 	 * Strings. (Demonstrates Java FileReader, BufferedReader, and Java5.)
+	 * 
+	 * @param filename The name of the file to be parsed.
+	 * @return records The arrayList containing the parsed schedule.
 	 */
-	private ArrayList<String> readFile(String filename) {
+	private ArrayList<String> readFile(final String filename) {
 		ArrayList<String> records = new ArrayList<String>();
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(filename));
+			BufferedReader reader = new BufferedReader(
+					new FileReader(filename));
 			String line;
 			while ((line = reader.readLine()) != null) {
 				records.add(line);
@@ -50,14 +57,20 @@ public class Scheduler {
 			reader.close();
 			return records;
 		} catch (Exception e) {
-			System.err.format("Exception occurred trying to read '%s'.", filename);
+			System.err.format("Exception occurred "
+					+ "trying to read '%s'.", filename);
 			e.printStackTrace();
 			return null;
 			}
 	}
 
 
-	public static void main(String args[]) throws IOException {
+	/**
+	 * Main function to parse file.
+	 * @param args Command Line input. Unused.
+	 * @throws IOException If wrong file?
+	 */
+	public static void main(final String args[]) throws IOException {
 		Scheduler schedule = new Scheduler();
 
 		ArrayList<String> mySchedule = new ArrayList<String>();
@@ -69,8 +82,10 @@ public class Scheduler {
 		// Creates the schedule html into a Jsoup document object
 		Document doc = Jsoup.parse(input, "UTF-8");
 		
-		// All elements inside the datadisplaytable are stored in a Jsoup elements object
-		Elements schedTable = doc.getElementsByClass("datadisplaytable");
+		// All elements inside the datadisplaytable are stored in a 
+		//Jsoup elements object
+		Elements schedTable = 
+				doc.getElementsByClass("datadisplaytable");
 				
 		// It will now separate the rows and columns of the table
 		Elements rows = schedTable.select("tr");
