@@ -34,8 +34,37 @@ public class Scheduler {
 	 * This function parses a file.
 	 * 
 	 */
-	public void parseFile() {
-
+	public ArrayList<String> parseFile(String fileName) throws IOException {
+		ArrayList<String> mySchedule = new ArrayList<String>();
+		
+		
+		File input = new File(fileName);
+	
+		
+		// Creates the schedule html into a Jsoup document object
+		Document doc = Jsoup.parse(input, "UTF-8");
+		
+		// All elements inside the datadisplaytable are stored in a 
+		//Jsoup elements object
+		Elements schedTable = 
+				doc.getElementsByClass("datadisplaytable");
+				
+		// It will now separate the rows and columns of the table
+		Elements rows = schedTable.select("tr");
+		
+		for (Element row: rows) {
+			
+			Elements cells = row.select("td");
+			for (Element cell: cells) {
+				if (!(cell.text().isEmpty())) {
+					mySchedule.add(cell.text());
+				
+				}
+			}
+			
+		}
+		return mySchedule;
+		
 	}
 
 	/**
@@ -70,38 +99,12 @@ public class Scheduler {
 	 * @param args Command Line input. Unused.
 	 * @throws IOException If wrong file?
 	 */
-	public static void main(final String args[]) throws IOException {
+	public static void main(final String[] args) throws IOException {
 		Scheduler schedule = new Scheduler();
-
 		ArrayList<String> mySchedule = new ArrayList<String>();
+
+		mySchedule = schedule.parseFile("sched.html");
 		
-		
-		File input = new File("sched.html");
-	
-		
-		// Creates the schedule html into a Jsoup document object
-		Document doc = Jsoup.parse(input, "UTF-8");
-		
-		// All elements inside the datadisplaytable are stored in a 
-		//Jsoup elements object
-		Elements schedTable = 
-				doc.getElementsByClass("datadisplaytable");
-				
-		// It will now separate the rows and columns of the table
-		Elements rows = schedTable.select("tr");
-		
-		for (Element row: rows) {
-			
-			Elements cells = row.select("td");
-			for (Element cell: cells) {
-				if (!cell.text().isEmpty()) {
-				//System.out.println(cell.text());
-					mySchedule.add(cell.text());
-				
-				}
-			}
-			
-		}
 		
 		for (String s: mySchedule) {
 			System.out.println(s);
