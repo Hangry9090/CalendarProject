@@ -8,7 +8,7 @@
  * Contributors:
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
-package calendarProjectW;
+package calendarProject;
 
 import java.io.FileInputStream;
 import java.io.IOException;
