@@ -4,7 +4,7 @@
  * and creates a .ics file to be imported into other
  * calendar apps.
  * 
- * @authors Marshal Brummel, Alan Sisophone, Jake Walton
+ * @authors Marshal Brummel, Alan Sisouphone, Jake Walton
  */
 package calendarProject;
 
@@ -98,6 +98,58 @@ public class Scheduler {
 			return null;
 			}
 	}
+	
+	
+	
+	/**
+	 * This function extracts class information from a schedule
+	 * string list and separates the classes into a list of lists
+	 * 
+	 * @param schedule List of strings extracted from the banner schedule HTML
+	 * @return classes An arraylist of arraylists consisting of classes from the schedule.
+	 */
+	private ArrayList<ArrayList<String>> extractClasses(ArrayList<String> schedule) {
+		
+		ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
+		
+		int classCount = 0;
+		boolean start = false;
+		for (int i = 0; i < schedule.size(); i++) {
+			
+			// Find a string that's of length 5 "32636" and where the line after is of length 10 or 11 "CIS 290 02"
+			if (schedule.get(i).length()==5 && schedule.get(i+1).length()>9 && schedule.get(i+1).length() <12) {
+				
+				// Start adding classes from this line
+				classes.add(new ArrayList<String>());
+				
+				// Add to class count (This is not keeping track of the number of classes)
+				classCount++;
+				
+				// Add the line from the schedule to the class arrayList
+				classes.get(classCount-1).add(schedule.get(i));
+				
+				// Start adding classes
+				start = true;
+			}
+			
+			// Stop adding classes once it finds "Total Credits"
+			else if (schedule.get(i).contains("Total Credits:")) {
+				start = false;
+			}
+			
+			// Keep adding lines to the class list as long as start is true
+			else if (start) {
+				classes.get(classCount-1).add(schedule.get(i));
+			}
+			
+		}
+		start = false;
+		
+		return classes;
+		
+	}
+	
+	
 
 
 	/**
@@ -108,12 +160,21 @@ public class Scheduler {
 	public static void main(final String[] args) throws IOException {
 		Scheduler schedule = new Scheduler();
 		ArrayList<String> mySchedule = new ArrayList<String>();
+		
+		ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
 
 		mySchedule = schedule.parseFile("sched.html");
 		
+		classes = schedule.extractClasses(mySchedule);
 		
-		for (String s: mySchedule) {
-			System.out.println(s);
+		
+//		for (String s: mySchedule) {
+//			System.out.println(s);
+//		}
+		
+		
+		for (ArrayList<String> str: classes) {
+			System.out.println(str);
 		}
 		
 	}
