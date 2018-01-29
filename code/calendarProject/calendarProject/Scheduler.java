@@ -3,6 +3,8 @@
  * Description: Takes a schedule from GVSU's banner website,
  * and creates a .ics file to be imported into other
  * calendar apps.
+ * 
+ * @authors Marshal Brummel, Alan Sisophone, Jake Walton
  */
 package calendarProject;
 
@@ -33,8 +35,12 @@ public class Scheduler {
 	/**
 	 * This function parses a file.
 	 * 
+	 * @param fileName Name of file to be parsed.
+	 * @throws IOException When the filename doesn't exist.
+	 * @return The arrayList containing parsed HTML.
 	 */
-	public ArrayList<String> parseFile(String fileName) throws IOException {
+	public ArrayList<String> parseFile(final String fileName)
+			throws IOException {
 		ArrayList<String> mySchedule = new ArrayList<String>();
 		
 		
