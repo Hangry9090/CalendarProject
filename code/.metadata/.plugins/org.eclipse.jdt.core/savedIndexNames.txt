@@ -1,2 +1,0 @@
-INDEX VERSION 1.130+/Users/jacobwalton/Documents/Senior/cis350/CalendarProject/code/.metadata/.plugins/org.eclipse.jdt.core
-300302936.index
