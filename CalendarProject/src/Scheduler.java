@@ -37,10 +37,9 @@ public class Scheduler {
 	 * @throws IOException When the filename doesn't exist.
 	 * @return The arrayList containing parsed HTML.
 	 */
-	public ArrayList<String> parseFile(final String fileName)
+	public ArrayList<String> parseFile(String fileName)
 			throws IOException {
 		ArrayList<String> mySchedule = new ArrayList<String>();
-		
 		
 		File input = new File(fileName);
 	
@@ -146,8 +145,6 @@ public class Scheduler {
 		return classes;
 		
 	}
-	
-	
 
 
 	/**
@@ -169,10 +166,12 @@ public class Scheduler {
 //		for (String s: mySchedule) {
 //			System.out.println(s);
 //		}
-		
+		Course course = new Course();
+
 		
 		for (ArrayList<String> str: classes) {
-			System.out.println(str);
+			course.loadCourse(str);
+			System.out.println(course.toString());
 		}
 		
 	}
