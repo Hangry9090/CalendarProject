@@ -158,7 +158,7 @@ public class Scheduler {
 		
 		ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
 
-		mySchedule = schedule.parseFile("sched.html");
+		mySchedule = schedule.parseFile("AlanSched.html");
 		
 		classes = schedule.extractClasses(mySchedule);
 		
@@ -166,10 +166,11 @@ public class Scheduler {
 //		for (String s: mySchedule) {
 //			System.out.println(s);
 //		}
-		Course course = new Course();
+		
 
 		
 		for (ArrayList<String> str: classes) {
+			Course course = new Course();
 			course.loadCourse(str);
 			System.out.println(course.toString());
 		}
