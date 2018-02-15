@@ -5,6 +5,7 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.SWT;
 import java.awt.Panel;
 import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
@@ -27,6 +28,7 @@ public class MainWindowV2 {
 
 	protected Shell shell;
 	private Text messageTextField;
+	private Scheduler userSchedule = new Scheduler();
 
 
 	/**
@@ -85,6 +87,16 @@ public class MainWindowV2 {
 			public void mouseDown(MouseEvent e) {
 					JFileChooser fileChooser = new JFileChooser(new File(System.getProperty("user.dir")));
 			        int returnVal = fileChooser.showOpenDialog(fileChooser);
+			        String filename= fileChooser.getSelectedFile().getName();
+			        
+			        //System.out.print(filename.toString());
+			        
+			        /**
+			        try {
+						userSchedule.parseFile(filename);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}**/
 			}
 		});
 		inputButton.setBounds(129, 355, 243, 76);
