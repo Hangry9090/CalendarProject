@@ -98,6 +98,28 @@ public class Course {
 			// System.out.println(e);
 		}
 	}
+	
+	public String getCNum() {
+		return this.cNum;
+	}
+	
+	
+	public String getCName() {
+		return this.cName;
+	}
+	
+	public ArrayList<String> getLocation() {
+		return this.location;
+	}
+	
+	
+	public ArrayList<String> getDays() {
+		return this.days;
+	}
+	
+	public ArrayList<String> getMeetTimes() {
+		return this.meetTime;
+	}
 
 	/**
 	 * Overrides the built in toString method to print the class variables.
