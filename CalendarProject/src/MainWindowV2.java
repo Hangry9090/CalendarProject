@@ -1,4 +1,5 @@
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
@@ -9,12 +10,15 @@ import java.awt.Panel;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import org.eclipse.swt.widgets.Composite;
 import java.awt.Frame;
 import org.eclipse.swt.awt.SWT_AWT;
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
 import javax.swing.JRootPane;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.TabFolder;
@@ -43,6 +47,7 @@ public class MainWindowV2 {
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		} catch (Exception e) {
 			// handle exception
+			System.out.println("Problem setting LAF.");
 		}
 		try {
 			MainWindowV2 window = new MainWindowV2();
@@ -90,12 +95,26 @@ public class MainWindowV2 {
 		composite_1.setLayout(null);
 
 		Button inputButton = new Button(composite_1, SWT.NONE);
+		inputButton.setBounds(129, 355, 243, 76);
+		inputButton.setText("Input");
+
 		inputButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
-				JFileChooser fileChooser = new JFileChooser(new File(System.getProperty("user.dir")));
-				int returnVal = fileChooser.showOpenDialog(fileChooser);
-				String filename = fileChooser.getSelectedFile().getName();
+				
+				//code for filedialog found here: https://stackoverflow.com/questions/5703825/does-swing-support-windows-7-style-file-choosers
+				FileDialog dialog = new FileDialog (shell, SWT.OPEN | SWT.MULTI);
+		        String [] filterNames = new String [] {"HTML (.html)"};
+		        String [] filterExtensions = new String [] {"*.html"};
+		        dialog.setFilterNames (filterNames);
+		        dialog.setFilterExtensions (filterExtensions);
+		        dialog.open();
+		        System.out.println ("Selected files: ");
+		        String[] selectedFileNames = dialog.getFileNames();
+		        for(String fileName : selectedFileNames) {
+		            System.out.println("  " + fileName);
+		        }
+		        
 
 				// System.out.print(filename.toString());
 
@@ -105,8 +124,6 @@ public class MainWindowV2 {
 				 **/
 			}
 		});
-		inputButton.setBounds(129, 355, 243, 76);
-		inputButton.setText("Input");
 
 		Button outputButton = new Button(composite_1, SWT.NONE);
 		outputButton.addSelectionListener(new SelectionAdapter() {
@@ -129,5 +146,6 @@ public class MainWindowV2 {
 		instructionsTab.setControl(composite_2);
 
 	}
+
 
 }
