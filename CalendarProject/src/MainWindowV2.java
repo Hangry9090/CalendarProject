@@ -137,10 +137,16 @@ public class MainWindowV2 {
 					userSchedule.outputFile(savePath);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
+					//file could not be opened
 					e1.printStackTrace();
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
+					//file could not be parsed
 					e1.printStackTrace();
+				} catch (NoSuchFieldException e1) {
+					// TODO Auto-generated catch block
+					//e1.printStackTrace();
+					//no file loaded yet
 				}
 			}
 		});

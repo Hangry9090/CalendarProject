@@ -35,12 +35,10 @@ import org.jsoup.select.Elements;
  *
  */
 public class Scheduler {
-	
-	
+
 	private ArrayList<String> mySchedule = new ArrayList<String>();
 	private ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
 	private ArrayList<Course> courseList = new ArrayList<Course>();
-
 
 	/**
 	 * Constructor.
@@ -410,9 +408,9 @@ public class Scheduler {
 		for (String course : ics) {
 			System.out.println(course);
 		}
-		
+
 		return ics;
-	
+
 	}
 
 	/**
@@ -424,18 +422,18 @@ public class Scheduler {
 	 *             If wrong file?
 	 * @throws ParseException
 	 */
-	public static void main(final String[] args){
+	public static void main(final String[] args) {
 
 	}
-	
-	
+
 	/**
 	 * Function that loads a file and creates course objects for each class.
 	 * 
-	 * @param fileName The name of the file (absolute path) to be loaded.
+	 * @param fileName
+	 *            The name of the file (absolute path) to be loaded.
 	 */
 	public void inputFile(String fileName) throws IOException {
-		
+
 		mySchedule = parseFile(fileName);
 
 		classes = extractClasses(mySchedule);
@@ -443,7 +441,7 @@ public class Scheduler {
 		for (String s : mySchedule) {
 			System.out.println(s);
 		}
-		
+
 		System.out.println();
 
 		for (ArrayList<String> str : classes) {
@@ -452,25 +450,33 @@ public class Scheduler {
 			courseList.add(course);
 			System.out.println(course.toString());
 		}
-		
+
 	}
-	
-	
+
 	/**
-	 * Function that creates the .ics file containing the loaded data from the HTML file.
+	 * Function that creates the .ics file containing the loaded data from the HTML
+	 * file.
 	 * 
-	 * @param fileName The name of the file (absolute path) to be created.
+	 * @param fileName
+	 *            The name of the file (absolute path) to be created.
+	 * @throws NoSuchFieldException 
 	 */
-	public void outputFile(String fileName) throws IOException, ParseException {
+	public int outputFile(String fileName) throws IOException, ParseException, NoSuchFieldException {
 		ArrayList<String> ics = printICS(courseList);
-		
-		FileWriter writer = new FileWriter(fileName); 
-		for(String str: ics) {
-		  writer.write(str + "\n");
+
+		if (courseList.size() < 6) {
+			System.out.println("No file currenly loaded.");
+			throw new NoSuchFieldException();
+		} else {
+
+			FileWriter writer = new FileWriter(fileName);
+			for (String str : ics) {
+				writer.write(str + "\n");
+			}
+			writer.close();
+			return 0;
 		}
-		writer.close();
-		
-		
+
 	}
 
 }
