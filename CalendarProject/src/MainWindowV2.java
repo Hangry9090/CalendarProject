@@ -115,13 +115,6 @@ public class MainWindowV2 {
 		            System.out.println("  " + fileName);
 		        }
 		        
-
-				// System.out.print(filename.toString());
-
-				/**
-				 * try { userSchedule.parseFile(filename); } catch (IOException e1) {
-				 * e1.printStackTrace(); }
-				 **/
 			}
 		});
 
