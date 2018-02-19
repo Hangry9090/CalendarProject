@@ -11,17 +11,18 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-//import java.net.SocketException;
-//import java.time.LocalTime;
-//import java.time.format.DateTimeFormatter;
-//import java.time.temporal.ChronoField;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-//import java.util.GregorianCalendar;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 
 //import net.fortuna.ical4j.model.*;
 //import net.fortuna.ical4j.model.component.VEvent;
@@ -187,31 +188,83 @@ public class Scheduler {
 		return "";
 
 	}
+	
+	public String getYear (String s) {
+		String date = s;
+		
+		date = date.replace(",", "");
+		
+		String dateSplit[] = date.split(" ");
+		
+		return dateSplit[2];
+	}
+	
+	public String getMonth (String s) throws ParseException {
+		String date = s;
+		
+		date = date.replace(",", "");
+		
+		String dateSplit[] = date.split(" ");
+		
+		String month = dateSplit[0];
+		
+		
+		Date d = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month);
+	    Calendar cal = Calendar.getInstance();
+	    cal.setTime(d);
+	    int mon = cal.get(Calendar.MONTH) + 1;
+	    
+	    if (mon < 10) {
+	    		return "0" + Integer.toString(mon);
+	    }
+	    
+	    return Integer.toString(mon);
+	    
+	}
+	
+	
+	public String getDay (String s) {
+		String date = s;
+		
+		date = date.replace(",", "");
+		
+		String dateSplit[] = date.split(" ");
+		
+		return dateSplit[1];
+	}
 
 
-	public String startDate(String courseDays) {
-		int startDay = 8;
+	public String startDate(String s, String courseDay) {	
+		
+		String input = s;
+		
+		input = input.replace(",", "");
+		
+		String inputSplit[] = input.split(" ");
 		
 		
+		
+		int startDay = Integer.parseInt(inputSplit[1]);
 		
 
-		if (courseDays.contains("M")) {
-			return "08";
+
+		if (courseDay.contains("M")) {
+			return Integer.toString(startDay);
 		}
-		if (courseDays.contains("T")) {
-			return "09";
+		if (courseDay.contains("T")) {
+			return Integer.toString(startDay+1);
 		}
-		if (courseDays.contains("W")) {
-			return "10";
+		if (courseDay.contains("W")) {
+			return Integer.toString(startDay+2);
 		}
-		if (courseDays.contains("R")) {
-			return "11";
+		if (courseDay.contains("R")) {
+			return Integer.toString(startDay+3);
 		}
-		if (courseDays.contains("F")) {
-			return "12";
+		if (courseDay.contains("F")) {
+			return Integer.toString(startDay+4);
 		}
 		
-		return "";
+		return "Error";
 	}
 
 
@@ -258,15 +311,15 @@ public class Scheduler {
 	}
 	
 	
-	public void printICS(ArrayList<Course> courses) {
+	public void printICS(ArrayList<Course> courses) throws ParseException {
 		
 		ArrayList<String> ics = new ArrayList<String>();
 		
 		ics.add("BEGIN:VCALENDAR");
 		ics.add("VERSION:2.0");
 		
-		String year = "2018";
-		String month = "01";
+		//String year = "2018";
+		//String month = "01";
 		
 		for (Course c: courses) {
 			
@@ -275,8 +328,14 @@ public class Scheduler {
 			
 			for (int i = 0; i < c.getDays().size(); i++) {
 				
+				
+				
 				String currMeetTimes = c.getMeetTimes().get(i);
 				String currCourseDays = c.getDays().get(i);
+				String startDate = c.getStartDays().get(i);
+				
+				String year = getYear(startDate);
+				String month = getMonth(startDate);
 				
 				
 				
@@ -287,19 +346,34 @@ public class Scheduler {
 						+ courseMin(currMeetTimes, 1)
 						+ "00";
 				
-				String day = startDate(currCourseDays);
+				
+				
+				String day;
+				
+				if (c.getStartDays().size()>1) {
+					day = getDay(startDate);
+				}
+				else {
+					day = startDate(startDate, currCourseDays);
+					if (day.length()==1) {
+						day = "0" + day;
+					}
+				}
 				
 				
 				
 				
 				
-//				System.out.println("===============================");
-//				System.out.println("Current Course: " + c.getCName());
-//				System.out.println("Course Time: " + c.getMeetTimes().get(i));
-//				System.out.println("Start Time: " + startTime);
-//				System.out.println("End Time: " + endTime);
-//				System.out.println("Starting Day: " + day);
-//				System.out.println("===============================");
+				System.out.println("===============================");
+				System.out.println("Current Course: " + c.getCName());
+				System.out.println("Course Time: " + c.getMeetTimes().get(i));
+				System.out.println("Start Time: " + startTime);
+				System.out.println("End Time: " + endTime);
+				System.out.println("Course Days: " + currCourseDays);
+				System.out.println("Starting Month: " + month);
+				System.out.println("Starting Day: " + day);
+				System.out.println("Starting Year: " + year);
+				System.out.println("===============================");
 				
 				ics.add("BEGIN:VEVENT");
 				ics.add("DTSTART;TZID=America/Detroit:" + year + month + day + "T" + startTime);
@@ -311,7 +385,7 @@ public class Scheduler {
 				
 				
 				
-				if (c.getDays().get(i).length() > 1) {
+				if (c.getDays().get(i).length() > 1 && c.getStartDays().size() == 1) {
 					
 					if (c.getDays().get(i).contains("M")) {
 						classFreq += "MO,";
@@ -339,8 +413,11 @@ public class Scheduler {
 					
 					
 				}
-				else {
+				else if (c.getStartDays().size() == 1) {
 					ics.add(repeated);
+				}
+				else {
+					ics.add("RRULE:UNTIL=20180422T035959Z");
 				}
 				
 				
@@ -348,7 +425,8 @@ public class Scheduler {
 				ics.add("SUMMARY:" + c.getCName());
 				ics.add("DESCRIPTION:" + c.getCNum() + "\\n" + c.getLocation().get(i));
 				ics.add("END:VEVENT");
-			}
+			
+		}
 			
 			
 			
@@ -377,22 +455,27 @@ public class Scheduler {
 	 *            Command Line input. Unused.
 	 * @throws IOException
 	 *             If wrong file?
+	 * @throws ParseException 
 	 */
-	public static void main(final String[] args) throws IOException {
+	public static void main(final String[] args) throws IOException, ParseException {
 		Scheduler schedule = new Scheduler();
 		ArrayList<String> mySchedule = new ArrayList<String>();
 
 		ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
 
 		mySchedule = schedule.parseFile("CSS-Marshal.html");
+		
+	
 
 		classes = schedule.extractClasses(mySchedule);
 
-		// for (String s: mySchedule) {
-		// System.out.println(s);
-		// }
+		 for (String s: mySchedule) {
+		 System.out.println(s);
+		 }
 
 		ArrayList<Course> courseList = new ArrayList<Course>();
+		
+		System.out.println();
 
 		for (ArrayList<String> str : classes) {
 			Course course = new Course();
@@ -404,7 +487,8 @@ public class Scheduler {
 		schedule.printICS(courseList);
 		
 		
-
+		
+		
 	}
 
 }

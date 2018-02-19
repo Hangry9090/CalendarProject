@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 /**
  * 
@@ -20,6 +21,8 @@ public class Course {
 	private ArrayList<String> days = new ArrayList<String>();
 	private ArrayList<String> meetTime = new ArrayList<String>();
 	private ArrayList<String> location = new ArrayList<String>();
+	private ArrayList<String> startDate = new ArrayList<String>();
+	private ArrayList<String> endDate = new ArrayList<String>();
 	private String professor;
 
 	/**
@@ -35,6 +38,8 @@ public class Course {
 		days.add("");
 		meetTime.add("");
 		location.add("");
+		startDate.add("");
+		endDate.add("");
 		professor = "";
 	}
 
@@ -42,17 +47,20 @@ public class Course {
 	 * Constructor to fill all data values.
 	 * 
 	 */
-	public Course(int cid, String cNum, String cName, String campus, double credits, String level, String days[],
-			String meetTime[], String location[], String professor) {
+	public Course(int cid, String cNum, String cName, String campus, double credits, String level, ArrayList<String> days,
+			ArrayList<String> meetTime, ArrayList<String> location, ArrayList<String> startDate, ArrayList<String> endDate,
+			String professor) {
 		this.cid = cid;
 		this.cNum = cNum;
 		this.cName = cName;
 		this.campus = campus;
 		this.credits = credits;
 		this.level = level;
-		this.days.set(0, days[0]);
-		this.meetTime.set(0, meetTime[0]);
-		this.location.set(0, location[0]);
+		this.days = days;
+		this.meetTime = meetTime;
+		this.location = location;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.professor = professor;
 	}
 
@@ -69,35 +77,49 @@ public class Course {
 		this.campus = list.get(3);
 		this.credits = Double.parseDouble(list.get(4));
 		this.level = list.get(5);
-		this.days.set(0, list.get(8));
-		this.meetTime.set(0, list.get(9));
-		this.location.set(0, list.get(10));
-		this.professor = list.get(11);
-
-		// try to add a second meet time/location/day
-		try {
-			this.days.add(list.get(14));
-			this.meetTime.add(list.get(15));
-			this.location.add(list.get(16));
+		
+		for (int i = 0; i < list.size(); i++) {
+			
+			if (isMeetingDay(list.get(i))) {
+				
+				if (this.days.get(0)=="") {
+					this.days.set(0, list.get(i));
+					this.meetTime.set(0, list.get(i+1));
+					this.location.set(0, list.get(i+2));
+					this.professor = list.get(i+3);
+					this.startDate.set(0, list.get(i-2));
+					this.endDate.set(0, list.get(i-1));
+				}
+				
+				else {
+					
+					this.days.add(list.get(i));
+					this.meetTime.add(list.get(i+1));
+					this.location.add(list.get(i+2));
+					this.professor = list.get(i+3);
+					this.startDate.add(list.get(i-2));
+					this.endDate.add(list.get(i-1));
+				}
+			}
+			
+			
 		}
-
-		// if there is no second day, do nothing
-		catch (Exception e) {
-			// System.out.println(e);
-		}
-
-		// try to add a third meet time/location/day
-		try {
-			this.days.add(list.get(20));
-			this.meetTime.add(list.get(21));
-			this.location.add(list.get(22));
-		}
-
-		// if there is no third meet time, do nothing
-		catch (Exception e) {
-			// System.out.println(e);
-		}
+		
 	}
+	
+	private boolean isMeetingDay(String s) {
+		
+		Pattern p = Pattern.compile("\\b[MTWRF]{1,5}\\b");
+		
+		if (p.matcher(s).matches()) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
+	
 	
 	public String getCNum() {
 		return this.cNum;
@@ -120,6 +142,10 @@ public class Course {
 	public ArrayList<String> getMeetTimes() {
 		return this.meetTime;
 	}
+	
+	public ArrayList<String> getStartDays() {
+		return this.startDate;
+	}
 
 	/**
 	 * Overrides the built in toString method to print the class variables.
@@ -127,7 +153,7 @@ public class Course {
 	public String toString() {
 		return "Class: " + this.cid + "\ncNum: " + cNum + "\ncName: " + cName + "\nCampus: " + campus + "\nCredits: "
 				+ credits + "\nLevel: " + level + "\nTime: " + meetTime + "\nDays: " + days + "\nLocation: " + location
-				+ "\nProf: " + professor + "\n---------------------------\n";
+				+ "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nProf: " + professor + "\n---------------------------\n";
 	}
 
 	public static void main(String[] args) {
