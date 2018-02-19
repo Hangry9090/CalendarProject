@@ -28,6 +28,12 @@ import org.jsoup.select.Elements;
  *
  */
 public class Scheduler {
+	
+	
+	private ArrayList<String> mySchedule = new ArrayList<String>();
+	private ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
+	private ArrayList<Course> courseList = new ArrayList<Course>();
+
 
 	/**
 	 * Constructor.
@@ -300,7 +306,7 @@ public class Scheduler {
 	}
 
 	// Prints ICS formatted ArrayList based on course schedule
-	public void printICS(ArrayList<Course> courses) throws ParseException {
+	public ArrayList<String> printICS(ArrayList<Course> courses) throws ParseException {
 
 		ArrayList<String> ics = new ArrayList<String>();
 
@@ -397,7 +403,9 @@ public class Scheduler {
 		for (String course : ics) {
 			System.out.println(course);
 		}
-
+		
+		return ics;
+	
 	}
 
 	/**
@@ -411,39 +419,32 @@ public class Scheduler {
 	 */
 	public static void main(final String[] args) throws IOException, ParseException {
 		Scheduler schedule = new Scheduler();
-		ArrayList<String> mySchedule = new ArrayList<String>();
+		
 
-		ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
+		schedule.mySchedule = schedule.parseFile("Sched.html");
 
-		mySchedule = schedule.parseFile("Sched.html");
+		schedule.classes = schedule.extractClasses(schedule.mySchedule);
 
-		classes = schedule.extractClasses(mySchedule);
-
-		for (String s : mySchedule) {
+		for (String s : schedule.mySchedule) {
 			System.out.println(s);
 		}
 
-		ArrayList<Course> courseList = new ArrayList<Course>();
 
 		System.out.println();
 
-		for (ArrayList<String> str : classes) {
+		for (ArrayList<String> str : schedule.classes) {
 			Course course = new Course();
 			course.loadCourse(str);
-			courseList.add(course);
+			schedule.courseList.add(course);
 			System.out.println(course.toString());
 		}
 
-		schedule.printICS(courseList);
+		schedule.printICS(schedule.courseList);
 
 	}
 	
 	
 	public void inputFile(String fileName) throws IOException {
-		ArrayList<String> mySchedule = new ArrayList<String>();
-
-		ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
-
 		
 		mySchedule = parseFile(fileName);
 
@@ -452,9 +453,7 @@ public class Scheduler {
 		for (String s : mySchedule) {
 			System.out.println(s);
 		}
-
-		ArrayList<Course> courseList = new ArrayList<Course>();
-
+		
 		System.out.println();
 
 		for (ArrayList<String> str : classes) {
@@ -463,6 +462,14 @@ public class Scheduler {
 			courseList.add(course);
 			System.out.println(course.toString());
 		}
+		
+	}
+	
+	public void outputFile(String filename) throws IOException, ParseException {
+		ArrayList<String> ics = printICS(courseList);
+		
+		File output = new File(fileName);
+
 		
 	}
 
