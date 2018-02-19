@@ -89,45 +89,49 @@ public class MainWindowV2 {
 		inputButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
-				
-				//code for filedialog found here: https://stackoverflow.com/questions/5703825/does-swing-support-windows-7-style-file-choosers
-				FileDialog dialog = new FileDialog (shell, SWT.OPEN);
-		        String [] filterNames = new String [] {"HTML (.html)"};
-		        String [] filterExtensions = new String [] {"*.html"};
-		        dialog.setFilterNames (filterNames);
-		        dialog.setFilterExtensions (filterExtensions);
-		        dialog.open();
-		        String fileName = dialog.getFileName();
-		        String path = dialog.getFilterPath();
-		        
-		        //change to file so the path separator is included in the path + filename
-		        File selectedFile = new File(path, fileName);
-		        fileName = selectedFile.getAbsolutePath();
-		        
-		        try {
-		        		System.out.println(fileName);
+
+				// code for filedialog found here:
+				// https://stackoverflow.com/questions/5703825/does-swing-support-windows-7-style-file-choosers
+				FileDialog dialog = new FileDialog(shell, SWT.OPEN);
+				String[] filterNames = new String[] { "HTML (.html)" };
+				String[] filterExtensions = new String[] { "*.html" };
+				dialog.setFilterNames(filterNames);
+				dialog.setFilterExtensions(filterExtensions);
+				dialog.open();
+				String fileName = dialog.getFileName();
+				String path = dialog.getFilterPath();
+
+				// change to file so the path separator is included in the path + filename
+				File selectedFile = new File(path, fileName);
+				fileName = selectedFile.getAbsolutePath();
+
+				try {
+					System.out.println(fileName);
 					userSchedule.inputFile(fileName);
 				} catch (IOException e1) {
 					System.out.println("Error opening file.");
 					System.out.println(e1);
 				}
-		        
-		        
-		        //for if there were multiple files
-		        /*System.out.println ("Selected file: ");
-		         * for(String fileName : selectedFileNames) {
-		            System.out.println("  " + fileName);
-		        }*/
-		        
-		        
+
+				// for if there were multiple files
+				/*
+				 * System.out.println ("Selected file: "); for(String fileName :
+				 * selectedFileNames) { System.out.println("  " + fileName); }
+				 */
+
 			}
 		});
 
 		Button outputButton = new Button(composite_1, SWT.NONE);
-		outputButton.addSelectionListener(new SelectionAdapter() {
+		outputButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent e) {
-
+			public void mouseDown(MouseEvent e) {
+				FileDialog dialog = new FileDialog(shell, SWT.SAVE);
+				dialog.setFilterNames(new String[] { "ICS Files (.ics)" });
+				dialog.setFilterExtensions(new String[] { "*.ics"});
+				//System.out.println("Save to: " + dialog.open());
+				String savePath = dialog.open();
+				System.out.println("Save path: " + savePath);
 			}
 		});
 		outputButton.setBounds(426, 355, 243, 76);
@@ -144,6 +148,5 @@ public class MainWindowV2 {
 		instructionsTab.setControl(composite_2);
 
 	}
-
 
 }
