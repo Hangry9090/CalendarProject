@@ -8,9 +8,16 @@
  * @authors Marshal Brummel, Alan Sisouphone, Jake Walton
  */
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -409,7 +416,7 @@ public class Scheduler {
 	}
 
 	/**
-	 * Main function to parse file.
+	 * Main function for testing.
 	 * 
 	 * @param args
 	 *            Command Line input. Unused.
@@ -417,33 +424,16 @@ public class Scheduler {
 	 *             If wrong file?
 	 * @throws ParseException
 	 */
-	public static void main(final String[] args) throws IOException, ParseException {
-		Scheduler schedule = new Scheduler();
-		
-
-		schedule.mySchedule = schedule.parseFile("Sched.html");
-
-		schedule.classes = schedule.extractClasses(schedule.mySchedule);
-
-		for (String s : schedule.mySchedule) {
-			System.out.println(s);
-		}
-
-
-		System.out.println();
-
-		for (ArrayList<String> str : schedule.classes) {
-			Course course = new Course();
-			course.loadCourse(str);
-			schedule.courseList.add(course);
-			System.out.println(course.toString());
-		}
-
-		schedule.printICS(schedule.courseList);
+	public static void main(final String[] args){
 
 	}
 	
 	
+	/**
+	 * Function that loads a file and creates course objects for each class.
+	 * 
+	 * @param fileName The name of the file (absolute path) to be loaded.
+	 */
 	public void inputFile(String fileName) throws IOException {
 		
 		mySchedule = parseFile(fileName);
@@ -465,11 +455,21 @@ public class Scheduler {
 		
 	}
 	
-	public void outputFile(String filename) throws IOException, ParseException {
+	
+	/**
+	 * Function that creates the .ics file containing the loaded data from the HTML file.
+	 * 
+	 * @param fileName The name of the file (absolute path) to be created.
+	 */
+	public void outputFile(String fileName) throws IOException, ParseException {
 		ArrayList<String> ics = printICS(courseList);
 		
-		File output = new File(fileName);
-
+		FileWriter writer = new FileWriter(fileName); 
+		for(String str: ics) {
+		  writer.write(str + "\n");
+		}
+		writer.close();
+		
 		
 	}
 

@@ -4,6 +4,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.swing.UIManager;
 
@@ -132,6 +133,15 @@ public class MainWindowV2 {
 				//System.out.println("Save to: " + dialog.open());
 				String savePath = dialog.open();
 				System.out.println("Save path: " + savePath);
+				try {
+					userSchedule.outputFile(savePath);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		outputButton.setBounds(426, 355, 243, 76);
