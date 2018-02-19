@@ -1,26 +1,10 @@
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
-import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
 
-import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.SWT;
-import java.awt.Panel;
-import java.io.File;
-import java.io.IOException;
-
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JPanel;
 import org.eclipse.swt.widgets.Composite;
-import java.awt.Frame;
-import org.eclipse.swt.awt.SWT_AWT;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JRootPane;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Button;
