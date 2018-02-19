@@ -8,16 +8,10 @@
  * @authors Marshal Brummel, Alan Sisouphone, Jake Walton
  */
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -113,7 +107,7 @@ public class Scheduler {
 
 	/**
 	 * This function extracts class information from a schedule string list and
-	 * separates the classes into a list of lists
+	 * separates the classes into a list of lists.
 	 * 
 	 * @param schedule
 	 *            List of strings extracted from the banner schedule HTML
@@ -144,15 +138,11 @@ public class Scheduler {
 
 				// Start adding classes
 				start = true;
-			}
-
-			// Stop adding classes once it finds "Total Credits"
-			else if (schedule.get(i).contains("Total Credits:")) {
+			} else if (schedule.get(i).contains("Total Credits:")) {
+				// Stop adding classes once it finds "Total Credits"
 				start = false;
-			}
-
-			// Keep adding lines to the class list as long as start is true
-			else if (start) {
+			} else if (start) {
+				// Keep adding lines to the class list as long as start is true
 				classes.get(classCount - 1).add(schedule.get(i));
 			}
 
@@ -164,7 +154,7 @@ public class Scheduler {
 	}
 
 	/**
-	 * Finds the minutes for a particular time for a course
+	 * Finds the minutes for a particular time for a course.
 	 * 
 	 * @param s
 	 *            A String consisting of the current course time e.g "1:30 pm - 2:00
@@ -289,9 +279,7 @@ public class Scheduler {
 			}
 
 			return (splitHourMins[0]);
-		}
-
-		else if (startAndEnd[index].contains("pm")) {
+		} else if (startAndEnd[index].contains("pm")) {
 			startAndEnd[index] = startAndEnd[index].replace(" pm", "");
 
 			splitHourMins = startAndEnd[index].split(":");

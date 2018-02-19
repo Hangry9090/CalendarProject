@@ -82,23 +82,21 @@ public class Course {
 			
 			if (isMeetingDay(list.get(i))) {
 				
-				if (this.days.get(0)=="") {
+				if (this.days.get(0) == "") {
 					this.days.set(0, list.get(i));
-					this.meetTime.set(0, list.get(i+1));
-					this.location.set(0, list.get(i+2));
-					this.professor = list.get(i+3);
-					this.startDate.set(0, list.get(i-2));
-					this.endDate.set(0, list.get(i-1));
-				}
-				
-				else {
+					this.meetTime.set(0, list.get(i + 1));
+					this.location.set(0, list.get(i + 2));
+					this.professor = list.get(i + 3);
+					this.startDate.set(0, list.get(i - 2));
+					this.endDate.set(0, list.get(i - 1));
+				} else {
 					
 					this.days.add(list.get(i));
-					this.meetTime.add(list.get(i+1));
-					this.location.add(list.get(i+2));
-					this.professor = list.get(i+3);
-					this.startDate.add(list.get(i-2));
-					this.endDate.add(list.get(i-1));
+					this.meetTime.add(list.get(i + 1));
+					this.location.add(list.get(i + 2));
+					this.professor = list.get(i + 3);
+					this.startDate.add(list.get(i - 2));
+					this.endDate.add(list.get(i - 1));
 				}
 			}
 			
@@ -107,6 +105,11 @@ public class Course {
 		
 	}
 	
+
+	/**
+	 * @param s
+	 * @return whether or not it is a meeting day
+	 */
 	private boolean isMeetingDay(String s) {
 		
 		Pattern p = Pattern.compile("\\b[MTWRF]{1,5}\\b");
@@ -121,6 +124,9 @@ public class Course {
 	
 	
 	
+	/**
+	 * @return
+	 */
 	public String getCNum() {
 		return this.cNum;
 	}
@@ -151,9 +157,10 @@ public class Course {
 	 * Overrides the built in toString method to print the class variables.
 	 */
 	public String toString() {
-		return "Class: " + this.cid + "\ncNum: " + cNum + "\ncName: " + cName + "\nCampus: " + campus + "\nCredits: "
-				+ credits + "\nLevel: " + level + "\nTime: " + meetTime + "\nDays: " + days + "\nLocation: " + location
-				+ "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nProf: " + professor + "\n---------------------------\n";
+		return "Class: " + this.cid + "\ncNum: " + cNum + "\ncName: " + cName + "\nCampus: " +
+				campus + "\nCredits: " + credits + "\nLevel: " + level + "\nTime: " + meetTime +
+				"\nDays: " + days + "\nLocation: " + location + "\nStart Date: " + startDate +
+				"\nEnd Date: " + endDate + "\nProf: " + professor + "\n---------------------------\n";
 	}
 
 	public static void main(String[] args) {

@@ -14,8 +14,6 @@ import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
@@ -94,8 +92,8 @@ public class MainWindowV2 {
 				// code for filedialog found here:
 				// https://stackoverflow.com/questions/5703825/does-swing-support-windows-7-style-file-choosers
 				FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-				String[] filterNames = new String[] { "HTML (.html)" };
-				String[] filterExtensions = new String[] { "*.html" };
+				String[] filterNames = new String[] {"HTML (.html)"};
+				String[] filterExtensions = new String[] {"*.html"};
 				dialog.setFilterNames(filterNames);
 				dialog.setFilterExtensions(filterExtensions);
 				dialog.open();
@@ -128,8 +126,8 @@ public class MainWindowV2 {
 			@Override
 			public void mouseDown(MouseEvent e) {
 				FileDialog dialog = new FileDialog(shell, SWT.SAVE);
-				dialog.setFilterNames(new String[] { "ICS Files (.ics)" });
-				dialog.setFilterExtensions(new String[] { "*.ics"});
+				dialog.setFilterNames(new String[] {"ICS Files (.ics)"});
+				dialog.setFilterExtensions(new String[] {"*.ics"});
 				//System.out.println("Save to: " + dialog.open());
 				String savePath = dialog.open();
 				System.out.println("Save path: " + savePath);
