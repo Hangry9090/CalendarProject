@@ -1,6 +1,10 @@
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
+
+import java.io.File;
+import java.io.IOException;
+
 import javax.swing.UIManager;
 
 import org.eclipse.swt.SWT;
@@ -87,17 +91,34 @@ public class MainWindowV2 {
 			public void mouseDown(MouseEvent e) {
 				
 				//code for filedialog found here: https://stackoverflow.com/questions/5703825/does-swing-support-windows-7-style-file-choosers
-				FileDialog dialog = new FileDialog (shell, SWT.OPEN | SWT.MULTI);
+				FileDialog dialog = new FileDialog (shell, SWT.OPEN);
 		        String [] filterNames = new String [] {"HTML (.html)"};
 		        String [] filterExtensions = new String [] {"*.html"};
 		        dialog.setFilterNames (filterNames);
 		        dialog.setFilterExtensions (filterExtensions);
 		        dialog.open();
-		        System.out.println ("Selected files: ");
-		        String[] selectedFileNames = dialog.getFileNames();
-		        for(String fileName : selectedFileNames) {
+		        String fileName = dialog.getFileName();
+		        String path = dialog.getFilterPath();
+		        
+		        //change to file so the path separator is included in the path + filename
+		        File selectedFile = new File(path, fileName);
+		        fileName = selectedFile.getAbsolutePath();
+		        
+		        try {
+		        		System.out.println(fileName);
+					userSchedule.inputFile(fileName);
+				} catch (IOException e1) {
+					System.out.println("Error opening file.");
+					System.out.println(e1);
+				}
+		        
+		        
+		        //for if there were multiple files
+		        /*System.out.println ("Selected file: ");
+		         * for(String fileName : selectedFileNames) {
 		            System.out.println("  " + fileName);
-		        }
+		        }*/
+		        
 		        
 			}
 		});

@@ -437,5 +437,33 @@ public class Scheduler {
 		schedule.printICS(courseList);
 
 	}
+	
+	
+	public void inputFile(String fileName) throws IOException {
+		ArrayList<String> mySchedule = new ArrayList<String>();
+
+		ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
+
+		
+		mySchedule = parseFile(fileName);
+
+		classes = extractClasses(mySchedule);
+
+		for (String s : mySchedule) {
+			System.out.println(s);
+		}
+
+		ArrayList<Course> courseList = new ArrayList<Course>();
+
+		System.out.println();
+
+		for (ArrayList<String> str : classes) {
+			Course course = new Course();
+			course.loadCourse(str);
+			courseList.add(course);
+			System.out.println(course.toString());
+		}
+		
+	}
 
 }
