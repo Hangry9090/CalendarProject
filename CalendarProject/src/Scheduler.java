@@ -23,19 +23,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-
-//import net.fortuna.ical4j.model.*;
-//import net.fortuna.ical4j.model.component.VEvent;
-//import net.fortuna.ical4j.model.component.VTimeZone;
-//import net.fortuna.ical4j.model.parameter.Cn;
-//import net.fortuna.ical4j.model.parameter.Role;
-//import net.fortuna.ical4j.model.property.Attendee;
-//import net.fortuna.ical4j.model.property.CalScale;
-//import net.fortuna.ical4j.model.property.ProdId;
-//import net.fortuna.ical4j.model.property.Uid;
-//import net.fortuna.ical4j.model.property.Version;
-//import net.fortuna.ical4j.util.UidGenerator;
-
 /**
  * @author jacobwalton
  *
@@ -165,6 +152,14 @@ public class Scheduler {
 
 	}
 
+	/**
+	 * Finds the minutes for a particular time for a course
+	 * 
+	 * @param s
+	 *            A String consisting of the current course time e.g "1:30 pm - 2:00
+	 *            pm"
+	 * @return string A two digit string consisting of the minutes of course time
+	 */
 	public String courseMin(String s, int index) {
 		String startAndEnd[];
 		String splitHourMins[];
@@ -179,7 +174,6 @@ public class Scheduler {
 		} else if (startAndEnd[index].contains("pm")) {
 			startAndEnd[index] = startAndEnd[index].replace(" pm", "");
 
-
 			splitHourMins = startAndEnd[index].split(":");
 
 			return splitHourMins[1];
@@ -188,88 +182,86 @@ public class Scheduler {
 		return "";
 
 	}
-	
-	public String getYear (String s) {
+
+	// Returns the year part of of "Jan 8, 2018"
+	public String getYear(String s) {
 		String date = s;
-		
+
 		date = date.replace(",", "");
-		
+
 		String dateSplit[] = date.split(" ");
-		
+
 		return dateSplit[2];
 	}
-	
-	public String getMonth (String s) throws ParseException {
+
+	// Returns the months part of "Jan 8, 2018"
+	public String getMonth(String s) throws ParseException {
 		String date = s;
-		
+
 		date = date.replace(",", "");
-		
+
 		String dateSplit[] = date.split(" ");
-		
+
 		String month = dateSplit[0];
-		
-		
+
+		// Converts "Jan" to "01" for example
 		Date d = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month);
-	    Calendar cal = Calendar.getInstance();
-	    cal.setTime(d);
-	    int mon = cal.get(Calendar.MONTH) + 1;
-	    
-	    if (mon < 10) {
-	    		return "0" + Integer.toString(mon);
-	    }
-	    
-	    return Integer.toString(mon);
-	    
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(d);
+		int mon = cal.get(Calendar.MONTH) + 1;
+
+		if (mon < 10) {
+			return "0" + Integer.toString(mon);
+		}
+
+		return Integer.toString(mon);
+
 	}
-	
-	
-	public String getDay (String s) {
+
+	// Returns the day part of "Jan 8, 2018"
+	public String getDay(String s) {
 		String date = s;
-		
+
 		date = date.replace(",", "");
-		
+
 		String dateSplit[] = date.split(" ");
-		
+
 		return dateSplit[1];
 	}
 
+	// Finds the starting date for class in a semester
+	// A course with a Jan 8 start date whose course days are
+	// TR will need to start on Jan 9, not Jan 8
+	public String startDate(String s, String courseDay) {
 
-	public String startDate(String s, String courseDay) {	
-		
 		String input = s;
-		
-		input = input.replace(",", "");
-		
-		String inputSplit[] = input.split(" ");
-		
-		
-		
-		int startDay = Integer.parseInt(inputSplit[1]);
-		
 
+		input = input.replace(",", "");
+
+		String inputSplit[] = input.split(" ");
+
+		int startDay = Integer.parseInt(inputSplit[1]);
 
 		if (courseDay.contains("M")) {
 			return Integer.toString(startDay);
 		}
 		if (courseDay.contains("T")) {
-			return Integer.toString(startDay+1);
+			return Integer.toString(startDay + 1);
 		}
 		if (courseDay.contains("W")) {
-			return Integer.toString(startDay+2);
+			return Integer.toString(startDay + 2);
 		}
 		if (courseDay.contains("R")) {
-			return Integer.toString(startDay+3);
+			return Integer.toString(startDay + 3);
 		}
 		if (courseDay.contains("F")) {
-			return Integer.toString(startDay+4);
+			return Integer.toString(startDay + 4);
 		}
-		
+
 		return "Error";
 	}
 
-
-	
-	
+	// Returns the hour portion of a course start time
 	public String courseHour(String s, int index) {
 		String startAndEnd[];
 		String splitHourMins[];
@@ -280,90 +272,71 @@ public class Scheduler {
 		if (startAndEnd[index].contains("am")) {
 			startAndEnd[index] = startAndEnd[index].replace(" am", "");
 			splitHourMins = startAndEnd[index].split(":");
-			
-			if (splitHourMins[0].length()==1) {
+
+			if (splitHourMins[0].length() == 1) {
 				return ("0" + splitHourMins[0]);
 			}
-			
+
 			return (splitHourMins[0]);
 		}
 
 		else if (startAndEnd[index].contains("pm")) {
 			startAndEnd[index] = startAndEnd[index].replace(" pm", "");
 
-
 			splitHourMins = startAndEnd[index].split(":");
-			
-			
+
 			currHour = Integer.parseInt(splitHourMins[0]);
-			
+
 			if (Integer.parseInt(splitHourMins[0]) != 12) {
 				currHour += 12;
 			}
-			
+
 			return Integer.toString(currHour);
 
-			
 		}
 
 		return "";
 
 	}
-	
-	
+
+	// Prints ICS formatted ArrayList based on course schedule
 	public void printICS(ArrayList<Course> courses) throws ParseException {
-		
+
 		ArrayList<String> ics = new ArrayList<String>();
-		
+
 		ics.add("BEGIN:VCALENDAR");
 		ics.add("VERSION:2.0");
-		
-		//String year = "2018";
-		//String month = "01";
-		
-		for (Course c: courses) {
-			
-			
 
-			
+		// String year = "2018";
+		// String month = "01";
+
+		for (Course c : courses) {
+
 			for (int i = 0; i < c.getDays().size(); i++) {
-				
-				
-				
+
 				String currMeetTimes = c.getMeetTimes().get(i);
 				String currCourseDays = c.getDays().get(i);
 				String startDate = c.getStartDays().get(i);
-				
+
 				String year = getYear(startDate);
 				String month = getMonth(startDate);
-				
-				
-				
-				String startTime = courseHour(currMeetTimes, 0)
-						+ courseMin(currMeetTimes, 0)
-						+ "00";
-				String endTime = courseHour(currMeetTimes, 1)
-						+ courseMin(currMeetTimes, 1)
-						+ "00";
-				
-				
-				
+
+				String startTime = courseHour(currMeetTimes, 0) + courseMin(currMeetTimes, 0) + "00";
+				String endTime = courseHour(currMeetTimes, 1) + courseMin(currMeetTimes, 1) + "00";
+
 				String day;
-				
-				if (c.getStartDays().size()>1) {
+
+				// Courses with multiple startdates are usually hybrid classes
+				if (c.getStartDays().size() > 1) {
 					day = getDay(startDate);
-				}
-				else {
+				} else {
 					day = startDate(startDate, currCourseDays);
-					if (day.length()==1) {
+					if (day.length() == 1) {
 						day = "0" + day;
 					}
 				}
-				
-				
-				
-				
-				
+
+				// Debug print statements to ensure values are correct
 				System.out.println("===============================");
 				System.out.println("Current Course: " + c.getCName());
 				System.out.println("Course Time: " + c.getMeetTimes().get(i));
@@ -374,19 +347,17 @@ public class Scheduler {
 				System.out.println("Starting Day: " + day);
 				System.out.println("Starting Year: " + year);
 				System.out.println("===============================");
-				
+
 				ics.add("BEGIN:VEVENT");
 				ics.add("DTSTART;TZID=America/Detroit:" + year + month + day + "T" + startTime);
 				ics.add("DTEND;TZID=America/Detroit:" + year + month + day + "T" + endTime);
-				
+
 				String repeated = "RRULE:FREQ=WEEKLY;UNTIL=20180422T035959Z;INTERVAL=1;";
 				String classFreq = "BYDAY=";
-				
-				
-				
-				
+
+				// This is to repeat classes on certain days based on "MWF"
 				if (c.getDays().get(i).length() > 1 && c.getStartDays().size() == 1) {
-					
+
 					if (c.getDays().get(i).contains("M")) {
 						classFreq += "MO,";
 					}
@@ -402,51 +373,32 @@ public class Scheduler {
 					if (c.getDays().get(i).contains("F")) {
 						classFreq += "FR,";
 					}
-					
-					classFreq  = classFreq.substring(0, classFreq.length()-1);
-					
-					
-					
-					
-					
+
+					classFreq = classFreq.substring(0, classFreq.length() - 1);
+
 					ics.add(repeated + classFreq);
-					
-					
-				}
-				else if (c.getStartDays().size() == 1) {
+
+				} else if (c.getStartDays().size() == 1) {
 					ics.add(repeated);
-				}
-				else {
+				} else {
 					ics.add("RRULE:UNTIL=20180422T035959Z");
 				}
-				
-				
-				
+
 				ics.add("SUMMARY:" + c.getCName());
 				ics.add("DESCRIPTION:" + c.getCNum() + "\\n" + c.getLocation().get(i));
 				ics.add("END:VEVENT");
-			
+
+			}
+
 		}
-			
-			
-			
-		}
-		
+
 		ics.add("END:VCALENDAR");
-		
-		
-		for (String course: ics) {
+
+		for (String course : ics) {
 			System.out.println(course);
 		}
-		
-		
-		
-		
-		
+
 	}
-	
-	
-	
 
 	/**
 	 * Main function to parse file.
@@ -455,7 +407,7 @@ public class Scheduler {
 	 *            Command Line input. Unused.
 	 * @throws IOException
 	 *             If wrong file?
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	public static void main(final String[] args) throws IOException, ParseException {
 		Scheduler schedule = new Scheduler();
@@ -463,18 +415,16 @@ public class Scheduler {
 
 		ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
 
-		mySchedule = schedule.parseFile("CSS-Marshal.html");
-		
-	
+		mySchedule = schedule.parseFile("Sched.html");
 
 		classes = schedule.extractClasses(mySchedule);
 
-		 for (String s: mySchedule) {
-		 System.out.println(s);
-		 }
+		for (String s : mySchedule) {
+			System.out.println(s);
+		}
 
 		ArrayList<Course> courseList = new ArrayList<Course>();
-		
+
 		System.out.println();
 
 		for (ArrayList<String> str : classes) {
@@ -485,10 +435,7 @@ public class Scheduler {
 		}
 
 		schedule.printICS(courseList);
-		
-		
-		
-		
+
 	}
 
 }
