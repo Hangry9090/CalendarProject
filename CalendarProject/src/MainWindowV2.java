@@ -65,7 +65,7 @@ public class MainWindowV2 {
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(840, 580);
-		shell.setText("SWT Application");
+		shell.setText("GVSU Scheduler");
 
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setBounds(10, 10, 802, 513);
