@@ -326,7 +326,7 @@ public class Scheduler {
 				String day;
 
 				// Courses with multiple startdates are usually hybrid classes
-				if (c.getStartDays().size() > 1) {
+				if (c.getStartDays().size() > 1 && !c.getStartDays().get(0).equals(c.getStartDays().get(1))) {
 					day = getDay(startDate);
 				} else {
 					day = startDate(startDate, currCourseDays);
@@ -355,7 +355,7 @@ public class Scheduler {
 				String classFreq = "BYDAY=";
 
 				// This is to repeat classes on certain days based on "MWF"
-				if (c.getDays().get(i).length() > 1 && c.getStartDays().size() == 1) {
+				if (c.getDays().get(i).length() > 1) {
 
 					if (c.getDays().get(i).contains("M")) {
 						classFreq += "MO,";
@@ -378,6 +378,9 @@ public class Scheduler {
 					ics.add(repeated + classFreq);
 
 				} else if (c.getStartDays().size() == 1) {
+					ics.add(repeated);
+				} 
+				else if (c.getStartDays().get(0).equals(c.getStartDays().get(1))) {
 					ics.add(repeated);
 				} else {
 					ics.add("RRULE:UNTIL=20180422T035959Z");
