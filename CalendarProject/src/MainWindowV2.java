@@ -23,15 +23,26 @@ import org.eclipse.swt.events.MouseEvent;
  */
 public class MainWindowV2 {
 
+	/***********************************************************
+	 * shell The overarching container for the UI.
+	 **********************************************************/
 	private Shell shell;
+	
+	/***********************************************************
+	 * messageTextField The textfield for user feedback.
+	 **********************************************************/
 	private Text messageTextField;
+	
+	/***********************************************************
+	 * userSchedule The instance of Scheduler created by HTML.
+	 **********************************************************/
 	private Scheduler userSchedule = new Scheduler();
 
-	/**
+	/***********************************************************
 	 * Launch the application.
 	 * 
-	 * @param args
-	 */
+	 * @param args String of arguments
+	 **********************************************************/
 	public static void main(final String[] args) {
 		try {
 			// Set cross-platform Java L&F (also called "Metal")
@@ -48,9 +59,9 @@ public class MainWindowV2 {
 		}
 	}
 
-	/**
+	/********************************************************
 	 * Open the window.
-	 */
+	 *******************************************************/
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
@@ -63,9 +74,9 @@ public class MainWindowV2 {
 		}
 	}
 
-	/**
+	/*******************************************************
 	 * Create contents of the window.
-	 */
+	 ******************************************************/
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(840, 580);
