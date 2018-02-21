@@ -50,7 +50,7 @@ public class Scheduler {
 	 *             When the filename doesn't exist.
 	 * @return The arrayList containing parsed HTML.
 	 */
-	public ArrayList<String> parseFile(String fileName) throws IOException {
+	public ArrayList<String> parseFile(final String fileName) throws IOException {
 		ArrayList<String> mySchedule = new ArrayList<String>();
 
 		File input = new File(fileName);
@@ -114,7 +114,7 @@ public class Scheduler {
 	 * @return classes An arraylist of arraylists consisting of classes from the
 	 *         schedule.
 	 */
-	private ArrayList<ArrayList<String>> extractClasses(ArrayList<String> schedule) {
+	private ArrayList<ArrayList<String>> extractClasses(final ArrayList<String> schedule) {
 
 		ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
 
@@ -161,7 +161,7 @@ public class Scheduler {
 	 *            pm"
 	 * @return string A two digit string consisting of the minutes of course time
 	 */
-	public String courseMin(String s, int index) {
+	public String courseMin(final String s, final int index) {
 		String startAndEnd[];
 		String splitHourMins[];
 
@@ -185,7 +185,7 @@ public class Scheduler {
 	}
 
 	// Returns the year part of of "Jan 8, 2018"
-	public String getYear(String s) {
+	public String getYear(final String s) {
 		String date = s;
 
 		date = date.replace(",", "");
@@ -196,7 +196,7 @@ public class Scheduler {
 	}
 
 	// Returns the months part of "Jan 8, 2018"
-	public String getMonth(String s) throws ParseException {
+	public String getMonth(final String s) throws ParseException {
 		String date = s;
 
 		date = date.replace(",", "");
@@ -220,7 +220,7 @@ public class Scheduler {
 	}
 
 	// Returns the day part of "Jan 8, 2018"
-	public String getDay(String s) {
+	public String getDay(final String s) {
 		String date = s;
 
 		date = date.replace(",", "");
@@ -230,10 +230,14 @@ public class Scheduler {
 		return dateSplit[1];
 	}
 
-	// Finds the starting date for class in a semester
-	// A course with a Jan 8 start date whose course days are
-	// TR will need to start on Jan 9, not Jan 8
-	public String startDate(String s, String courseDay) {
+	/** Finds the starting date for class in a semester.
+	 *  A course with a Jan 8 start date whose course days are
+	 *  TR will need to start on Jan 9, not Jan 8.
+	 * @param s
+	 * @param courseDay
+	 * @return
+	 */
+	public String startDate(final String s, final String courseDay) {
 
 		String input = s;
 
@@ -262,8 +266,14 @@ public class Scheduler {
 		return "Error";
 	}
 
-	// Returns the hour portion of a course start time
-	public String courseHour(String s, int index) {
+	/**
+	 * Returns the hour portion of a course start time.
+	 * 
+	 * @param s
+	 * @param index
+	 * @return
+	 */
+	public String courseHour(final String s, final int index) {
 		String startAndEnd[];
 		String splitHourMins[];
 		int currHour;
@@ -298,8 +308,13 @@ public class Scheduler {
 
 	}
 
-	// Prints ICS formatted ArrayList based on course schedule
-	public ArrayList<String> printICS(ArrayList<Course> courses) throws ParseException {
+	/**
+	 * Prints ICS formatted ArrayList based on course schedule.
+	 * @param courses
+	 * @return
+	 * @throws ParseException
+	 */
+	public ArrayList<String> printICS(final ArrayList<Course> courses) throws ParseException {
 
 		ArrayList<String> ics = new ArrayList<String>();
 
@@ -379,8 +394,7 @@ public class Scheduler {
 
 				} else if (c.getStartDays().size() == 1) {
 					ics.add(repeated);
-				} 
-				else if (c.getStartDays().get(0).equals(c.getStartDays().get(1))) {
+				} else if (c.getStartDays().get(0).equals(c.getStartDays().get(1))) {
 					ics.add(repeated);
 				} else {
 					ics.add("RRULE:UNTIL=20180422T035959Z");
@@ -423,7 +437,7 @@ public class Scheduler {
 	 * @param fileName
 	 *            The name of the file (absolute path) to be loaded.
 	 */
-	public void inputFile(String fileName) throws IOException {
+	public void inputFile(final String fileName) throws IOException {
 
 		mySchedule = parseFile(fileName);
 
@@ -450,9 +464,12 @@ public class Scheduler {
 	 * 
 	 * @param fileName
 	 *            The name of the file (absolute path) to be created.
-	 * @throws NoSuchFieldException 
+	 * @throws IOException
+	 * @throws ParseException
+	 * @throws NoSuchFieldException
+	 * @return Used for error handling. 0 is success.
 	 */
-	public int outputFile(String fileName) throws IOException, ParseException, NoSuchFieldException {
+	public int outputFile(final String fileName) throws IOException, ParseException, NoSuchFieldException {
 		ArrayList<String> ics = printICS(courseList);
 
 		if (courseList.size() < 6) {

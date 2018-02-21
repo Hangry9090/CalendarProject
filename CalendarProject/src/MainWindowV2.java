@@ -17,9 +17,13 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
+/**
+ * @author jacobwalton
+ *
+ */
 public class MainWindowV2 {
 
-	protected Shell shell;
+	private Shell shell;
 	private Text messageTextField;
 	private Scheduler userSchedule = new Scheduler();
 
@@ -27,8 +31,13 @@ public class MainWindowV2 {
 	 * Launch the application.
 	 * 
 	 * @param args
+<<<<<<< HEAD
 	 *********************************************************************************/
 	public static void main(String[] args) {
+=======
+	 */
+	public static void main(final String[] args) {
+>>>>>>> 5c86fce0c3d73e3adf801f7ffb2a40e59354da05
 		try {
 			// Set cross-platform Java L&F (also called "Metal")
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
@@ -83,19 +92,23 @@ public class MainWindowV2 {
 		TabItem homeTab = new TabItem(tabFolder, SWT.NONE);
 		homeTab.setText("Home");
 
-		Composite composite_1 = new Composite(tabFolder, SWT.NONE);
-		homeTab.setControl(composite_1);
-		composite_1.setLayout(null);
+		Composite composite1 = new Composite(tabFolder, SWT.NONE);
+		homeTab.setControl(composite1);
+		composite1.setLayout(null);
 
+<<<<<<< HEAD
 		//Adding input button
 		Button inputButton = new Button(composite_1, SWT.NONE);
+=======
+		Button inputButton = new Button(composite1, SWT.NONE);
+>>>>>>> 5c86fce0c3d73e3adf801f7ffb2a40e59354da05
 		inputButton.setBounds(129, 355, 243, 76);
 		inputButton.setText("Input");
 
 		//Action Listener for input button
 		inputButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseDown(MouseEvent e) {
+			public void mouseDown(final MouseEvent e) {
 
 				// Code to open file choser found here:
 				// https://stackoverflow.com/questions/5703825/does-swing-support-windows-7-style-file-choosers
@@ -130,6 +143,7 @@ public class MainWindowV2 {
 			}
 		});
 
+<<<<<<< HEAD
 		//Create the output button
 		Button outputButton = new Button(composite_1, SWT.NONE);
 		outputButton.addMouseListener(new MouseAdapter() {
@@ -137,6 +151,12 @@ public class MainWindowV2 {
 			public void mouseDown(MouseEvent e) {
 				
 				//Set the file explorer filter to only show ICS files
+=======
+		Button outputButton = new Button(composite1, SWT.NONE);
+		outputButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(final MouseEvent e) {
+>>>>>>> 5c86fce0c3d73e3adf801f7ffb2a40e59354da05
 				FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 				dialog.setFilterNames(new String[] {"ICS Files (.ics)"});
 				dialog.setFilterExtensions(new String[] {"*.ics"});
@@ -165,8 +185,12 @@ public class MainWindowV2 {
 		outputButton.setBounds(426, 355, 243, 76);
 		outputButton.setText("Output");
 
+<<<<<<< HEAD
 		//Creates the text field above the buttons
 		messageTextField = new Text(composite_1, SWT.BORDER);
+=======
+		messageTextField = new Text(composite1, SWT.BORDER);
+>>>>>>> 5c86fce0c3d73e3adf801f7ffb2a40e59354da05
 		messageTextField.setText("Welcome!");
 		messageTextField.setBounds(129, 52, 540, 273);
 
@@ -174,9 +198,14 @@ public class MainWindowV2 {
 		TabItem instructionsTab = new TabItem(tabFolder, SWT.NONE);
 		instructionsTab.setText("Instructions");
 
+<<<<<<< HEAD
 		//Creates container for the instructions tab
 		Composite composite_2 = new Composite(tabFolder, SWT.NONE);
 		instructionsTab.setControl(composite_2);
+=======
+		Composite composite2 = new Composite(tabFolder, SWT.NONE);
+		instructionsTab.setControl(composite2);
+>>>>>>> 5c86fce0c3d73e3adf801f7ffb2a40e59354da05
 
 	}
 }
