@@ -17,9 +17,13 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
+/**
+ * @author jacobwalton
+ *
+ */
 public class MainWindowV2 {
 
-	protected Shell shell;
+	private Shell shell;
 	private Text messageTextField;
 	private Scheduler userSchedule = new Scheduler();
 
@@ -28,7 +32,7 @@ public class MainWindowV2 {
 	 * 
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		try {
 			// Set cross-platform Java L&F (also called "Metal")
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
@@ -77,17 +81,17 @@ public class MainWindowV2 {
 		TabItem homeTab = new TabItem(tabFolder, SWT.NONE);
 		homeTab.setText("Home");
 
-		Composite composite_1 = new Composite(tabFolder, SWT.NONE);
-		homeTab.setControl(composite_1);
-		composite_1.setLayout(null);
+		Composite composite1 = new Composite(tabFolder, SWT.NONE);
+		homeTab.setControl(composite1);
+		composite1.setLayout(null);
 
-		Button inputButton = new Button(composite_1, SWT.NONE);
+		Button inputButton = new Button(composite1, SWT.NONE);
 		inputButton.setBounds(129, 355, 243, 76);
 		inputButton.setText("Input");
 
 		inputButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseDown(MouseEvent e) {
+			public void mouseDown(final MouseEvent e) {
 
 				// code for filedialog found here:
 				// https://stackoverflow.com/questions/5703825/does-swing-support-windows-7-style-file-choosers
@@ -121,10 +125,10 @@ public class MainWindowV2 {
 			}
 		});
 
-		Button outputButton = new Button(composite_1, SWT.NONE);
+		Button outputButton = new Button(composite1, SWT.NONE);
 		outputButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseDown(MouseEvent e) {
+			public void mouseDown(final MouseEvent e) {
 				FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 				dialog.setFilterNames(new String[] {"ICS Files (.ics)"});
 				dialog.setFilterExtensions(new String[] {"*.ics"});
@@ -151,15 +155,15 @@ public class MainWindowV2 {
 		outputButton.setBounds(426, 355, 243, 76);
 		outputButton.setText("Output");
 
-		messageTextField = new Text(composite_1, SWT.BORDER);
+		messageTextField = new Text(composite1, SWT.BORDER);
 		messageTextField.setText("Welcome!");
 		messageTextField.setBounds(129, 52, 540, 273);
 
 		TabItem instructionsTab = new TabItem(tabFolder, SWT.NONE);
 		instructionsTab.setText("Instructions");
 
-		Composite composite_2 = new Composite(tabFolder, SWT.NONE);
-		instructionsTab.setControl(composite_2);
+		Composite composite2 = new Composite(tabFolder, SWT.NONE);
+		instructionsTab.setControl(composite2);
 
 	}
 

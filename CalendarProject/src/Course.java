@@ -47,9 +47,24 @@ public class Course {
 	 * Constructor to fill all data values.
 	 * 
 	 */
-	public Course(int cid, String cNum, String cName, String campus, double credits, String level, ArrayList<String> days,
-			ArrayList<String> meetTime, ArrayList<String> location, ArrayList<String> startDate, ArrayList<String> endDate,
-			String professor) {
+	/**
+	 * @param cid
+	 * @param cNum
+	 * @param cName
+	 * @param campus
+	 * @param credits
+	 * @param level
+	 * @param days
+	 * @param meetTime
+	 * @param location
+	 * @param startDate
+	 * @param endDate
+	 * @param professor
+	 */
+	public Course(final int cid, final String cNum, final String cName, final String campus, final double credits,
+			final String level, final ArrayList<String> days, final ArrayList<String> meetTime,
+			final ArrayList<String> location, final ArrayList<String> startDate, final ArrayList<String> endDate,
+			final String professor) {
 		this.cid = cid;
 		this.cNum = cNum;
 		this.cName = cName;
@@ -70,18 +85,18 @@ public class Course {
 	 * @param list
 	 *            ArrayList of Strings of course info to be parsed.
 	 */
-	public void loadCourse(ArrayList<String> list) {
+	public void loadCourse(final ArrayList<String> list) {
 		this.cid = Integer.parseInt(list.get(0));
 		this.cNum = list.get(1);
 		this.cName = list.get(2);
 		this.campus = list.get(3);
 		this.credits = Double.parseDouble(list.get(4));
 		this.level = list.get(5);
-		
+
 		for (int i = 0; i < list.size(); i++) {
-			
+
 			if (isMeetingDay(list.get(i))) {
-				
+
 				if (this.days.get(0) == "") {
 					this.days.set(0, list.get(i));
 					this.meetTime.set(0, list.get(i + 1));
@@ -90,7 +105,7 @@ public class Course {
 					this.startDate.set(0, list.get(i - 2));
 					this.endDate.set(0, list.get(i - 1));
 				} else {
-					
+
 					this.days.add(list.get(i));
 					this.meetTime.add(list.get(i + 1));
 					this.location.add(list.get(i + 2));
@@ -99,56 +114,66 @@ public class Course {
 					this.endDate.add(list.get(i - 1));
 				}
 			}
-			
-			
+
 		}
-		
+
 	}
-	
 
 	/**
 	 * @param s
 	 * @return whether or not it is a meeting day
 	 */
-	private boolean isMeetingDay(String s) {
-		
+	private boolean isMeetingDay(final String s) {
+
 		Pattern p = Pattern.compile("\\b[MTWRF]{1,5}\\b");
-		
+
 		if (p.matcher(s).matches()) {
 			return true;
 		}
 		return false;
 	}
-	
-	
-	
-	
-	
+
+	/**
+	 * @return
+	 */
 	/**
 	 * @return
 	 */
 	public String getCNum() {
 		return this.cNum;
 	}
-	
-	
+
+	/**
+	 * @return
+	 */
 	public String getCName() {
 		return this.cName;
 	}
-	
+
+	/**
+	 * @return
+	 */
 	public ArrayList<String> getLocation() {
 		return this.location;
 	}
-	
-	
+
+	/**
+	 * @return
+	 */
 	public ArrayList<String> getDays() {
 		return this.days;
 	}
-	
+
+	/**
+	 * @return
+	 */
 	public ArrayList<String> getMeetTimes() {
 		return this.meetTime;
 	}
-	
+
+	/**
+	 * @return
+	 */
 	public ArrayList<String> getStartDays() {
 		return this.startDate;
 	}
@@ -156,14 +181,20 @@ public class Course {
 	/**
 	 * Overrides the built in toString method to print the class variables.
 	 */
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString() {
-		return "Class: " + this.cid + "\ncNum: " + cNum + "\ncName: " + cName + "\nCampus: " +
-				campus + "\nCredits: " + credits + "\nLevel: " + level + "\nTime: " + meetTime +
-				"\nDays: " + days + "\nLocation: " + location + "\nStart Date: " + startDate +
-				"\nEnd Date: " + endDate + "\nProf: " + professor + "\n---------------------------\n";
+		return "Class: " + this.cid + "\ncNum: " + cNum + "\ncName: " + cName + "\nCampus: " + campus + "\nCredits: "
+				+ credits + "\nLevel: " + level + "\nTime: " + meetTime + "\nDays: " + days + "\nLocation: " + location
+				+ "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nProf: " + professor
+				+ "\n---------------------------\n";
 	}
 
-	public static void main(String[] args) {
+	/**
+	 * @param args
+	 */
+	public static void main(final String[] args) {
 
 	}
 
