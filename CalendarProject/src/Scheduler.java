@@ -153,49 +153,30 @@ public class Scheduler {
 
 	}
 
-	/**
-	 * Finds the minutes for a particular time for a course.
+
+	/** Finds the year portion of a date e.g. "Jan 08, 2018"
+	 * @param date
+	 * 			A date formatted as "MMM DD, YYYY"
 	 * 
-	 * @param s
-	 *            A String consisting of the current course time e.g "1:30 pm - 2:00
-	 *            pm"
-	 * @return string A two digit string consisting of the minutes of course time
+	 * @return The year portion of a date e.g "2018"
 	 */
-	public String courseMin(final String s, final int index) {
-		String startAndEnd[];
-		String splitHourMins[];
+	public String getYear(final String date) {
+		String tdate = date;
 
-		startAndEnd = s.split(" - ");
+		tdate = tdate.replace(",", "");
 
-		if (startAndEnd[index].contains("am")) {
-			startAndEnd[index] = startAndEnd[index].replace(" am", "");
-			splitHourMins = startAndEnd[index].split(":");
-
-			return splitHourMins[1];
-		} else if (startAndEnd[index].contains("pm")) {
-			startAndEnd[index] = startAndEnd[index].replace(" pm", "");
-
-			splitHourMins = startAndEnd[index].split(":");
-
-			return splitHourMins[1];
-		}
-
-		return "";
-
-	}
-
-	// Returns the year part of of "Jan 8, 2018"
-	public String getYear(final String s) {
-		String date = s;
-
-		date = date.replace(",", "");
-
-		String dateSplit[] = date.split(" ");
+		String dateSplit[] = tdate.split(" ");
 
 		return dateSplit[2];
 	}
 
-	// Returns the months part of "Jan 8, 2018"
+	/** Finds the month portion of a date e.g. "Jan 08, 2018"
+	 *  and converts it into a number format e.g. "01"
+	 * @param date
+	 * 			A date formatted as "MMM DD, YYYY"
+	 * 
+	 * @return The month portion of a date e.g "01"
+	 */
 	public String getMonth(final String s) throws ParseException {
 		String date = s;
 
@@ -219,7 +200,12 @@ public class Scheduler {
 
 	}
 
-	// Returns the day part of "Jan 8, 2018"
+	/** Finds the day portion of a date e.g. "Jan 08, 2018"
+	 * @param date
+	 * 			A date formatted as "MMM DD, YYYY"
+	 * 
+	 * @return The days portion of a date e.g "08"
+	 */
 	public String getDay(final String s) {
 		String date = s;
 
@@ -233,13 +219,15 @@ public class Scheduler {
 	/** Finds the starting date for class in a semester.
 	 *  A course with a Jan 8 start date whose course days are
 	 *  TR will need to start on Jan 9, not Jan 8.
-	 * @param s
+	 * @param startDate
+	 * 			The starting date of a course e.g. "Jan 8, 2018"
 	 * @param courseDay
-	 * @return
+	 * 			The days the course will be held on "MWF"
+	 * @return The starting day of a course e.g. "09"
 	 */
-	public String startDate(final String s, final String courseDay) {
+	public String startDate(final String startDate, final String courseDay) {
 
-		String input = s;
+		String input = startDate;
 
 		input = input.replace(",", "");
 
@@ -265,20 +253,26 @@ public class Scheduler {
 
 		return "Error";
 	}
+	
+	
 
 	/**
-	 * Returns the hour portion of a course start time.
+	 * Finds the hour portion of a course start or end time.
 	 * 
-	 * @param s
+	 * @param courseTime
+	 * 			The start and end time of a course "11:00 pm - 11:50 pm"
 	 * @param index
-	 * @return
+	 * 			0 indicates to return the hour of the startTime and 1
+	 * indicates to return the hour of the endTime
+	 * 
+	 * @return The hour portion of start or end time of a course
 	 */
-	public String courseHour(final String s, final int index) {
+	public String courseHour(final String courseTime, final int index) {
 		String startAndEnd[];
 		String splitHourMins[];
 		int currHour;
 
-		startAndEnd = s.split(" - ");
+		startAndEnd = courseTime.split(" - ");
 
 		if (startAndEnd[index].contains("am")) {
 			startAndEnd[index] = startAndEnd[index].replace(" am", "");
@@ -307,11 +301,47 @@ public class Scheduler {
 		return "";
 
 	}
+	
+	
+	/**
+	 * Finds the minutes portion of a course start or end time
+	 * 
+	 * @param couseTime
+	 *           The start and end time of a course "11:00 pm - 11:50 pm"
+	 * @param index
+	 * 			0 indicates to return the hour of the startTime and 1
+	 * indicates to return the hour of the endTime
+	 * @return The minutes portion of start or end time of a course
+	 */
+	public String courseMin(final String courseTime, final int index) {
+		String startAndEnd[];
+		String splitHourMins[];
+
+		startAndEnd = courseTime.split(" - ");
+
+		if (startAndEnd[index].contains("am")) {
+			startAndEnd[index] = startAndEnd[index].replace(" am", "");
+			splitHourMins = startAndEnd[index].split(":");
+
+			return splitHourMins[1];
+		} else if (startAndEnd[index].contains("pm")) {
+			startAndEnd[index] = startAndEnd[index].replace(" pm", "");
+
+			splitHourMins = startAndEnd[index].split(":");
+
+			return splitHourMins[1];
+		}
+
+		return "";
+
+	}
+	
 
 	/**
-	 * Prints ICS formatted ArrayList based on course schedule.
+	 * Creates ICS formatted ArrayList based on input course schedule.
 	 * @param courses
-	 * @return
+	 * 			The list of courses from the a student's schedule
+	 * @return The students schedule formatted in ICS format in an ArrayList
 	 * @throws ParseException
 	 */
 	public ArrayList<String> printICS(final ArrayList<Course> courses) throws ParseException {
@@ -320,9 +350,6 @@ public class Scheduler {
 
 		ics.add("BEGIN:VCALENDAR");
 		ics.add("VERSION:2.0");
-
-		// String year = "2018";
-		// String month = "01";
 
 		for (Course c : courses) {
 
@@ -340,7 +367,7 @@ public class Scheduler {
 
 				String day;
 
-				// Courses with multiple startdates are usually hybrid classes
+				// Hybrid classes often have different starting dates
 				if (c.getStartDays().size() > 1 && !c.getStartDays().get(0).equals(c.getStartDays().get(1))) {
 					day = getDay(startDate);
 				} else {
