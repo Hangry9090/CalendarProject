@@ -227,6 +227,10 @@ public class Course {
 	public ArrayList<String> getStartDays() {
 		return this.startDate;
 	}
+	
+	public ArrayList<String>	getEndDays() {
+		return this.endDate;
+	}
 
 	/**
 	 * Overrides the built in toString method to print the class variables.

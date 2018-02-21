@@ -153,10 +153,11 @@ public class Scheduler {
 
 	}
 
-
-	/** Finds the year portion of a date e.g. "Jan 08, 2018"
+	/**
+	 * Finds the year portion of a date e.g. "Jan 08, 2018"
+	 * 
 	 * @param date
-	 * 			A date formatted as "MMM DD, YYYY"
+	 *            A date formatted as "MMM DD, YYYY"
 	 * 
 	 * @return The year portion of a date e.g "2018"
 	 */
@@ -170,19 +171,21 @@ public class Scheduler {
 		return dateSplit[2];
 	}
 
-	/** Finds the month portion of a date e.g. "Jan 08, 2018"
-	 *  and converts it into a number format e.g. "01"
+	/**
+	 * Finds the month portion of a date e.g. "Jan 08, 2018" and converts it into a
+	 * number format e.g. "01"
+	 * 
 	 * @param date
-	 * 			A date formatted as "MMM DD, YYYY"
+	 *            A date formatted as "MMM DD, YYYY"
 	 * 
 	 * @return The month portion of a date e.g "01"
 	 */
-	public String getMonth(final String s) throws ParseException {
-		String date = s;
+	public String getMonth(final String date) throws ParseException {
+		String tdate = date;
 
-		date = date.replace(",", "");
+		tdate = tdate.replace(",", "");
 
-		String dateSplit[] = date.split(" ");
+		String dateSplit[] = tdate.split(" ");
 
 		String month = dateSplit[0];
 
@@ -200,29 +203,32 @@ public class Scheduler {
 
 	}
 
-	/** Finds the day portion of a date e.g. "Jan 08, 2018"
+	/**
+	 * Finds the day portion of a date e.g. "Jan 08, 2018"
+	 * 
 	 * @param date
-	 * 			A date formatted as "MMM DD, YYYY"
+	 *            A date formatted as "MMM DD, YYYY"
 	 * 
 	 * @return The days portion of a date e.g "08"
 	 */
-	public String getDay(final String s) {
-		String date = s;
+	public String getDay(final String date) {
+		String tdate = date;
 
-		date = date.replace(",", "");
+		tdate = tdate.replace(",", "");
 
-		String dateSplit[] = date.split(" ");
+		String dateSplit[] = tdate.split(" ");
 
 		return dateSplit[1];
 	}
 
-	/** Finds the starting date for class in a semester.
-	 *  A course with a Jan 8 start date whose course days are
-	 *  TR will need to start on Jan 9, not Jan 8.
+	/**
+	 * Finds the starting date for class in a semester. A course with a Jan 8 start
+	 * date whose course days are TR will need to start on Jan 9, not Jan 8.
+	 * 
 	 * @param startDate
-	 * 			The starting date of a course e.g. "Jan 8, 2018"
+	 *            The starting date of a course e.g. "Jan 8, 2018"
 	 * @param courseDay
-	 * 			The days the course will be held on "MWF"
+	 *            The days the course will be held on "MWF"
 	 * @return The starting day of a course e.g. "09"
 	 */
 	public String startDate(final String startDate, final String courseDay) {
@@ -253,17 +259,15 @@ public class Scheduler {
 
 		return "Error";
 	}
-	
-	
 
 	/**
 	 * Finds the hour portion of a course start or end time.
 	 * 
 	 * @param courseTime
-	 * 			The start and end time of a course "11:00 pm - 11:50 pm"
+	 *            The start and end time of a course "11:00 pm - 11:50 pm"
 	 * @param index
-	 * 			0 indicates to return the hour of the startTime and 1
-	 * indicates to return the hour of the endTime
+	 *            0 indicates to return the hour of the startTime and 1 indicates to
+	 *            return the hour of the endTime
 	 * 
 	 * @return The hour portion of start or end time of a course
 	 */
@@ -301,16 +305,15 @@ public class Scheduler {
 		return "";
 
 	}
-	
-	
+
 	/**
 	 * Finds the minutes portion of a course start or end time
 	 * 
 	 * @param couseTime
-	 *           The start and end time of a course "11:00 pm - 11:50 pm"
+	 *            The start and end time of a course "11:00 pm - 11:50 pm"
 	 * @param index
-	 * 			0 indicates to return the hour of the startTime and 1
-	 * indicates to return the hour of the endTime
+	 *            0 indicates to return the hour of the startTime and 1 indicates to
+	 *            return the hour of the endTime
 	 * @return The minutes portion of start or end time of a course
 	 */
 	public String courseMin(final String courseTime, final int index) {
@@ -335,12 +338,12 @@ public class Scheduler {
 		return "";
 
 	}
-	
 
 	/**
 	 * Creates ICS formatted ArrayList based on input course schedule.
+	 * 
 	 * @param courses
-	 * 			The list of courses from the a student's schedule
+	 *            The list of courses from the a student's schedule
 	 * @return The students schedule formatted in ICS format in an ArrayList
 	 * @throws ParseException
 	 */
@@ -358,13 +361,16 @@ public class Scheduler {
 				String currMeetTimes = c.getMeetTimes().get(i);
 				String currCourseDays = c.getDays().get(i);
 				String startDate = c.getStartDays().get(i);
+				String endDate = c.getEndDays().get(i);
 
 				String year = getYear(startDate);
 				String month = getMonth(startDate);
 
 				String startTime = courseHour(currMeetTimes, 0) + courseMin(currMeetTimes, 0) + "00";
 				String endTime = courseHour(currMeetTimes, 1) + courseMin(currMeetTimes, 1) + "00";
-
+				
+				String endOfSem = "UNTIL=" + getYear(endDate) + getMonth(endDate) + getDay(endDate) + "T000000;"; 
+				
 				String day;
 
 				// Hybrid classes often have different starting dates
@@ -393,7 +399,7 @@ public class Scheduler {
 				ics.add("DTSTART;TZID=America/Detroit:" + year + month + day + "T" + startTime);
 				ics.add("DTEND;TZID=America/Detroit:" + year + month + day + "T" + endTime);
 
-				String repeated = "RRULE:FREQ=WEEKLY;UNTIL=20180422T035959Z;INTERVAL=1;";
+				String repeated = "RRULE:FREQ=WEEKLY;" + endOfSem + "INTERVAL=1;";
 				String classFreq = "BYDAY=";
 
 				// This is to repeat classes on certain days based on "MWF"
@@ -424,7 +430,7 @@ public class Scheduler {
 				} else if (c.getStartDays().get(0).equals(c.getStartDays().get(1))) {
 					ics.add(repeated);
 				} else {
-					ics.add("RRULE:UNTIL=20180422T035959Z");
+					ics.add("RRULE:" + endOfSem);
 				}
 
 				ics.add("SUMMARY:" + c.getCName());
