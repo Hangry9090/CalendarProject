@@ -18,7 +18,7 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
 /**
- * @author jacobwalton
+ * @author Marshal Brummel, Jacob Walton, and Alan Sisouphone
  *
  */
 public class MainWindowV2 {
