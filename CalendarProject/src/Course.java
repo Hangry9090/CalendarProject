@@ -12,17 +12,64 @@ import java.util.regex.Pattern;
 public class Course {
 
 	// class variables
+	/**
+	 * cid The course ID.
+	 */
 	private int cid;
+
+	/**
+	 * cNum The course number.
+	 */
 	private String cNum;
+
+	/**
+	 * cName The course name.
+	 */
 	private String cName;
+
+	/**
+	 * campus The campus on which the course is located.
+	 */
 	private String campus;
+
+	/**
+	 * credits The # of credits the course is.
+	 */
 	private double credits;
+
+	/**
+	 * level Undergrad or Graduate.
+	 */
 	private String level;
+
+	/**
+	 * days The ArrayList of all the days the course occurs.
+	 */
 	private ArrayList<String> days = new ArrayList<String>();
+
+	/**
+	 * meetTime The ArrayList of all the times the course occurs.
+	 */
 	private ArrayList<String> meetTime = new ArrayList<String>();
+
+	/**
+	 * location The ArrayList of all the locations the course occurs.
+	 */
 	private ArrayList<String> location = new ArrayList<String>();
+
+	/**
+	 * startDate The ArrayList of all the start dates.
+	 */
 	private ArrayList<String> startDate = new ArrayList<String>();
+
+	/**
+	 * endDate The ArrayList of all the end dates.
+	 */
 	private ArrayList<String> endDate = new ArrayList<String>();
+
+	/**
+	 * professor The professor for the course.
+	 */
 	private String professor;
 
 	/**
@@ -48,18 +95,18 @@ public class Course {
 	 * 
 	 */
 	/**
-	 * @param cid
-	 * @param cNum
-	 * @param cName
-	 * @param campus
-	 * @param credits
-	 * @param level
-	 * @param days
-	 * @param meetTime
-	 * @param location
-	 * @param startDate
-	 * @param endDate
-	 * @param professor
+	 * @param cid Course ID.
+	 * @param cNum Course Number.
+	 * @param cName Course Name.
+	 * @param campus Campus.
+	 * @param credits Credits.
+	 * @param level Grad/Undergrad.
+	 * @param days Meet days.
+	 * @param meetTime Meet times.
+	 * @param location Meet location.
+	 * @param startDate Start dates.
+	 * @param endDate End dates.
+	 * @param professor Professor.
 	 */
 	public Course(final int cid, final String cNum, final String cName, final String campus, final double credits,
 			final String level, final ArrayList<String> days, final ArrayList<String> meetTime,
@@ -97,7 +144,7 @@ public class Course {
 
 			if (isMeetingDay(list.get(i))) {
 
-				if (this.days.get(0) == "") {
+				if (this.days.get(0).equals("")) {
 					this.days.set(0, list.get(i));
 					this.meetTime.set(0, list.get(i + 1));
 					this.location.set(0, list.get(i + 2));
@@ -120,7 +167,7 @@ public class Course {
 	}
 
 	/**
-	 * @param s
+	 * @param s The string to check if it is a meeting day.
 	 * @return whether or not it is a meeting day
 	 */
 	private boolean isMeetingDay(final String s) {
@@ -134,45 +181,48 @@ public class Course {
 	}
 
 	/**
-	 * @return
-	 */
-	/**
-	 * @return
+	 * Getter for cNum.
+	 * @return cNum The course Number.
 	 */
 	public String getCNum() {
 		return this.cNum;
 	}
 
 	/**
-	 * @return
+	 * Getter for cName.
+	 * @return cName The course name.
 	 */
 	public String getCName() {
 		return this.cName;
 	}
 
 	/**
-	 * @return
+	 * Getter for location.
+	 * @return location The course location.
 	 */
 	public ArrayList<String> getLocation() {
 		return this.location;
 	}
 
 	/**
-	 * @return
+	 * Getter for days.
+	 * @return days Days the course meets.
 	 */
 	public ArrayList<String> getDays() {
 		return this.days;
 	}
 
 	/**
-	 * @return
+	 * Getter for meetTime.
+	 * @return meetTime The times the course meets.
 	 */
 	public ArrayList<String> getMeetTimes() {
 		return this.meetTime;
 	}
 
 	/**
-	 * @return
+	 * Getter for startDate.
+	 * @return startDate The day the course starts.
 	 */
 	public ArrayList<String> getStartDays() {
 		return this.startDate;
@@ -180,22 +230,15 @@ public class Course {
 
 	/**
 	 * Overrides the built in toString method to print the class variables.
-	 */
-	/* (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
+	 * @return The string combination of all class values.
 	 */
 	public String toString() {
 		return "Class: " + this.cid + "\ncNum: " + cNum + "\ncName: " + cName + "\nCampus: " + campus + "\nCredits: "
 				+ credits + "\nLevel: " + level + "\nTime: " + meetTime + "\nDays: " + days + "\nLocation: " + location
 				+ "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nProf: " + professor
 				+ "\n---------------------------\n";
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(final String[] args) {
-
 	}
 
 }
