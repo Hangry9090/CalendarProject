@@ -122,9 +122,11 @@ public class MainWindowV2 {
 				try {
 					System.out.println(fileName);
 					userSchedule.inputFile(fileName);
+					messageTextField.setText("File opened sucessfully!");
 				} catch (IOException e1) {
 					System.out.println("Error opening file.");
 					System.out.println(e1);
+					messageTextField.setText("File failed to open properly.");
 				}
 
 				// for if there were multiple files
@@ -148,18 +150,22 @@ public class MainWindowV2 {
 				System.out.println("Save path: " + savePath);
 				try {
 					userSchedule.outputFile(savePath);
+					messageTextField.setText("Calendar file created sucessfully!");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					//file could not be opened
 					e1.printStackTrace();
+					messageTextField.setText("File could not be opened, please load only myBanner schedule HTML files.");
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					//file could not be parsed
 					e1.printStackTrace();
+					messageTextField.setText("File failed to parse, please load only myBanner schedule HTML files.");
 				} catch (NoSuchFieldException e1) {
 					// TODO Auto-generated catch block
 					//e1.printStackTrace();
 					//no file loaded yet
+					messageTextField.setText("No file loaded.");
 				}
 			}
 		});
