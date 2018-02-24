@@ -95,18 +95,30 @@ public class Course {
 	 * 
 	 */
 	/**
-	 * @param cid Course ID.
-	 * @param cNum Course Number.
-	 * @param cName Course Name.
-	 * @param campus Campus.
-	 * @param credits Credits.
-	 * @param level Grad/Undergrad.
-	 * @param days Meet days.
-	 * @param meetTime Meet times.
-	 * @param location Meet location.
-	 * @param startDate Start dates.
-	 * @param endDate End dates.
-	 * @param professor Professor.
+	 * @param cid
+	 *            Course ID.
+	 * @param cNum
+	 *            Course Number.
+	 * @param cName
+	 *            Course Name.
+	 * @param campus
+	 *            Campus.
+	 * @param credits
+	 *            Credits.
+	 * @param level
+	 *            Grad/Undergrad.
+	 * @param days
+	 *            Meet days.
+	 * @param meetTime
+	 *            Meet times.
+	 * @param location
+	 *            Meet location.
+	 * @param startDate
+	 *            Start dates.
+	 * @param endDate
+	 *            End dates.
+	 * @param professor
+	 *            Professor.
 	 */
 	public Course(final int cid, final String cNum, final String cName, final String campus, final double credits,
 			final String level, final ArrayList<String> days, final ArrayList<String> meetTime,
@@ -144,6 +156,7 @@ public class Course {
 
 			if (isMeetingDay(list.get(i))) {
 
+				// Depending if the lists are empty or not
 				if (this.days.get(0).equals("")) {
 					this.days.set(0, list.get(i));
 					this.meetTime.set(0, list.get(i + 1));
@@ -167,7 +180,8 @@ public class Course {
 	}
 
 	/**
-	 * @param s The string to check if it is a meeting day.
+	 * @param s
+	 *            The string to check if it is a meeting day.
 	 * @return whether or not it is a meeting day
 	 */
 	private boolean isMeetingDay(final String s) {
@@ -182,6 +196,7 @@ public class Course {
 
 	/**
 	 * Getter for cNum.
+	 * 
 	 * @return cNum The course Number.
 	 */
 	public String getCNum() {
@@ -190,6 +205,7 @@ public class Course {
 
 	/**
 	 * Getter for cName.
+	 * 
 	 * @return cName The course name.
 	 */
 	public String getCName() {
@@ -198,6 +214,7 @@ public class Course {
 
 	/**
 	 * Getter for location.
+	 * 
 	 * @return location The course location.
 	 */
 	public ArrayList<String> getLocation() {
@@ -206,6 +223,7 @@ public class Course {
 
 	/**
 	 * Getter for days.
+	 * 
 	 * @return days Days the course meets.
 	 */
 	public ArrayList<String> getDays() {
@@ -214,6 +232,7 @@ public class Course {
 
 	/**
 	 * Getter for meetTime.
+	 * 
 	 * @return meetTime The times the course meets.
 	 */
 	public ArrayList<String> getMeetTimes() {
@@ -222,13 +241,19 @@ public class Course {
 
 	/**
 	 * Getter for startDate.
+	 * 
 	 * @return startDate The day the course starts.
 	 */
 	public ArrayList<String> getStartDays() {
 		return this.startDate;
 	}
-	
-	public ArrayList<String>	getEndDays() {
+
+	/**
+	 * Getter for endDays.
+	 * 
+	 * @return The list of end days
+	 */
+	public ArrayList<String> getEndDays() {
 		return this.endDate;
 	}
 

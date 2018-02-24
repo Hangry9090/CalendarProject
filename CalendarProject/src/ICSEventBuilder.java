@@ -315,6 +315,15 @@ public class ICSEventBuilder {
 	}
 
 	/**
+	 * Makes an ArrayList of the ICS schedule contents.
+	 * 
+	 * @return A list of the ICS schedule
+	 */
+	public ArrayList<String> toList() {
+		return this.ics;
+	}
+
+	/**
 	 * Makes a string of the ICS schedule contents.
 	 * 
 	 * @return A string of the ICS Schedule

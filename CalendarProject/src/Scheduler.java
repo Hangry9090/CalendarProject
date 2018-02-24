@@ -7,17 +7,11 @@
  * 
  * @authors Marshal Brummel, Alan Sisouphone, Jake Walton
  */
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -33,6 +27,7 @@ public class Scheduler {
 	private ArrayList<String> mySchedule = new ArrayList<String>();
 	private ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
 	private ArrayList<Course> courseList = new ArrayList<Course>();
+	private ICSEventBuilder ics = new ICSEventBuilder();
 
 	/**
 	 * Constructor.
@@ -78,31 +73,6 @@ public class Scheduler {
 		}
 		return mySchedule;
 
-	}
-
-	/**
-	 * Open and read a file, and return the lines in the file as a list of Strings.
-	 * (Demonstrates Java FileReader, BufferedReader, and Java5.)
-	 * 
-	 * @param filename
-	 *            The name of the file to be parsed.
-	 * @return records The arrayList containing the parsed schedule.
-	 */
-	private ArrayList<String> readFile(final String filename) {
-		ArrayList<String> records = new ArrayList<String>();
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(filename));
-			String line;
-			while ((line = reader.readLine()) != null) {
-				records.add(line);
-			}
-			reader.close();
-			return records;
-		} catch (Exception e) {
-			System.err.format("Exception occurred " + "trying to read '%s'.", filename);
-			e.printStackTrace();
-			return null;
-		}
 	}
 
 	/**
@@ -154,189 +124,18 @@ public class Scheduler {
 	}
 
 	/**
-	 * Finds the year portion of a date e.g. "Jan 08, 2018"
+	 * Checks whether the current course is a hybrid class or not.
 	 * 
-	 * @param date
-	 *            A date formatted as "MMM DD, YYYY"
-	 * 
-	 * @return The year portion of a date e.g "2018"
+	 * @param c
+	 *            A course to be checked
+	 * @return True or False depending on whether the course is hybrid or not
 	 */
-	public String getYear(final String date) {
-		String tdate = date;
+	private boolean isHybridCourse(final Course c) {
 
-		tdate = tdate.replace(",", "");
-
-		String dateSplit[] = tdate.split(" ");
-
-		return dateSplit[2];
-	}
-
-	/**
-	 * Finds the month portion of a date e.g. "Jan 08, 2018" and converts it into a
-	 * number format e.g. "01"
-	 * 
-	 * @param date
-	 *            A date formatted as "MMM DD, YYYY"
-	 * 
-	 * @return The month portion of a date e.g "01"
-	 */
-	public String getMonth(final String date) throws ParseException {
-		String tdate = date;
-
-		tdate = tdate.replace(",", "");
-
-		String dateSplit[] = tdate.split(" ");
-
-		String month = dateSplit[0];
-
-		// Converts "Jan" to "01" for example
-		Date d = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month);
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(d);
-		int mon = cal.get(Calendar.MONTH) + 1;
-
-		if (mon < 10) {
-			return "0" + Integer.toString(mon);
+		if (c.getStartDays().size() > 1 && !c.getStartDays().get(0).equals(c.getStartDays().get(1))) {
+			return true;
 		}
-
-		return Integer.toString(mon);
-
-	}
-
-	/**
-	 * Finds the day portion of a date e.g. "Jan 08, 2018"
-	 * 
-	 * @param date
-	 *            A date formatted as "MMM DD, YYYY"
-	 * 
-	 * @return The days portion of a date e.g "08"
-	 */
-	public String getDay(final String date) {
-		String tdate = date;
-
-		tdate = tdate.replace(",", "");
-
-		String dateSplit[] = tdate.split(" ");
-
-		return dateSplit[1];
-	}
-
-	/**
-	 * Finds the starting date for class in a semester. A course with a Jan 8 start
-	 * date whose course days are TR will need to start on Jan 9, not Jan 8.
-	 * 
-	 * @param startDate
-	 *            The starting date of a course e.g. "Jan 8, 2018"
-	 * @param courseDay
-	 *            The days the course will be held on "MWF"
-	 * @return The starting day of a course e.g. "09"
-	 */
-	public String startDate(final String startDate, final String courseDay) {
-
-		String input = startDate;
-
-		input = input.replace(",", "");
-
-		String inputSplit[] = input.split(" ");
-
-		int startDay = Integer.parseInt(inputSplit[1]);
-
-		if (courseDay.contains("M")) {
-			return Integer.toString(startDay);
-		}
-		if (courseDay.contains("T")) {
-			return Integer.toString(startDay + 1);
-		}
-		if (courseDay.contains("W")) {
-			return Integer.toString(startDay + 2);
-		}
-		if (courseDay.contains("R")) {
-			return Integer.toString(startDay + 3);
-		}
-		if (courseDay.contains("F")) {
-			return Integer.toString(startDay + 4);
-		}
-
-		return "Error";
-	}
-
-	/**
-	 * Finds the hour portion of a course start or end time.
-	 * 
-	 * @param courseTime
-	 *            The start and end time of a course "11:00 pm - 11:50 pm"
-	 * @param index
-	 *            0 indicates to return the hour of the startTime and 1 indicates to
-	 *            return the hour of the endTime
-	 * 
-	 * @return The hour portion of start or end time of a course
-	 */
-	public String courseHour(final String courseTime, final int index) {
-		String startAndEnd[];
-		String splitHourMins[];
-		int currHour;
-
-		startAndEnd = courseTime.split(" - ");
-
-		if (startAndEnd[index].contains("am")) {
-			startAndEnd[index] = startAndEnd[index].replace(" am", "");
-			splitHourMins = startAndEnd[index].split(":");
-
-			if (splitHourMins[0].length() == 1) {
-				return ("0" + splitHourMins[0]);
-			}
-
-			return (splitHourMins[0]);
-		} else if (startAndEnd[index].contains("pm")) {
-			startAndEnd[index] = startAndEnd[index].replace(" pm", "");
-
-			splitHourMins = startAndEnd[index].split(":");
-
-			currHour = Integer.parseInt(splitHourMins[0]);
-
-			if (Integer.parseInt(splitHourMins[0]) != 12) {
-				currHour += 12;
-			}
-
-			return Integer.toString(currHour);
-
-		}
-
-		return "";
-
-	}
-
-	/**
-	 * Finds the minutes portion of a course start or end time
-	 * 
-	 * @param couseTime
-	 *            The start and end time of a course "11:00 pm - 11:50 pm"
-	 * @param index
-	 *            0 indicates to return the hour of the startTime and 1 indicates to
-	 *            return the hour of the endTime
-	 * @return The minutes portion of start or end time of a course
-	 */
-	public String courseMin(final String courseTime, final int index) {
-		String startAndEnd[];
-		String splitHourMins[];
-
-		startAndEnd = courseTime.split(" - ");
-
-		if (startAndEnd[index].contains("am")) {
-			startAndEnd[index] = startAndEnd[index].replace(" am", "");
-			splitHourMins = startAndEnd[index].split(":");
-
-			return splitHourMins[1];
-		} else if (startAndEnd[index].contains("pm")) {
-			startAndEnd[index] = startAndEnd[index].replace(" pm", "");
-
-			splitHourMins = startAndEnd[index].split(":");
-
-			return splitHourMins[1];
-		}
-
-		return "";
-
+		return false;
 	}
 
 	/**
@@ -344,15 +143,9 @@ public class Scheduler {
 	 * 
 	 * @param courses
 	 *            The list of courses from the a student's schedule
-	 * @return The students schedule formatted in ICS format in an ArrayList
 	 * @throws ParseException
 	 */
-	public ArrayList<String> printICS(final ArrayList<Course> courses) throws ParseException {
-
-		ArrayList<String> ics = new ArrayList<String>();
-
-		ics.add("BEGIN:VCALENDAR");
-		ics.add("VERSION:2.0");
+	public void createICS(final ArrayList<Course> courses) throws ParseException {
 
 		for (Course c : courses) {
 
@@ -363,92 +156,24 @@ public class Scheduler {
 				String startDate = c.getStartDays().get(i);
 				String endDate = c.getEndDays().get(i);
 
-				String year = getYear(startDate);
-				String month = getMonth(startDate);
-
-				String startTime = courseHour(currMeetTimes, 0) + courseMin(currMeetTimes, 0) + "00";
-				String endTime = courseHour(currMeetTimes, 1) + courseMin(currMeetTimes, 1) + "00";
-				
-				String endOfSem = "UNTIL=" + getYear(endDate) + getMonth(endDate) + getDay(endDate) + "T000000;"; 
-				
-				String day;
-
-				// Hybrid classes often have different starting dates
-				if (c.getStartDays().size() > 1 && !c.getStartDays().get(0).equals(c.getStartDays().get(1))) {
-					day = getDay(startDate);
+				ics.beginEvent();
+				if (isHybridCourse(c)) {
+					ics.setDateStartEnd(startDate, currMeetTimes, "");
+					ics.setRule(endDate, "");
 				} else {
-					day = startDate(startDate, currCourseDays);
-					if (day.length() == 1) {
-						day = "0" + day;
-					}
+					ics.setDateStartEnd(startDate, currMeetTimes, currCourseDays);
+					ics.setRule(endDate, currCourseDays);
 				}
 
-				// Debug print statements to ensure values are correct
-				System.out.println("===============================");
-				System.out.println("Current Course: " + c.getCName());
-				System.out.println("Course Time: " + c.getMeetTimes().get(i));
-				System.out.println("Start Time: " + startTime);
-				System.out.println("End Time: " + endTime);
-				System.out.println("Course Days: " + currCourseDays);
-				System.out.println("Starting Month: " + month);
-				System.out.println("Starting Day: " + day);
-				System.out.println("Starting Year: " + year);
-				System.out.println("===============================");
-
-				ics.add("BEGIN:VEVENT");
-				ics.add("DTSTART;TZID=America/Detroit:" + year + month + day + "T" + startTime);
-				ics.add("DTEND;TZID=America/Detroit:" + year + month + day + "T" + endTime);
-
-				String repeated = "RRULE:FREQ=WEEKLY;" + endOfSem + "INTERVAL=1;";
-				String classFreq = "BYDAY=";
-
-				// This is to repeat classes on certain days based on "MWF"
-				if (c.getDays().get(i).length() > 1) {
-
-					if (c.getDays().get(i).contains("M")) {
-						classFreq += "MO,";
-					}
-					if (c.getDays().get(i).contains("T")) {
-						classFreq += "TU,";
-					}
-					if (c.getDays().get(i).contains("W")) {
-						classFreq += "WE,";
-					}
-					if (c.getDays().get(i).contains("R")) {
-						classFreq += "TH,";
-					}
-					if (c.getDays().get(i).contains("F")) {
-						classFreq += "FR,";
-					}
-
-					classFreq = classFreq.substring(0, classFreq.length() - 1);
-
-					ics.add(repeated + classFreq);
-
-				} else if (c.getStartDays().size() == 1) {
-					ics.add(repeated);
-				} else if (c.getStartDays().get(0).equals(c.getStartDays().get(1))) {
-					ics.add(repeated);
-				} else {
-					ics.add("RRULE:" + endOfSem);
-				}
-
-				ics.add("SUMMARY:" + c.getCName());
-				ics.add("DESCRIPTION:" + c.getCNum() + "\\n" + c.getLocation().get(i));
-				ics.add("END:VEVENT");
+				ics.setSummary(c.getCName());
+				ics.setDescription(c.getCNum() + "\\n" + c.getLocation().get(i));
+				ics.endEvent();
 
 			}
-
 		}
 
-		ics.add("END:VCALENDAR");
-
-		for (String course : ics) {
-			System.out.println(course);
-		}
-
-		return ics;
-
+		ics.endCalendar();
+		// System.out.println(ics.toString());
 	}
 
 	/**
@@ -476,17 +201,17 @@ public class Scheduler {
 
 		classes = extractClasses(mySchedule);
 
-		for (String s : mySchedule) {
-			System.out.println(s);
-		}
+		// for (String s : mySchedule) {
+		// System.out.println(s);
+		// }
 
-		System.out.println();
+		// System.out.println();
 
 		for (ArrayList<String> str : classes) {
 			Course course = new Course();
 			course.loadCourse(str);
 			courseList.add(course);
-			System.out.println(course.toString());
+			// System.out.println(course.toString());
 		}
 
 	}
@@ -503,21 +228,47 @@ public class Scheduler {
 	 * @return Used for error handling. 0 is success.
 	 */
 	public int outputFile(final String fileName) throws IOException, ParseException, NoSuchFieldException {
-		ArrayList<String> ics = printICS(courseList);
+		createICS(courseList);
 
-		if (courseList.size() < 6) {
+		if (courseList.size() < 1) {
 			System.out.println("No file currenly loaded.");
 			throw new NoSuchFieldException();
 		} else {
 
 			FileWriter writer = new FileWriter(fileName);
-			for (String str : ics) {
+			for (String str : ics.toList()) {
 				writer.write(str + "\n");
 			}
 			writer.close();
 			return 0;
 		}
 
+	}
+
+	/**
+	 * Allows the ICS file to be printed.
+	 * 
+	 * @return The contents of the ICS file
+	 */
+	public String toStringICS() {
+
+		return this.ics.toString();
+	}
+
+	/**
+	 * Allows the schedule of courses to be printed.
+	 * 
+	 * @return The list of courses in the schedule
+	 */
+	public String toString() {
+
+		String tString = "";
+
+		for (Course c : this.courseList) {
+			tString += c.toString() + "\n";
+		}
+
+		return tString;
 	}
 
 }
