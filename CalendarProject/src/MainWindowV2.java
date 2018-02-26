@@ -1,6 +1,5 @@
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 import java.io.File;
@@ -22,27 +21,26 @@ import org.eclipse.swt.events.MouseEvent;
  */
 public class MainWindowV2 {
 
-	/***********************************************************
-	 * shell The overarching container for the UI.
-	 **********************************************************/
+	/**
+	 * shell The GUI shell.
+	 */
 	private Shell shell;
-
-	/***********************************************************
-	 * messageTextField The textfield for user feedback.
-	 **********************************************************/
+	
+	/**
+	 * 
+	 */
 	private Text messageTextField;
-
-	/***********************************************************
-	 * userSchedule The instance of Scheduler created by HTML.
-	 **********************************************************/
+	
+	/**
+	 * userSchedule The schedule to be used by GUI.
+	 */
 	private Scheduler userSchedule = new Scheduler();
 
-	/***********************************************************
+	/**
 	 * Launch the application.
 	 * 
-	 * @param args
-	 *            String of arguments
-	 **********************************************************/
+	 * @param args For command line input.
+	 */
 	public static void main(final String[] args) {
 		try {
 			// Set cross-platform Java L&F (also called "Metal")
@@ -59,9 +57,9 @@ public class MainWindowV2 {
 		}
 	}
 
-	/********************************************************
+	/**
 	 * Open the window.
-	 *******************************************************/
+	 */
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
@@ -74,9 +72,9 @@ public class MainWindowV2 {
 		}
 	}
 
-	/*******************************************************
+	/**
 	 * Create contents of the window.
-	 ******************************************************/
+	 */
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(840, 580);
@@ -117,18 +115,14 @@ public class MainWindowV2 {
 
 				// change to file so the path separator is included in the path + filename
 				File selectedFile = new File(path, fileName);
-				String fileNamePath = selectedFile.getAbsolutePath();
+				fileName = selectedFile.getAbsolutePath();
 
 				try {
-					// System.out.println(fileName);
-					userSchedule.inputFile(fileNamePath);
-					messageTextField.setText("File: " + fileName + " opened sucessfully!");
+					System.out.println(fileName);
+					userSchedule.inputFile(fileName);
 				} catch (IOException e1) {
-					// System.out.println("Error opening file.");
-					// System.out.println(e1);
-					messageTextField.setText("File failed to open properly.");
-				} catch (IllegalArgumentException e1) {
-					messageTextField.setText("No file chosen.");
+					System.out.println("Error opening file.");
+					System.out.println(e1);
 				}
 
 				// for if there were multiple files
@@ -147,32 +141,27 @@ public class MainWindowV2 {
 				FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 				dialog.setFilterNames(new String[] {"ICS Files (.ics)"});
 				dialog.setFilterExtensions(new String[] {"*.ics"});
-				// System.out.println("Save to: " + dialog.open());
+				//System.out.println("Save to: " + dialog.open());
 				String savePath = dialog.open();
-				// System.out.println(savePath);
-
-				// System.out.println("Save path: " + savePath);
+				System.out.println("Save path: " + savePath);
 				try {
 					userSchedule.outputFile(savePath);
-					messageTextField.setText("Calendar file created sucessfully!");
 				} catch (IOException e1) {
-					// file could not be opened
-					messageTextField.setText("File could not be exported. Invalid file path.");
-				} catch (NullPointerException e1) {
-					messageTextField.setText("Export Cancelled");
+					// TODO Auto-generated catch block
+					//file could not be opened
+					e1.printStackTrace();
 				} catch (NoSuchFieldException e1) {
-					messageTextField.setText("Cannot Export File. No file imported");
+					// TODO Auto-generated catch block
+					//e1.printStackTrace();
+					//no file loaded yet
 				}
-
 			}
 		});
 		outputButton.setBounds(426, 355, 243, 76);
 		outputButton.setText("Output");
 
 		messageTextField = new Text(composite1, SWT.BORDER);
-		messageTextField
-				.setText("Welcome to GVSU Scheduler! Please see the Intsructions tab for operating information.");
-
+		messageTextField.setText("Welcome!");
 		messageTextField.setBounds(129, 52, 540, 273);
 
 		TabItem instructionsTab = new TabItem(tabFolder, SWT.NONE);
@@ -180,15 +169,6 @@ public class MainWindowV2 {
 
 		Composite composite2 = new Composite(tabFolder, SWT.NONE);
 		instructionsTab.setControl(composite2);
-
-		Label lblInstructions = new Label(composite2, SWT.NONE);
-		lblInstructions.setBounds(10, 10, 773, 458);
-		lblInstructions.setText("Instructions:\r\n\r\n"
-				+ "Before Use:\r\n\tDownload the HTML file from myBanner under Student->Registration->Student Schedule\n\n"
-				+ "Input:\r\n\tPress the 'Input' button and select the HTML file.\r\n\t"
-				+ "Confirm in the text box that the file loaded sucessfully\r\nOutput:\r\n\t"
-				+ "Press the 'Output' button and name the file.\r\n\t"
-				+ "Confirm in the text box that the file was created.\r\n");
 
 	}
 
