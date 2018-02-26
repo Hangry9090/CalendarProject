@@ -10,7 +10,6 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
@@ -37,6 +36,16 @@ public class Scheduler {
 	}
 
 	/**
+	 * Resets the data of all the fields.
+	 */
+	private void resetSchedule() {
+		this.mySchedule = new ArrayList<String>();
+		this.classes = new ArrayList<ArrayList<String>>();
+		this.courseList = new ArrayList<Course>();
+		this.ics = new ICSEventBuilder();
+	}
+
+	/**
 	 * This function parses a file.
 	 * 
 	 * @param fileName
@@ -45,7 +54,7 @@ public class Scheduler {
 	 *             When the filename doesn't exist.
 	 * @return The arrayList containing parsed HTML.
 	 */
-	public ArrayList<String> parseFile(final String fileName) throws IOException {
+	private ArrayList<String> parseFile(final String fileName) throws IOException {
 		ArrayList<String> mySchedule = new ArrayList<String>();
 
 		File input = new File(fileName);
@@ -83,8 +92,10 @@ public class Scheduler {
 	 *            List of strings extracted from the banner schedule HTML
 	 * @return classes An arraylist of arraylists consisting of classes from the
 	 *         schedule.
+	 * @throws IOException
+	 *             Not a proper schedule file
 	 */
-	private ArrayList<ArrayList<String>> extractClasses(final ArrayList<String> schedule) {
+	private ArrayList<ArrayList<String>> extractClasses(final ArrayList<String> schedule) throws IOException {
 
 		ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
 
@@ -117,7 +128,10 @@ public class Scheduler {
 			}
 
 		}
-		start = false;
+
+		if (start) {
+			throw new IOException();
+		}
 
 		return classes;
 
@@ -141,13 +155,12 @@ public class Scheduler {
 	/**
 	 * Creates ICS formatted ArrayList based on input course schedule.
 	 * 
-	 * @param courses
-	 *            The list of courses from the a student's schedule
 	 * @throws ParseException
+	 *             Parsing error
 	 */
-	public void createICS(final ArrayList<Course> courses) throws ParseException {
+	private void createICS() {
 
-		for (Course c : courses) {
+		for (Course c : this.courseList) {
 
 			for (int i = 0; i < c.getDays().size(); i++) {
 
@@ -177,25 +190,23 @@ public class Scheduler {
 	}
 
 	/**
-	 * Main function for testing.
-	 * 
-	 * @param args
-	 *            Command Line input. Unused.
-	 * @throws IOException
-	 *             If wrong file?
-	 * @throws ParseException
-	 */
-	public static void main(final String[] args) {
-
-	}
-
-	/**
 	 * Function that loads a file and creates course objects for each class.
 	 * 
 	 * @param fileName
 	 *            The name of the file (absolute path) to be loaded.
+	 * @throws IOException
+	 *             Invalid file directory
 	 */
 	public void inputFile(final String fileName) throws IOException {
+
+		if (!fileName.endsWith(".html") && !fileName.endsWith(".htm")) {
+
+			throw new IllegalArgumentException();
+		}
+
+		if (this.mySchedule.size() > 1) {
+			resetSchedule();
+		}
 
 		mySchedule = parseFile(fileName);
 
@@ -223,15 +234,24 @@ public class Scheduler {
 	 * @param fileName
 	 *            The name of the file (absolute path) to be created.
 	 * @throws IOException
-	 * @throws ParseException
+	 *             Improper file directory
+	 * @throws NullPointerException
+	 *             No file path provided
 	 * @throws NoSuchFieldException
+	 *             File was not imported
 	 * @return Used for error handling. 0 is success.
 	 */
-	public int outputFile(final String fileName) throws IOException, ParseException, NoSuchFieldException {
-		createICS(courseList);
+	public int outputFile(final String fileName) throws IOException, NullPointerException, NoSuchFieldException {
+		createICS();
 
-		if (courseList.size() < 1) {
-			System.out.println("No file currenly loaded.");
+		if (fileName == null) {
+
+			throw new NullPointerException();
+		} else if (!fileName.endsWith(".ics")) {
+
+			throw new IllegalArgumentException();
+		} else if (courseList.size() < 1) {
+
 			throw new NoSuchFieldException();
 		} else {
 
