@@ -1,5 +1,6 @@
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 import java.io.File;
@@ -146,6 +147,7 @@ public class MainWindowV2 {
 				System.out.println("Save path: " + savePath);
 				try {
 					userSchedule.outputFile(savePath);
+					messageTextField.setText(messageTextField.getText() + "\nCalendar file created sucessfully!");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					//file could not be opened
@@ -161,7 +163,7 @@ public class MainWindowV2 {
 		outputButton.setText("Output");
 
 		messageTextField = new Text(composite1, SWT.BORDER);
-		messageTextField.setText("Welcome!");
+		messageTextField.setText("Welcome to GVSU Scheduler!");
 		messageTextField.setBounds(129, 52, 540, 273);
 
 		TabItem instructionsTab = new TabItem(tabFolder, SWT.NONE);
@@ -169,6 +171,16 @@ public class MainWindowV2 {
 
 		Composite composite2 = new Composite(tabFolder, SWT.NONE);
 		instructionsTab.setControl(composite2);
+		
+		Label lblInstructions = new Label(composite2, SWT.NONE);
+		lblInstructions.setBounds(10, 10, 773, 458);
+		lblInstructions.setText("Instructions:\r\n\r\nBefore Use:\r\n\t");
+		lblInstructions.setText(lblInstructions.getText() + "Download the HTML file from myBanner under ");
+		lblInstructions.setText(lblInstructions.getText() + "Student->Registration->Student Schedule\n\n");
+		lblInstructions.setText(lblInstructions.getText() + "Input:\r\n\tPress the 'Input' button and select the HTML file.\r\n\t");
+		lblInstructions.setText(lblInstructions.getText() + "Confirm in the text box that the file loaded sucessfully\r\nOutput:\r\n\t");
+		lblInstructions.setText(lblInstructions.getText() + "Press the 'Output' button and name the file.\r\n\t");
+		lblInstructions.setText(lblInstructions.getText() + "Confirm in the text box that the file was created.\r\n");
 
 	}
 
