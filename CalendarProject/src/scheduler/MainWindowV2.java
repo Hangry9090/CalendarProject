@@ -125,6 +125,9 @@ public class MainWindowV2 {
 				} catch (IOException e1) {
 					System.out.println("Error opening file.");
 					System.out.println(e1);
+				} catch (IllegalArgumentException e1) {
+					// Import operation cancelled
+					// e1.printStackTrace();
 				}
 
 				// for if there were multiple files
@@ -155,6 +158,9 @@ public class MainWindowV2 {
 					// TODO Auto-generated catch block
 					//e1.printStackTrace();
 					//no file loaded yet
+				} catch (NullPointerException e1) {
+					// Export operations cancelled.
+					// e1.printStackTrace();
 				}
 			}
 		});
