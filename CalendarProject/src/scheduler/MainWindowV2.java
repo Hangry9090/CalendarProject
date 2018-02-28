@@ -127,7 +127,7 @@ public class MainWindowV2 {
 
 				try {
 					userSchedule.inputFile(fullName);
-					messageTextField.append("File " + fileName + " imported sucessfully!");
+					messageTextField.append("\nFile " + fileName + " imported sucessfully!");
 				} catch (IOException e1) {
 					messageTextField.append("\nError opening file.");
 				} catch (IllegalArgumentException e1) {
@@ -163,7 +163,7 @@ public class MainWindowV2 {
 		outputButton.setText("Output");
 
 		messageTextField = new Text(composite1, SWT.BORDER);
-		messageTextField.setText("Welcome to GVSU Scheduler!");
+		messageTextField.setText("Welcome to GVSU Scheduler!\r");
 		messageTextField.append("\n-------------------------------\n");
 		messageTextField.setBounds(129, 52, 540, 273);
 
@@ -175,15 +175,15 @@ public class MainWindowV2 {
 
 		Label lblInstructions = new Label(composite2, SWT.NONE);
 		lblInstructions.setBounds(10, 10, 773, 458);
-		lblInstructions.setText("Instructions:\r\n\r\nBefore Use:\r\n\t");
+		lblInstructions.setText("Instructions:\n\nBefore Use:\n\n\t");
 		lblInstructions.setText(lblInstructions.getText() + "Download the HTML file from myBanner under ");
 		lblInstructions.setText(lblInstructions.getText() + "Student->Registration->Student Schedule\n\n");
 		lblInstructions.setText(
-				lblInstructions.getText() + "Input:\r\n\tPress the 'Input' button and select the HTML file.\r\n\t");
+				lblInstructions.getText() + "Input:\n\n\tPress the 'Input' button and select the HTML file.\n\n\t");
 		lblInstructions.setText(lblInstructions.getText()
-				+ "Confirm in the text box that the file loaded sucessfully\r\nOutput:\r\n\t");
-		lblInstructions.setText(lblInstructions.getText() + "Press the 'Output' button and name the file.\r\n\t");
-		lblInstructions.setText(lblInstructions.getText() + "Confirm in the text box that the file was created.\r\n");
+				+ "Confirm in the text box that the file loaded sucessfully\n\nOutput:\n\n\t");
+		lblInstructions.setText(lblInstructions.getText() + "Press the 'Output' button and name the file.\n\n\t");
+		lblInstructions.setText(lblInstructions.getText() + "Confirm in the text box that the file was created.\n");
 
 	}
 
