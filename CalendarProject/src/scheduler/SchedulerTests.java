@@ -313,7 +313,7 @@ class SchedulerTests {
 
 		Course course = new Course(cID, cNum, cName, campus, credits, level, days, meetTime, location, startDate,
 				endDate, prof);
-
+		System.out.println(course);
 	}
 
 	/**
@@ -344,6 +344,7 @@ class SchedulerTests {
 
 		Course course = new Course(cID, cNum, cName, campus, credits, level, days, meetTime, location, startDate,
 				endDate, prof);
+		System.out.println(course);
 
 	}
 
@@ -365,6 +366,8 @@ class SchedulerTests {
 		icsFormat.add("END:VCALENDAR");
 
 		ICSEventBuilder ics = new ICSEventBuilder(icsFormat);
+		System.out.println(ics);
+
 	}
 
 }
