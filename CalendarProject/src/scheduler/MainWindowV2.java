@@ -121,7 +121,7 @@ public class MainWindowV2 {
 
 				try {
 					userSchedule.inputFile(fileName);
-					messageTextField.setText(messageTextField.getText() + "\nFile imported sucessfully!");
+					messageTextField.setText("File imported sucessfully!");
 				} catch (IOException e1) {
 					System.out.println("Error opening file.");
 					System.out.println(e1);
@@ -146,7 +146,7 @@ public class MainWindowV2 {
 				String savePath = dialog.open();
 				try {
 					userSchedule.outputFile(savePath);
-					messageTextField.setText(messageTextField.getText() + "\nCalendar file created sucessfully!");
+					messageTextField.setText("Calendar file created sucessfully!");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					//file could not be opened
