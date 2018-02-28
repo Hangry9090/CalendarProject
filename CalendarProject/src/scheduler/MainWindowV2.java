@@ -120,8 +120,8 @@ public class MainWindowV2 {
 				fileName = selectedFile.getAbsolutePath();
 
 				try {
-					System.out.println(fileName);
 					userSchedule.inputFile(fileName);
+					messageTextField.setText(messageTextField.getText() + "\nFile imported sucessfully!");
 				} catch (IOException e1) {
 					System.out.println("Error opening file.");
 					System.out.println(e1);
@@ -143,9 +143,7 @@ public class MainWindowV2 {
 				FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 				dialog.setFilterNames(new String[] {"ICS Files (.ics)"});
 				dialog.setFilterExtensions(new String[] {"*.ics"});
-				//System.out.println("Save to: " + dialog.open());
 				String savePath = dialog.open();
-				System.out.println("Save path: " + savePath);
 				try {
 					userSchedule.outputFile(savePath);
 					messageTextField.setText(messageTextField.getText() + "\nCalendar file created sucessfully!");
