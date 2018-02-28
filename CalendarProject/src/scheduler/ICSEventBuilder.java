@@ -292,7 +292,7 @@ public class ICSEventBuilder {
 
 		String numMonth;
 
-		Date date = null;
+		Date date = new Date();
 		try {
 			Date tempDate;
 			tempDate = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month);
@@ -333,9 +333,13 @@ public class ICSEventBuilder {
 
 		String output = "";
 
+		StringBuffer buf = new StringBuffer();
 		for (String s : this.ics) {
-			output += s + "\n";
+			buf.append(s);
+			//output += s + "\n";
 		}
+		
+		output = buf.toString();
 
 		return output;
 

@@ -302,11 +302,15 @@ public class Scheduler {
 	 */
 	public String toString() {
 
-		String tString = "";
+		
 
+		StringBuffer buf = new StringBuffer();
+		
 		for (Course c : this.courseList) {
-			tString += c.toString() + "\n";
+			buf.append(c.toString());
 		}
+		
+		String tString = buf.toString();
 
 		return tString;
 	}
