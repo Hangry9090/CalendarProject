@@ -1,3 +1,4 @@
+package scheduler;
 
 /**
  * Name: GVSU Scheduler
