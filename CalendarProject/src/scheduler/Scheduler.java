@@ -19,7 +19,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 /**
- * @author jacobwalton
+ * Class that stores a whole schedule full of courses.
+ * 
+ * @author Jacob Walton
+ * @author Marshal Brummel
+ * @author Alan Sisouphone
  *
  */
 public class Scheduler {
@@ -28,17 +32,17 @@ public class Scheduler {
 	 * mySchedule The list of strings that makeup the schedule.
 	 */
 	private ArrayList<String> mySchedule = new ArrayList<String>();
-	
+
 	/**
 	 * classes The list of string that makeup the classes.
 	 */
 	private ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
-	
+
 	/**
 	 * courseList The list of course objects holding classes.
 	 */
 	private ArrayList<Course> courseList = new ArrayList<Course>();
-	
+
 	/**
 	 * icd The ics builder for the project.
 	 */

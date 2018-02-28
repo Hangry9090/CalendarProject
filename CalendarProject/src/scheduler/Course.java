@@ -1,13 +1,15 @@
 package scheduler;
+
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 /**
+ * Class to store data about an individual course entry that was pulled from the
+ * HTML calendar.
  * 
- */
-
-/**
- * @author jacobwalton
+ * @author Jacob Walton
+ * @author Marshal Brummel
+ * @author Alan Sisouphone
  *
  */
 public class Course {

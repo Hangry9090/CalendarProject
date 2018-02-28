@@ -1,4 +1,5 @@
 package scheduler;
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
@@ -18,7 +19,11 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
 /**
- * @author Marshal Brummel, Jacob Walton, and Alan Sisouphone
+ * Class to create the GUI window.
+ * 
+ * @author Jacob Walton
+ * @author Marshal Brummel
+ * @author Alan Sisouphone
  *
  */
 public class MainWindowV2 {
@@ -27,12 +32,12 @@ public class MainWindowV2 {
 	 * shell The GUI shell.
 	 */
 	private Shell shell;
-	
+
 	/**
 	 * 
 	 */
 	private Text messageTextField;
-	
+
 	/**
 	 * userSchedule The schedule to be used by GUI.
 	 */
@@ -41,7 +46,8 @@ public class MainWindowV2 {
 	/**
 	 * Launch the application.
 	 * 
-	 * @param args For command line input.
+	 * @param args
+	 *            For command line input.
 	 */
 	public static void main(final String[] args) {
 		try {
@@ -107,8 +113,8 @@ public class MainWindowV2 {
 				// code for filedialog found here:
 				// https://stackoverflow.com/questions/5703825/does-swing-support-windows-7-style-file-choosers
 				FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-				String[] filterNames = new String[] {"HTML (.html)"};
-				String[] filterExtensions = new String[] {"*.html"};
+				String[] filterNames = new String[] {"HTML (.html)" };
+				String[] filterExtensions = new String[] {"*.html" };
 				dialog.setFilterNames(filterNames);
 				dialog.setFilterExtensions(filterExtensions);
 				dialog.open();
@@ -117,24 +123,17 @@ public class MainWindowV2 {
 
 				// change to file so the path separator is included in the path + filename
 				File selectedFile = new File(path, fileName);
-				fileName = selectedFile.getAbsolutePath();
+				String fullName = selectedFile.getAbsolutePath();
 
 				try {
-					userSchedule.inputFile(fileName);
-					messageTextField.setText("File imported sucessfully!");
+					userSchedule.inputFile(fullName);
+					messageTextField.append("File " + fileName + " imported sucessfully!");
 				} catch (IOException e1) {
-					System.out.println("Error opening file.");
-					System.out.println(e1);
+					messageTextField.append("\nError opening file.");
 				} catch (IllegalArgumentException e1) {
-					// Import operation cancelled
-					// e1.printStackTrace();
+					messageTextField.append("\nError opening file.");
+				
 				}
-
-				// for if there were multiple files
-				/*
-				 * System.out.println ("Selected file: "); for(String fileName :
-				 * selectedFileNames) { System.out.println("  " + fileName); }
-				 */
 
 			}
 		});
@@ -144,23 +143,19 @@ public class MainWindowV2 {
 			@Override
 			public void mouseDown(final MouseEvent e) {
 				FileDialog dialog = new FileDialog(shell, SWT.SAVE);
-				dialog.setFilterNames(new String[] {"ICS Files (.ics)"});
-				dialog.setFilterExtensions(new String[] {"*.ics"});
+				dialog.setFilterNames(new String[] {"ICS Files (.ics)" });
+				dialog.setFilterExtensions(new String[] {"*.ics" });
 				String savePath = dialog.open();
 				try {
 					userSchedule.outputFile(savePath);
-					messageTextField.setText("Calendar file created sucessfully!");
+					messageTextField.append("\nCalendar file created sucessfully!");
+					messageTextField.append("\nSaved to: " + savePath);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					//file could not be opened
-					e1.printStackTrace();
+					messageTextField.append("\nFile not loaded.");
 				} catch (NoSuchFieldException e1) {
-					// TODO Auto-generated catch block
-					//e1.printStackTrace();
-					//no file loaded yet
+					messageTextField.append("\nPlease input a file first.");
 				} catch (NullPointerException e1) {
-					// Export operations cancelled.
-					// e1.printStackTrace();
+					messageTextField.append("\nFile not loaded.");
 				}
 			}
 		});
@@ -169,6 +164,7 @@ public class MainWindowV2 {
 
 		messageTextField = new Text(composite1, SWT.BORDER);
 		messageTextField.setText("Welcome to GVSU Scheduler!");
+		messageTextField.append("\n-------------------------------\n");
 		messageTextField.setBounds(129, 52, 540, 273);
 
 		TabItem instructionsTab = new TabItem(tabFolder, SWT.NONE);
@@ -176,14 +172,16 @@ public class MainWindowV2 {
 
 		Composite composite2 = new Composite(tabFolder, SWT.NONE);
 		instructionsTab.setControl(composite2);
-		
+
 		Label lblInstructions = new Label(composite2, SWT.NONE);
 		lblInstructions.setBounds(10, 10, 773, 458);
 		lblInstructions.setText("Instructions:\r\n\r\nBefore Use:\r\n\t");
 		lblInstructions.setText(lblInstructions.getText() + "Download the HTML file from myBanner under ");
 		lblInstructions.setText(lblInstructions.getText() + "Student->Registration->Student Schedule\n\n");
-		lblInstructions.setText(lblInstructions.getText() + "Input:\r\n\tPress the 'Input' button and select the HTML file.\r\n\t");
-		lblInstructions.setText(lblInstructions.getText() + "Confirm in the text box that the file loaded sucessfully\r\nOutput:\r\n\t");
+		lblInstructions.setText(
+				lblInstructions.getText() + "Input:\r\n\tPress the 'Input' button and select the HTML file.\r\n\t");
+		lblInstructions.setText(lblInstructions.getText()
+				+ "Confirm in the text box that the file loaded sucessfully\r\nOutput:\r\n\t");
 		lblInstructions.setText(lblInstructions.getText() + "Press the 'Output' button and name the file.\r\n\t");
 		lblInstructions.setText(lblInstructions.getText() + "Confirm in the text box that the file was created.\r\n");
 

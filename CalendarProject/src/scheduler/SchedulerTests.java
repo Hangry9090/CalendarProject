@@ -1,6 +1,5 @@
 package scheduler;
 
-
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -13,7 +12,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests the input and output functionality of GVSU Scheduler.
  * 
- * @author Alan
+ * @author Alan Sisouphone
  *
  */
 class SchedulerTests {
@@ -183,7 +182,6 @@ class SchedulerTests {
 		});
 	}
 
-	
 	/**
 	 * Tests if the input of non HTML file results in an exception.
 	 */
@@ -273,7 +271,7 @@ class SchedulerTests {
 	}
 
 	/**
-	 *  Tests if outputting before inputting results an exception.
+	 * Tests if outputting before inputting results an exception.
 	 */
 	@Test
 	void outputBeforeInput() {
@@ -348,7 +346,7 @@ class SchedulerTests {
 
 	}
 
-	/** 
+	/**
 	 * Tests the creation of an ICS object with its contructor.
 	 */
 	@Test
