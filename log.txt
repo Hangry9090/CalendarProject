@@ -1,0 +1,500 @@
+commit f462e06bb96e0a455b8b11c58b4ad5dffe368d12
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Thu Mar 1 17:57:02 2018 -0500
+
+    Final fix for outputs
+    
+    Append was not working so I put it back to setText because it looked cleaner.
+
+commit 89f0b5964e68b59f32140658646d2203f2f0a680
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 28 16:39:07 2018 -0500
+
+    Removed Potential Bugs
+
+commit 8499cbeaea639eb6ea8c34cf17d3376af9a2dfed
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 28 16:20:43 2018 -0500
+
+    Messed with newlines
+
+commit e2ed74378d03daea0e7c72ecd8962baffcb53d76
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 28 16:03:38 2018 -0500
+
+    Javadoc folder.
+
+commit 24e7a6c665048e616a3abd64021d052c982b4cdd
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 28 15:44:17 2018 -0500
+
+    Revert "rename doc to docs."
+    
+    This reverts commit 2d9df01909edfcc4b9965e4bf0f2bb640ceb7615.
+
+commit 2d9df01909edfcc4b9965e4bf0f2bb640ceb7615
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 28 15:14:08 2018 -0500
+
+    rename doc to docs.
+
+commit bdd0cf4b761f3056dac3c6f89e2bf5a13eaba008
+Merge: 45552c0 0e79207
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 28 15:08:07 2018 -0500
+
+    Merge branch 'master' of https://github.com/Hangry9090/CalendarProject
+    
+    Created Javadocs.
+
+commit 45552c0939d3c26cf985be2c1d4303719c4c7f7b
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 28 15:07:32 2018 -0500
+
+    Javadoc folder added.
+
+commit 0e79207ad39b4d4b9ce0b2ffe3f79eb007951f54
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 28 15:05:41 2018 -0500
+
+    Deleted Junk HTML files
+
+commit bd5a8431c4c4793c0d43a2ea1355af7b577bfcfb
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 28 14:55:39 2018 -0500
+
+    Polished code a bit.
+
+commit 9e856a3b1438255298018603eb16a98ac57e7553
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Wed Feb 28 10:53:22 2018 -0500
+
+    Added exception handling for if you cancel import or export
+
+commit ed07b0ef9d1b88173701064b5adc7df64ab9873f
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 28 10:42:06 2018 -0500
+
+    quick fix to outputs
+
+commit e322803660d1dfc62159e3c7203cba3ceb120b42
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 28 10:38:43 2018 -0500
+
+    Added missing user interaction
+
+commit 75323e0fc0216cec623500e5a9e066b4f3dbb9e0
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 28 10:24:53 2018 -0500
+
+    Fixed 'unused variable' error in ShedTest by printing them out. Error checking complete.
+
+commit 7bd2db58be1a7883ed4585cbb1113d0ff53324c6
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 28 10:20:28 2018 -0500
+
+    Created new package called scheduler.
+
+commit 9327c8068d7ab8b861ccb6a5ff42dc484d923e9e
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 28 10:10:59 2018 -0500
+
+    Last bit of Javadoccing.
+
+commit b29588041a4871cbaea8056f31b332720a107577
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Tue Feb 27 16:42:39 2018 -0500
+
+    Re-added instructions
+
+commit 66fd9e78b53fe5fa79c3eb9e259eb3f9ae83beba
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 26 11:01:39 2018 -0500
+
+    Just did some javadox.
+
+commit 74b7c945d10a9ba0ac207a14dfb4d23b539cdd58
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Sun Feb 25 22:23:09 2018 -0500
+
+    Added Junits tests and modified exceptions and exception handling in Scheduler and GUI. Also added additional html files for testing. ECLEmma coverage: 95.9%
+
+commit 76f360c846eaf92e5dd3d8cd6660126b55625c3f
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Sat Feb 24 12:42:25 2018 -0500
+
+    Scheduler now uses ICSEventBuilder Functions. Added a ToString() and ToStringICS to Scheduler.
+
+commit 7667b67bd086656a0efd62749b4435108a2a62c3
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Fri Feb 23 20:17:40 2018 -0500
+
+    Added ICSEventBuilder class and improved function implementations
+
+commit a9a31939a1f37e7f44ac10a1eab6f00bbc709dc6
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Fri Feb 23 19:46:54 2018 -0500
+
+    Populated instructions tab
+    
+    Instructions added and welcome message updated.
+
+commit 1bb54339e001a42d5bfe9eeccd3bf933fe94fcc2
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Fri Feb 23 17:50:33 2018 -0500
+
+    Added user feedback in message dialog
+
+commit 76b3567958e85e88842da41ffb4239e6e70ed47d
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 21 17:39:35 2018 -0500
+
+    Java documentation
+
+commit 70de2c8d8a603871bd6730681009b39b2af3dd34
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Wed Feb 21 17:19:39 2018 -0500
+
+    Schedule now ends by the given end date in the student schedule
+
+commit a492f004ea26a302da1839428ce576fa4b064a7b
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 21 16:04:05 2018 -0500
+
+    Changed author names and added some checkstyle fixes
+
+commit 83c2aa51a258e5dcb613ccb74c9454d379752a75
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 21 15:57:57 2018 -0500
+
+    Javadocced course.
+
+commit 8c2bc95b069d720d026d5604d62b36cd41739314
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Wed Feb 21 15:33:56 2018 -0500
+
+    Added Javadoc comments for the methods. Need to work on toString methods now
+
+commit 6d0b9d647747a2957afe2a983969d21ab1440f87
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 21 10:59:13 2018 -0500
+
+    Reverting back to stable file
+
+commit 32ded7bc104f8b016a3a7264a13fabcabe506d46
+Merge: 710801c 5c86fce
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 21 10:28:28 2018 -0500
+
+    Merge branch 'master' of https://github.com/Hangry9090/CalendarProject
+
+commit 710801c196fd6432fc4acefbb79f43002cc9e453
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 21 10:28:04 2018 -0500
+
+    Added comments
+
+commit 5c86fce0c3d73e3adf801f7ffb2a40e59354da05
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Feb 21 10:22:44 2018 -0500
+
+    Javadoccing
+
+commit e8f906028dca9425b93f124305f3551dae36de49
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Tue Feb 20 16:25:40 2018 -0500
+
+    Fixed bug to work with my schedule and hybrid schedules. Still need to un-hardcode the end of semester date
+
+commit 11c1bbcf07cf3e5465bd823df2285a0cbe1ac213
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Mon Feb 19 21:26:22 2018 -0500
+
+    Changed application name
+
+commit ff83bf3eb8d1a6b4864930aea644edf7ca624c53
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 19 16:13:16 2018 -0500
+
+    Started Checkstyle fixes. I modified the checkstyle config a bit and exported it into the src folder. You guys can import it.
+
+commit 2a6f53ab83df700eda033b2417a72cbf9949d96a
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 19 15:55:46 2018 -0500
+
+    Added error handling for Output button.
+
+commit d5d24a8ac06efb32ceafa983e337100a035cdd8e
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 19 15:47:07 2018 -0500
+
+    Output button has full functionality.
+
+commit 18e6a1bf9821c82d0388ef7ae2ae85dbd41fa4d9
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 19 14:10:08 2018 -0500
+
+    Working on printing ics to file.
+
+commit e224c4f54eab36d2cbbec7d802cc4b8ea39b1d62
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 19 10:49:27 2018 -0500
+
+    Added output button save as function.
+
+commit 7c99f3d91ab81e344123af4d99a422d8e837e085
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 19 10:38:20 2018 -0500
+
+    Button now loads the file. Opens the file regardless of what folder it is in.
+
+commit 7e1e415b65aa45bf46a6e0378dc76525fc142c88
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 19 10:16:36 2018 -0500
+
+    Removed unused imports.
+
+commit e646a161161add27bdf422cf150b1cc6ef73d844
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Mon Feb 19 10:05:57 2018 -0500
+
+    Cleaned up code
+
+commit 2be553a33ad991363375fdc322941fb6293cc82f
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Sun Feb 18 21:47:55 2018 -0500
+
+    Added a few simple comments to the code. Still need to implement a way for the schedule to end at a specific date relevant to the semester.
+
+commit d74aaa8860380b10f1a47c246959f4fa042618cc
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Sun Feb 18 21:12:02 2018 -0500
+
+    Removed a lot of the hardcoding so that the program uses only information its given. My friend's schedule with the hybrid class now works. Still needs commenting
+
+commit d9a0d64f0d370f15d3655258340ad3f9ae78e06d
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Sun Feb 18 15:19:40 2018 -0500
+
+    Different file chooser that works.
+
+commit 9914d364194238b09343bab933e9cf233d763568
+Merge: fedeaf8 464886d
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Sat Feb 17 18:10:42 2018 -0500
+
+    Merge branch 'master' of https://github.com/Hangry9090/CalendarProject
+
+commit fedeaf80a3764520988f33805c7f5c182147d851
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Sat Feb 17 18:09:39 2018 -0500
+
+    Working code that prints out ICS format for the current class schedule. No comments yet
+
+commit 464886d23445a5cdec13527e829e00317e3d6189
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Fri Feb 16 11:02:27 2018 -0500
+
+    Trying to make workon Mac.
+
+commit dd21e7cfca0624e67daab683e86bab78606f27d3
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Thu Feb 15 16:59:44 2018 -0500
+
+    Added functionality and testing
+    
+    Created new instance of Scheduler, added var for filename, and added try-catch to run the parseFile function
+
+commit 6b632a7fd20034062f6453bf6895491178c28efb
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 14 17:06:11 2018 -0500
+
+    updated MainWindowV2 with fileChooser
+
+commit ed7e9f22ff5268e5ae51fccc998ef05f6bf2a334
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 12 11:17:48 2018 -0500
+
+    Added libraries.
+
+commit 01a00240e9806e0895ace5c4e45f9f475d3a9ee8
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 12 10:47:19 2018 -0500
+
+    Removed stuff that doesn't work.
+
+commit 6ca50790f4d25a0e070093025cf0ba56d3c34754
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Feb 7 18:41:55 2018 -0500
+
+    Reattempted to create the UI
+
+commit 7dc5719f7ac696712b974353db3d299a803962c2
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 5 10:48:25 2018 -0500
+
+    Modified Alan's schedule to have 3 meet times for testing.
+
+commit 4ff103bdf155723dd6d46edefa779dc0e4c85aeb
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 5 10:47:01 2018 -0500
+
+    Added possibility of third meet time.
+
+commit 7770c9060583019b823c89c70163de80c9172928
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Feb 5 10:28:56 2018 -0500
+
+    Added the ability to have multiple meet times.
+
+commit 21f5159bb79980d5cf44b033fad216a6c9bcf42b
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Sun Feb 4 22:58:50 2018 -0500
+
+    Added course class.
+
+commit 45b00d073f64af4c437c5f5d479e93e895e2bce7
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Fri Feb 2 10:44:57 2018 -0500
+
+    Changed .gitignore
+
+commit ffd09c4ec26c0f48908eb2a334a89232f2d2d146
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Fri Feb 2 10:27:18 2018 -0500
+
+    Added swt Lib
+
+commit 9ec15d49ee57aae95e973a827c290f081a471c59
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Jan 31 15:19:41 2018 -0500
+
+    Structure Fixes
+    
+    Recreated the package and organized some files.
+
+commit 1a10c4f6465cfe021aae2cf9bdaddd9a17426e3c
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Wed Jan 31 10:59:16 2018 -0500
+
+    Pushing metadata
+    
+    Hope this works....
+
+commit de93180cdd62b14d86148d5002bd7cdb7d6c117a
+Merge: 84882a0 33bc566
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Mon Jan 29 14:55:07 2018 -0500
+
+    Merge branch 'master' of https://github.com/Hangry9090/CalendarProject
+    
+    Added a new function to help with extracting class info.
+
+commit 84882a0466b7a75a99816c1d03063cf4d9f9dc1a
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Mon Jan 29 14:54:33 2018 -0500
+
+    Added an 'extractClasses' function to help with separating the class info from the mySchedule arraylist
+
+commit 33bc566241e5f6f030efc0229275281875ad6f8f
+Author: Hangry9090 <mbrummel14@gmail.com>
+Date:   Mon Jan 29 14:05:39 2018 -0500
+
+    Rename SWTResourceManager.java to code/calendarProject/calendarProject/SWTResourceManager.java
+
+commit d48c4451f0709841adcdc25a2a2e6954b84c9110
+Author: Hangry9090 <mbrummel14@gmail.com>
+Date:   Mon Jan 29 14:05:24 2018 -0500
+
+    file moved
+
+commit 089178b7ad0d48493ce8dcd61248ad91dcd11e50
+Author: Hangry9090 <mbrummel14@gmail.com>
+Date:   Mon Jan 29 11:58:34 2018 -0500
+
+    Updated package name for compatability
+
+commit 333ead137968fb7ec3176c0ce5dfede932848592
+Author: Hangry9090 <mbrummel14@gmail.com>
+Date:   Mon Jan 29 11:57:43 2018 -0500
+
+    Changed package name to be compatable
+
+commit a99271fe4655b3b156e0acbc8eb4cee6d57c4efd
+Author: Hangry9090 <mbrummel14@gmail.com>
+Date:   Mon Jan 29 11:50:34 2018 -0500
+
+    Added GUI functionality
+
+commit d788a57b19a097d6479582dca446b9532a7b7a55
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Jan 29 10:49:44 2018 -0500
+
+    Removed Checkstyle warnings.
+
+commit 436f70432469e7547571c8e1355c3a94c28047c0
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Jan 29 10:44:43 2018 -0500
+
+    Restructured main for testing and moved code to parseFile function.
+
+commit 4c011f6746f4f4246cb89aa46bbed30ddab30222
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Jan 29 10:31:09 2018 -0500
+
+    More checkstyle fixed.
+
+commit c1dceacc9f5c62280f16b0d561911e045099723f
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Jan 29 10:20:28 2018 -0500
+
+    Only add and commit the .java file everytime now. Removed old comments and fixed some checkstyle.
+
+commit abba0b939a9aa8c336f2591f0d19795e6dcad7be
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Fri Jan 26 11:52:43 2018 -0500
+
+    Added Jsoup API and makes it extract schedule from HTML
+
+commit 07cd5ed7b27551538e45d418e633b9117feafce2
+Author: Hangry9090 <mbrummel14@gmail.com>
+Date:   Thu Jan 25 13:22:13 2018 -0500
+
+    Added concise student schedule
+
+commit c36e83153bcff691085b2ba2be06f6d91069bf7f
+Author: ASisouphone <33473173+ASisouphone@users.noreply.github.com>
+Date:   Wed Jan 24 12:10:12 2018 -0500
+
+    Added my schedule html file
+
+commit b070f791d98dfcd16cedb955e7673240ab52ed46
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Jan 24 11:01:04 2018 -0500
+
+    More progress. Parses file into ArrayList.
+
+commit 9a4e455b1609c536e4d3528ee4057cc3eca9935f
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Jan 24 10:23:59 2018 -0500
+
+    Created first file.
+
+commit 0b2d3d84cb5a67dde2d36fb76f9600c6bbf87128
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Jan 24 10:18:07 2018 -0500
+
+    Created eclipse project. You guys should be able to switch to the code folder as
+    an eclipse workspace that we can share.
+
+commit 5099b4e67774307791fc1c090117113e84672719
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Jan 24 10:14:11 2018 -0500
+
+    Testing git. Added test html file.
+
+commit 8c84a5b0f7e65bdf21c6bdfa8a510e63dd605171
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Fri Jan 19 10:49:12 2018 -0500
+
+    first commit
