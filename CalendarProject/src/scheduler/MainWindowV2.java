@@ -127,11 +127,11 @@ public class MainWindowV2 {
 
 				try {
 					userSchedule.inputFile(fullName);
-					messageTextField.append("\nFile " + fileName + " imported sucessfully!");
+					messageTextField.setText("\nFile " + fileName + " imported sucessfully!");
 				} catch (IOException e1) {
-					messageTextField.append("\nError opening file.");
+					messageTextField.setText("\nError opening file.");
 				} catch (IllegalArgumentException e1) {
-					messageTextField.append("\nError opening file.");
+					messageTextField.setText("\nError opening file.");
 				
 				}
 
@@ -148,14 +148,14 @@ public class MainWindowV2 {
 				String savePath = dialog.open();
 				try {
 					userSchedule.outputFile(savePath);
-					messageTextField.append("\nCalendar file created sucessfully!");
-					messageTextField.append("\nSaved to: " + savePath);
+					messageTextField.setText("\nCalendar file created sucessfully!");
+					messageTextField.setText("\nSaved to: " + savePath);
 				} catch (IOException e1) {
-					messageTextField.append("\nFile not loaded.");
+					messageTextField.setText("\nFile not loaded.");
 				} catch (NoSuchFieldException e1) {
-					messageTextField.append("\nPlease input a file first.");
+					messageTextField.setText("\nPlease input a file first.");
 				} catch (NullPointerException e1) {
-					messageTextField.append("\nFile not loaded.");
+					messageTextField.setText("\nFile not loaded.");
 				}
 			}
 		});
@@ -164,7 +164,6 @@ public class MainWindowV2 {
 
 		messageTextField = new Text(composite1, SWT.BORDER);
 		messageTextField.setText("Welcome to GVSU Scheduler!\r");
-		messageTextField.append("\n-------------------------------\n");
 		messageTextField.setBounds(129, 52, 540, 273);
 
 		TabItem instructionsTab = new TabItem(tabFolder, SWT.NONE);
