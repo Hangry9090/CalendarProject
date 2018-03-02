@@ -1,3 +1,21 @@
+commit 97602f6be34ce6c0fa211abe3bbf36421ef74dcb
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Fri Mar 2 01:38:52 2018 -0500
+
+    Fixed Scheduler tests and added a new improper HTML file for the tests
+
+commit 549873a344fbbe0628eebc14ad135206c45aa0e9
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Mar 1 23:05:59 2018 -0500
+
+    Somehow the javadocs got messed up before. This is fixed now.
+
+commit 13a8d9ed52c73a8af98d8ca55039be611b426a6f
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Thu Mar 1 17:59:54 2018 -0500
+
+    Pushed git log
+
 commit f462e06bb96e0a455b8b11c58b4ad5dffe368d12
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Thu Mar 1 17:57:02 2018 -0500
