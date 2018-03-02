@@ -56,10 +56,10 @@ class SchedulerTests {
 	@Test
 	void testICSCreation() {
 
-		String properICSEvent = "BEGIN:VCALENDAR\n" + "VERSION:2.0\n" + "BEGIN:VEVENT\n"
-				+ "DTSTART;TZID=America/Detroit:20180108T120000\n" + "DTEND;TZID=America/Detroit:20180108T125000\n"
-				+ "RRULE:FREQ=WEEKLY;UNTIL=20180428T000000;INTERVAL=1;BYDAY=MO,WE,FR\n" + "SUMMARY:Waffle Science\n"
-				+ "DESCRIPTION:WFL 225\\nWaffle Center\n" + "END:VEVENT\n" + "END:VCALENDAR\n";
+		String properICSEvent = "BEGIN:VCALENDAR" + "VERSION:2.0" + "BEGIN:VEVENT"
+				+ "DTSTART;TZID=America/Detroit:20180108T120000" + "DTEND;TZID=America/Detroit:20180108T125000"
+				+ "RRULE:FREQ=WEEKLY;UNTIL=20180428T000000;INTERVAL=1;BYDAY=MO,WE,FR" + "SUMMARY:Waffle Science"
+				+ "DESCRIPTION:WFL 225\\nWaffle Center" + "END:VEVENT" + "END:VCALENDAR";
 
 		ICSEventBuilder ics = new ICSEventBuilder();
 		ics.beginEvent();
@@ -90,7 +90,7 @@ class SchedulerTests {
 
 		Scheduler jakeSched = new Scheduler();
 
-		jakeSched.inputFile("sched.html");
+		jakeSched.inputFile("../sched.html");
 
 		String icsDir = findTestDirectory("JakeTest.ics");
 
@@ -113,7 +113,7 @@ class SchedulerTests {
 
 		Scheduler rodSched = new Scheduler();
 
-		rodSched.inputFile("RodSched.html");
+		rodSched.inputFile("../RodSched.html");
 
 		String icsDir = findTestDirectory("RodTest.ics");
 
@@ -133,12 +133,26 @@ class SchedulerTests {
 	void testMultipleInputSchedules() throws IOException, NoSuchFieldException {
 		Scheduler jakeSched = new Scheduler();
 
-		jakeSched.inputFile("sched.html");
-		jakeSched.inputFile("CSS-Marshal.html");
-		jakeSched.inputFile("sched.html");
+		jakeSched.inputFile("../sched.html");
+		jakeSched.inputFile("../rodSched.html");
+		jakeSched.inputFile("../sched.html");
 
 		// Only Jake is taking CIS 654
 		assertTrue(jakeSched.toString().contains("CIS 654"));
+
+	}
+
+	/**
+	 * Tests to make sure that improper HTML files are not read.
+	 */
+	@Test
+	void testBadHTMLFile() {
+
+		Scheduler testSched = new Scheduler();
+
+		Assertions.assertThrows(IOException.class, () -> {
+			testSched.inputFile("../badSched.html");
+		});
 
 	}
 
@@ -153,7 +167,7 @@ class SchedulerTests {
 
 		Scheduler testSched = new Scheduler();
 
-		testSched.inputFile("sched.html");
+		testSched.inputFile("../sched.html");
 	}
 
 	/**
@@ -167,7 +181,7 @@ class SchedulerTests {
 
 		Scheduler testSched = new Scheduler();
 
-		testSched.inputFile("sched.htm");
+		testSched.inputFile("../sched.htm");
 	}
 
 	/**
@@ -228,7 +242,7 @@ class SchedulerTests {
 		Scheduler testSched = new Scheduler();
 
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			String fileName = "sched.html";
+			String fileName = "../sched.html";
 
 			testSched.inputFile(fileName);
 
@@ -244,7 +258,7 @@ class SchedulerTests {
 		Scheduler testSched = new Scheduler();
 
 		Assertions.assertThrows(NullPointerException.class, () -> {
-			String fileName = "sched.html";
+			String fileName = "../sched.html";
 			String filePath = null;
 
 			testSched.inputFile(fileName);
@@ -261,7 +275,7 @@ class SchedulerTests {
 		Scheduler testSched = new Scheduler();
 
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			String fileName = "sched.html";
+			String fileName = "../sched.html";
 
 			String filePath = findTestDirectory("sched.css");
 			testSched.inputFile(fileName);
@@ -289,6 +303,11 @@ class SchedulerTests {
 	@Test
 	void createCourseTest() {
 
+		String properICS = "Class: 33333\n" + "cNum: WFL 355 02\n" + "cName: Intro to Waffle Engineering\n"
+				+ "Campus: ALL\n" + "Credits: 4.0\n" + "Level: U\n" + "Time: [1:00 pm - 1:50 pm]\n" + "Days: [MWF]\n"
+				+ "Location: [222 Not Pancakes Hall]\n" + "Start Date: [Jan 08, 2018]\n"
+				+ "End Date: [April 28, 2018]\n" + "Prof: Eggo\n" + "---------------------------\n";
+
 		int cID = 33333;
 		String cNum = "WFL 355 02";
 		String cName = "Intro to Waffle Engineering";
@@ -311,7 +330,8 @@ class SchedulerTests {
 
 		Course course = new Course(cID, cNum, cName, campus, credits, level, days, meetTime, location, startDate,
 				endDate, prof);
-		System.out.println(course);
+
+		assertTrue(course.toString().equals(properICS));
 	}
 
 	/**
@@ -319,6 +339,11 @@ class SchedulerTests {
 	 */
 	@Test
 	void createCourseTest1() {
+
+		String properICS = "Class: 33333\n" + "cNum: WFL 355 02\n" + "cName: Intro to Waffle Engineering\n"
+				+ "Campus: ALL\n" + "Credits: 4.0\n" + "Level: U\n" + "Time: [1:00 pm - 1:50 pm]\n" + "Days: [W]\n"
+				+ "Location: [222 Not Pancakes Hall]\n" + "Start Date: [Jan 17, 2018]\n"
+				+ "End Date: [April 28, 2018]\n" + "Prof: Eggo\n" + "---------------------------\n";
 
 		int cID = 33333;
 		String cNum = "WFL 355 02";
@@ -342,7 +367,7 @@ class SchedulerTests {
 
 		Course course = new Course(cID, cNum, cName, campus, credits, level, days, meetTime, location, startDate,
 				endDate, prof);
-		System.out.println(course);
+		assertTrue(course.toString().equals(properICS));
 
 	}
 
@@ -351,6 +376,19 @@ class SchedulerTests {
 	 */
 	@Test
 	void createICS() {
+
+		String properICS = "BEGIN:VCALENDARVERSION:2.0"
+				+ "DTSTART;"
+				+ "TZID=America/Detroit:20180108T120000"
+				+ "DTEND;"
+				+ "TZID=America/Detroit:20180108T125000"
+				+ "RRULE:FREQ=WEEKLY;"
+				+ "UNTIL=20180428T000000;"
+				+ "INTERVAL=1;BYDAY=MO,WE,FR"
+				+ "SUMMARY:Waffle Science"
+				+ "DESCRIPTION:WFL 225\\nWaffle Center"
+				+ "END:VEVENT"
+				+ "END:VCALENDAR";
 
 		ArrayList<String> icsFormat = new ArrayList<String>();
 		icsFormat.add("BEGIN:VCALENDAR");
@@ -364,8 +402,7 @@ class SchedulerTests {
 		icsFormat.add("END:VCALENDAR");
 
 		ICSEventBuilder ics = new ICSEventBuilder(icsFormat);
-		System.out.println(ics);
-
+		assertTrue(ics.toString().equals(properICS));
 	}
 
 }
