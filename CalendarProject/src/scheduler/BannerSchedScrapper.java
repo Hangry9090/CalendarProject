@@ -1,8 +1,10 @@
 package scheduler;
 
+import java.io.Console;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 
 import org.jsoup.Jsoup;
@@ -32,6 +34,9 @@ public class BannerSchedScrapper {
 	/** Address to change the current Concise Student Schedule Semester. */
 	private String changeSchedURL = "https://mybanner.gvsu.edu/PROD/bwskflib.P_SelDefTerm";
 
+	private String mainMenuURL = "https://mybanner.gvsu.edu/PROD/twbkwbis.P_GenMenu?name=bmenu.P_MainMnu";
+
+	
 	/**
 	 * Uses the input credentials to login to GVSU's Banner website.
 	 * @param username
@@ -79,6 +84,10 @@ public class BannerSchedScrapper {
 
 		// Clicks the submit button
 		page = form.getInputByValue("Sign In").click();
+		
+		if (!page.getBaseURI().toString().equals(this.mainMenuURL)) {
+			throw new IOException();
+		}
 	}
 
 	/**
@@ -231,13 +240,16 @@ public class BannerSchedScrapper {
 	public void closeClient() {
 		this.webClient.close();
 	}
+	
+
 
 	public static void main(String[] args) {
 
-		// Input your Banner username and password for "username" and "password" below
+		// Please enter your Banner username and password for "username" and "password" below
+
 		
 		try {
-			BannerSchedScrapper login = new BannerSchedScrapper("username", "password");
+			BannerSchedScrapper login = new                                                                   BannerSchedScrapper("", "");
 
 			System.out.println("These are valid input values to specify a semester:");
 			System.out.println(login.getSemesterValues());
@@ -246,10 +258,10 @@ public class BannerSchedScrapper {
 			System.out.println(login.getSemesterOptions());
 			System.out.println("===========================================");
 			System.out.println("This is the HTML of the table element:");
-			System.out.println(login.getScheduleAsHTML("201820"));
+			System.out.println(login.getScheduleAsHTML("201920"));
 			System.out.println("===========================================");
 			System.out.println("This is the table of the student schedule as a string:");
-			System.out.println(login.getScheduleAsText("201820"));
+			System.out.println(login.getScheduleAsText("201920"));
 
 			login.closeClient();
 			System.out.println("=========Success========");
