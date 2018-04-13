@@ -5,6 +5,7 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+import java.awt.Frame;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.UIManager;
@@ -42,6 +43,8 @@ public class MainWindowV2 {
 	 * userSchedule The schedule to be used by GUI.
 	 */
 	private Scheduler userSchedule = new Scheduler();
+	
+	private LoginView login;
 
 	/**
 	 * Launch the application.
@@ -79,6 +82,7 @@ public class MainWindowV2 {
 			}
 		}
 	}
+	
 
 	/**
 	 * Create contents of the window.
@@ -112,28 +116,36 @@ public class MainWindowV2 {
 
 				// code for filedialog found here:
 				// https://stackoverflow.com/questions/5703825/does-swing-support-windows-7-style-file-choosers
-				FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-				String[] filterNames = new String[] {"HTML (.html)" };
-				String[] filterExtensions = new String[] {"*.html" };
-				dialog.setFilterNames(filterNames);
-				dialog.setFilterExtensions(filterExtensions);
-				dialog.open();
-				String fileName = dialog.getFileName();
-				String path = dialog.getFilterPath();
-
-				// change to file so the path separator is included in the path + filename
-				File selectedFile = new File(path, fileName);
-				String fullName = selectedFile.getAbsolutePath();
-
-				try {
-					userSchedule.inputFile(fullName);
-					messageTextField.setText("\nFile " + fileName + " imported sucessfully!");
-				} catch (IOException e1) {
-					messageTextField.setText("\nError opening file.");
-				} catch (IllegalArgumentException e1) {
-					messageTextField.setText("\nError opening file.");
+//				FileDialog dialog = new FileDialog(shell, SWT.OPEN);
+//				String[] filterNames = new String[] {"HTML (.html)" };
+//				String[] filterExtensions = new String[] {"*.html" };
+//				dialog.setFilterNames(filterNames);
+//				dialog.setFilterExtensions(filterExtensions);
+//				dialog.open();
+//				String fileName = dialog.getFileName();
+//				String path = dialog.getFilterPath();
+//
+//				// change to file so the path separator is included in the path + filename
+//				File selectedFile = new File(path, fileName);
+//				String fullName = selectedFile.getAbsolutePath();
 				
-				}
+				login = LoginView.getInstance(userSchedule);
+				
+				
+//				if (login == null) {
+//					login = new LoginView(userSchedule);
+//				} else {
+//					// TODO: Login already created
+//					System.out.println(login.toString());
+//				}
+
+//				try {
+//					//userSchedule.inputFile(fullName);
+//					messageTextField.setText("\nFile imported sucessfully!");
+//				} catch (IllegalArgumentException e1) {
+//					messageTextField.setText("\nError opening file.");
+//				
+//				}
 
 			}
 		});

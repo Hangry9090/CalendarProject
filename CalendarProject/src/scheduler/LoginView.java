@@ -3,7 +3,9 @@ package scheduler;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -18,8 +20,13 @@ import javax.swing.JTextField;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 
 public class LoginView implements ActionListener {
+	
+	private static LoginView login = null;
 
 	private BannerSchedScrapper scrapper;
+	
+	private Scheduler scheduler;
+	
 
 	private String[] values = { "201920", "201910", "201830", "201820", "201810", "201730", "201720", "201710",
 			"201630", "201620", "201610", "201530", "201520", "201510", "201430", "201420", "201410", "201330",
@@ -43,11 +50,19 @@ public class LoginView implements ActionListener {
 	private JButton loginButton;
 	private JComboBox<String> semList;
 
-	public LoginView() {
+	private LoginView(Scheduler userSchedule) {
+		
+		scheduler = userSchedule;
 
 		frame = new JFrame("Grand Valley Scheduler");
 		frame.setSize(300, 190);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.addWindowListener(new WindowAdapter() {
+			   public void windowClosing(WindowEvent evt) {
+			     login = null;
+			     frame.dispose();
+			   }
+			  });
 		frame.setResizable(false);
 
 		JPanel panel = new JPanel();
@@ -95,6 +110,15 @@ public class LoginView implements ActionListener {
 		frame.setVisible(true);
 
 	}
+	
+	public static LoginView getInstance(Scheduler userSchedule) {
+		if (login == null) {
+			login = new LoginView(userSchedule);
+		}
+		
+		return login;
+	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -115,8 +139,13 @@ public class LoginView implements ActionListener {
 						scrapper = new BannerSchedScrapper(userText.getText(),
 								String.valueOf(passwordText.getPassword()));
 					}
-					System.out.println(scrapper.getScheduleAsText(this.values[semList.getSelectedIndex()]));
-					frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+					//System.out.println(scrapper.getScheduleAsText(this.values[semList.getSelectedIndex()]));
+					
+					scheduler.inputHTML(scrapper.getScheduleAsHTML(this.values[semList.getSelectedIndex()]));			
+					
+					//frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+					login = null;
+					frame.dispose();
 				} catch (FailingHttpStatusCodeException e1) {
 					// if a wrong page is retrieved
 					e1.printStackTrace();
@@ -142,7 +171,7 @@ public class LoginView implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		LoginView login = new LoginView();
+		//LoginView login = new LoginView();
 	}
 
 }
