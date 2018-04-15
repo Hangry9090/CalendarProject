@@ -48,6 +48,7 @@ public class Scheduler {
 	 */
 	private ICSEventBuilder ics = new ICSEventBuilder();
 
+	
 	/**
 	 * Constructor.
 	 */
@@ -102,6 +103,33 @@ public class Scheduler {
 		}
 		return mySchedule;
 
+	}
+	
+	
+	private ArrayList<String> parseHTML(String html) {
+		ArrayList<String> mySchedule = new ArrayList<String>();
+
+		Document doc = Jsoup.parse(html);
+		
+		Elements schedTable = doc.getElementsByClass("datadisplaytable");
+
+		// It will now separate the rows and columns of the table
+		Elements rows = schedTable.select("tr");
+
+		for (Element row : rows) {
+
+			Elements cells = row.select("td");
+			for (Element cell : cells) {
+				if (!(cell.text().isEmpty())) {
+					mySchedule.add(cell.text());
+
+				}
+			}
+
+		}
+		
+		System.out.println(mySchedule);
+		return mySchedule;
 	}
 
 	/**
@@ -209,6 +237,27 @@ public class Scheduler {
 		// System.out.println(ics.toString());
 	}
 
+	public void inputHTML(String html) throws IOException {
+		
+		mySchedule = parseHTML(html);
+
+		classes = extractClasses(mySchedule);
+
+		// for (String s : mySchedule) {
+		// System.out.println(s);
+		// }
+
+		// System.out.println();
+
+		for (ArrayList<String> str : classes) {
+			Course course = new Course();
+			course.loadCourse(str);
+			courseList.add(course);
+			// System.out.println(course.toString());
+		}
+	}
+	
+	
 	/**
 	 * Function that loads a file and creates course objects for each class.
 	 * 
