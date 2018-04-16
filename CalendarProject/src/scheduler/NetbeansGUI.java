@@ -22,12 +22,9 @@ public class NetbeansGUI extends JFrame {
      * Creates new form CalProJFrame
      */
     public NetbeansGUI() {
-        System.out.println("Before init");
         initComponents();
-        System.out.println("Check 1");
         changingPanels = new JPanel[]{this.changingViewPanel, this.changingComparePanel, this.changingInfoPanel, this.changingHelpPanel};
         sidePanels = new JPanel[]{this.viewPanel, this.comparePanel, this.classInfoPanel, this.helpPanel};
-        System.out.println("After init");
 
     }
 
@@ -75,7 +72,6 @@ public class NetbeansGUI extends JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         
-        System.out.println("HERE");
 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -257,7 +253,6 @@ public class NetbeansGUI extends JFrame {
 
         changingViewPanel.setBackground(new java.awt.Color(255, 255, 0));
         
-        System.out.println("HERE NOW");
 
 
         scheduleNameLabel.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
@@ -430,8 +425,6 @@ public class NetbeansGUI extends JFrame {
         mainPanel.add(changingInfoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 1030, 780));
 
         
-        System.out.println("HERE HERE");
-
         changingHelpPanel.setBackground(new java.awt.Color(255, 51, 153));
 
         scheduleNameLabel4.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
@@ -484,11 +477,9 @@ public class NetbeansGUI extends JFrame {
             .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        System.out.println("HERE NOW HERE");
 
         this.pack();
         
-        System.out.println("DONE INIT");
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -561,10 +552,8 @@ public class NetbeansGUI extends JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                System.out.println("Running");
                 NetbeansGUI mainFrame = new NetbeansGUI();
                 mainFrame.setVisible(true);
-                System.out.println("Running");
             }
         });
     }
