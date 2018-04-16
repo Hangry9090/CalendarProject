@@ -280,7 +280,7 @@ public class SchedulerWindow extends JFrame implements ActionListener {
 
 		this.classInfoText = new JTextField();
 		this.classInfoText.setEditable(false);
-		this.classInfoButton.setText("No Info");
+		this.classInfoText.setText("No Info");
 		classInfo.add(this.classInfoText, BorderLayout.CENTER);
 		this.classInfoText.setColumns(10);
 		return classInfo;
