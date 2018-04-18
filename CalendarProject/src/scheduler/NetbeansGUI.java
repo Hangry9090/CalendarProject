@@ -151,7 +151,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         });
 
         viewIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        viewIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calproject/assests/Blue_Menu_icon.png"))); // NOI18N
+        viewIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_Menu_icon.png"))); // NOI18N
         viewIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 viewLabelMouseClicked(evt);
@@ -190,7 +190,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         });
 
         compareIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        compareIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calproject/assests/Blues_scales_icon.png"))); // NOI18N
+        compareIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blues_scales_icon.png"))); // NOI18N
         compareIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 compareIconMouseClicked(evt);
@@ -229,7 +229,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         });
 
         classInfoIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        classInfoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calproject/assests/Blue_info_icon.png"))); // NOI18N
+        classInfoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_info_icon.png"))); // NOI18N
         classInfoIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 classInfoIconMouseClicked(evt);
@@ -268,7 +268,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         });
 
         helpIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        helpIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calproject/assests/Blue_Help_Icon.png"))); // NOI18N
+        helpIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_Help_Icon.png"))); // NOI18N
         helpIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 helpLabelMouseClicked(evt);
@@ -316,12 +316,12 @@ public class NetbeansGUI extends javax.swing.JFrame {
 
         viewImportIcon.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         viewImportIcon.setForeground(new java.awt.Color(0, 0, 153));
-        viewImportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calproject/assests/Blue_Add_Schedule_Icon.png"))); // NOI18N
+        viewImportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_Add_Schedule_Icon.png"))); // NOI18N
         viewImportIcon.setText("Import Schedule");
 
         viewExportIcon.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         viewExportIcon.setForeground(new java.awt.Color(0, 0, 153));
-        viewExportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calproject/assests/Blue_Export_Icon.png"))); // NOI18N
+        viewExportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_Export_Icon.png"))); // NOI18N
         viewExportIcon.setText("Export to .ics");
 
         viewScheduleTable.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -416,7 +416,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
 
         compareImportIcon.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         compareImportIcon.setForeground(new java.awt.Color(0, 0, 153));
-        compareImportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calproject/assests/Blue_Add_Schedule_Icon.png"))); // NOI18N
+        compareImportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_Add_Schedule_Icon.png"))); // NOI18N
         compareImportIcon.setText("Import Schedule");
 
         viewScheduleTable2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -712,7 +712,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
     private javax.swing.JLabel classInfoLabel;
     private javax.swing.JPanel classInfoPanel;
     private javax.swing.JLabel compareIcon;
-    private javax.swing.JLabel compareImportIcon;
+    protected javax.swing.JLabel compareImportIcon;
     private javax.swing.JLabel compareLabel;
     private javax.swing.JPanel comparePanel;
     private javax.swing.JLabel exitLable;
@@ -740,9 +740,9 @@ public class NetbeansGUI extends javax.swing.JFrame {
     private javax.swing.JLabel scheduleNameLabel3;
     private javax.swing.JLabel scheduleNameLabel4;
     private javax.swing.JPanel sidePanel;
-    private javax.swing.JLabel viewExportIcon;
+    protected javax.swing.JLabel viewExportIcon;
     private javax.swing.JLabel viewIcon;
-    private javax.swing.JLabel viewImportIcon;
+    protected javax.swing.JLabel viewImportIcon;
     private javax.swing.JLabel viewLabel;
     private javax.swing.JPanel viewPanel;
     private javax.swing.JTable viewScheduleTable;

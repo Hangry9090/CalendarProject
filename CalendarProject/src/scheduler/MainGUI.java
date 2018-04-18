@@ -33,19 +33,34 @@ public class MainGUI extends NetbeansGUI {
             }
         });
 		
-		//add import action listener
+		//add import action listener in view window
 		this.viewImportIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 importViewSchedule();
             }
         });
+		
+		//add import action listener in view window
+		this.compareImportIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                importCompareSchedule();
+            }
+        });
+		
+	}
+
+	
+	/*
+	 * Method to respond when import is hit in the compare tab.
+	 */
+	protected void importCompareSchedule() {
+		loginView = LoginView.getInstance(scheduler);
 	}
 
 	/*
 	 * Method to respond when import button is hit in view window.
 	 */
 	protected void importViewSchedule() {
-		// TODO Auto-generated method stub
 		loginView = LoginView.getInstance(scheduler);
 	}
 
