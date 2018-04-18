@@ -745,8 +745,8 @@ public class NetbeansGUI extends javax.swing.JFrame {
     protected javax.swing.JLabel viewImportIcon;
     private javax.swing.JLabel viewLabel;
     private javax.swing.JPanel viewPanel;
-    private javax.swing.JTable viewScheduleTable;
-    private javax.swing.JTable viewScheduleTable1;
-    private javax.swing.JTable viewScheduleTable2;
+    protected javax.swing.JTable viewScheduleTable;
+    protected javax.swing.JTable viewScheduleTable1;
+    protected javax.swing.JTable viewScheduleTable2;
     // End of variables declaration//GEN-END:variables
 }

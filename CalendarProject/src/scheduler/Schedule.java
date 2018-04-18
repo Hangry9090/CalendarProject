@@ -1,12 +1,8 @@
 package scheduler;
 
-import java.io.IOException;
 import java.util.*;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+
 
 /**
  * Title: Schedule
@@ -18,21 +14,11 @@ import org.jsoup.select.Elements;
  **/
 public class Schedule {
 	
-	/**
-	 * mySchedule The list of strings that makeup the schedule.
-	 */
-	private ArrayList<String> mySchedule = new ArrayList<String>();
-	
-	/**
-	 * classes The list of string that makeup the classes.
-	 */
-	private ArrayList<ArrayList<String>> classes = new ArrayList<ArrayList<String>>();
 	
 	/*
 	 * courseList - Main data structure to store a bunch of courses.
 	 */
-	private ArrayList<Course> courseList = new ArrayList<Course>();
-	
+	private ArrayList<Course> courseList;
 	
 	
 	/*
@@ -46,12 +32,24 @@ public class Schedule {
 	
 
 	
+	public Schedule() {
+		courseList = new ArrayList<Course>();
+	}
+
+
+
 	/*
 	 * Getter for courseList
 	 * 
 	 */
 	public ArrayList<Course> getCourseList() {
 		return courseList;
+	}
+
+
+
+	public void appendCourseList(Course c) {
+		this.courseList.add(c);
 	}
 	
 
