@@ -105,14 +105,19 @@ public class MainGUI extends NetbeansGUI {
 		String savePath;
 		JFileChooser dialog = new JFileChooser();
 		
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("ICS Files", "ics");
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("ICS Files", ".ics");
 		dialog.setFileFilter(filter);
 		int returnVal = dialog.showSaveDialog(getParent());
 		if(returnVal == JFileChooser.APPROVE_OPTION) {
 			savePath = dialog.getSelectedFile().getAbsolutePath();
 			
+			//make sure .ics is the extension
+			if (!savePath.endsWith(".ics")) {
+		        savePath += ".ics";
+			}
 			try {
 				mainScheduler.outputFile(savePath);
+		        JOptionPane.showMessageDialog(null, "Export successful! File saved to: " + savePath, "Export Successful", JOptionPane.INFORMATION_MESSAGE);
 			} catch (Exception e) {
 		        JOptionPane.showMessageDialog(null, "Export unsuccessful. Make sure to import a schedule first.", "Error", JOptionPane.INFORMATION_MESSAGE);
 			}
