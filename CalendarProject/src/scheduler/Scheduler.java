@@ -333,6 +333,13 @@ public class Scheduler {
 		}
 
 	}
+	
+	public Schedule createSchedule() {
+		Schedule sched = new Schedule(courseList);
+		
+		return sched;
+		
+	}
 
 	/**
 	 * Allows the ICS file to be printed.

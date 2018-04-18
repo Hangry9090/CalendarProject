@@ -4,6 +4,7 @@
 package scheduler;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -16,8 +17,12 @@ import javax.swing.filechooser.*;
  *
  */
 public class MainGUI extends NetbeansGUI {
-	private Scheduler scheduler;
+	private Scheduler mainScheduler;
 	private LoginView loginView;
+	private Schedule mainViewSchedule;
+	private ArrayList<Schedule> compareList = new ArrayList<Schedule>();
+	
+	
 	
 	/**
 	 * 
@@ -25,7 +30,7 @@ public class MainGUI extends NetbeansGUI {
 	public MainGUI() {
 		super();
 		
-		scheduler = new Scheduler();
+		mainScheduler = new Scheduler();
 		
 		//add Export action listener
 		this.viewExportIcon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -55,14 +60,17 @@ public class MainGUI extends NetbeansGUI {
 	 * Method to respond when import is hit in the compare tab.
 	 */
 	protected void importCompareSchedule() {
-		loginView = LoginView.getInstance(scheduler);
+		Scheduler sched = new Scheduler();
+		loginView = LoginView.getInstance(sched);
+		compareList.add(sched.createSchedule());
+		System.out.println("Compare List: " + compareList);
 	}
 
 	/*
 	 * Method to respond when import button is hit in view window.
 	 */
 	protected void importViewSchedule() {
-		loginView = LoginView.getInstance(scheduler);
+		loginView = LoginView.getInstance(mainScheduler);
 	}
 
 	/*
@@ -80,7 +88,7 @@ public class MainGUI extends NetbeansGUI {
 			savePath = dialog.getSelectedFile().getAbsolutePath();
 			
 			try {
-				scheduler.outputFile(savePath);
+				mainScheduler.outputFile(savePath);
 			} catch (Exception e) {
 		        JOptionPane.showMessageDialog(null, "Export unsuccessful. Make sure to import a schedule first.", "Error", JOptionPane.INFORMATION_MESSAGE);
 			}
