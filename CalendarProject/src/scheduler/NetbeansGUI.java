@@ -6,6 +6,8 @@
 package scheduler;
 
 import java.awt.Color;
+
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -127,7 +129,6 @@ public class NetbeansGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setUndecorated(true);
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -151,7 +152,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         });
 
         viewIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        viewIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_Menu_icon.png"))); // NOI18N
+        viewIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("assests/Blue_Menu_icon.png"))); // NOI18N
         viewIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 viewLabelMouseClicked(evt);
@@ -190,7 +191,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         });
 
         compareIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        compareIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blues_scales_icon.png"))); // NOI18N
+        compareIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("assests/Blues_scales_icon.png"))); // NOI18N
         compareIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 compareIconMouseClicked(evt);
@@ -229,7 +230,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         });
 
         classInfoIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        classInfoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_info_icon.png"))); // NOI18N
+        classInfoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("assests/Blue_info_icon.png"))); // NOI18N
         classInfoIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 classInfoIconMouseClicked(evt);
@@ -268,7 +269,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         });
 
         helpIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        helpIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_Help_Icon.png"))); // NOI18N
+        helpIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("assests/Blue_Help_Icon.png"))); // NOI18N
         helpIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 helpLabelMouseClicked(evt);
@@ -316,54 +317,59 @@ public class NetbeansGUI extends javax.swing.JFrame {
 
         viewImportIcon.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         viewImportIcon.setForeground(new java.awt.Color(0, 0, 153));
-        viewImportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_Add_Schedule_Icon.png"))); // NOI18N
+        viewImportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("assests/Blue_Add_Schedule_Icon.png"))); // NOI18N
         viewImportIcon.setText("Import Schedule");
 
         viewExportIcon.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         viewExportIcon.setForeground(new java.awt.Color(0, 0, 153));
-        viewExportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_Export_Icon.png"))); // NOI18N
+        viewExportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("assests/Blue_Export_Icon.png"))); // NOI18N
         viewExportIcon.setText("Export to .ics");
 
-        viewScheduleTable.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        viewScheduleTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        viewScheduleTable.setGridColor(Color.gray);
+        viewScheduleTable.getTableHeader().setReorderingAllowed(false);
+        viewScheduleTable.setRowHeight(30);
+        
         viewScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+            		{"7:00am", null, null, null, null, null, null, null},
+            		{"7:30am", null, null, null, null, null, null, null},
+                {"8:00am", null, null, null, null, null, null, null},
+                {"8:30am", null, null, null, null, null, null, null},
+                {"9:00am", null, null, null, null, null, null, null},
+                {"9:30am", null, null, null, null, null, null, null},
+                {"10:00am", null, null, null, null, null, null, null},
+                {"10:30am", null, null, null, null, null, null, null},
+                {"11:00am", null, null, null, null, null, null, null},
+                {"11:30am", null, null, null, null, null, null, null},
+                {"12:00pm", null, null, null, null, null, null, null},
+                {"12:30pm", null, null, null, null, null, null, null},
+                {"1:00pm", null, null, null, null, null, null, null},
+                {"1:30pm", null, null, null, null, null, null, null},
+                {"2:00pm", null, null, null, null, null, null, null},
+                {"2:30pm", null, null, null, null, null, null, null},
+                {"3:00pm", null, null, null, null, null, null, null},
+                {"3:30pm", null, null, null, null, null, null, null},
+                {"4:00pm", null, null, null, null, null, null, null},
+                {"4:30pm", null, null, null, null, null, null, null},
+                {"5:00pm", null, null, null, null, null, null, null},
+                {"5:30pm", null, null, null, null, null, null, null},
+                {"6:00pm", null, null, null, null, null, null, null},
+                {"6:30pm", null, null, null, null, null, null, null},
+                {"7:00pm", null, null, null, null, null, null, null},
+                {"7:30pm", null, null, null, null, null, null, null},
+                {"8:00pm", null, null, null, null, null, null, null},
+                {"8:30pm", null, null, null, null, null, null, null},
+                {"9:00pm", null, null, null, null, null, null, null},
+              
+     
             },
             new String [] {
                 "Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
             }
         ));
+        
+        
         viewScheduleTable.setAutoscrolls(false);
         viewScheduleTable.setEnabled(false);
         viewScheduleTable.setRowSelectionAllowed(false);
@@ -416,44 +422,45 @@ public class NetbeansGUI extends javax.swing.JFrame {
 
         compareImportIcon.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         compareImportIcon.setForeground(new java.awt.Color(0, 0, 153));
-        compareImportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/assests/Blue_Add_Schedule_Icon.png"))); // NOI18N
+        compareImportIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("assests/Blue_Add_Schedule_Icon.png"))); // NOI18N
         compareImportIcon.setText("Import Schedule");
 
-        viewScheduleTable2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        viewScheduleTable2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        viewScheduleTable2.setGridColor(Color.gray);
+        viewScheduleTable2.getTableHeader().setReorderingAllowed(false);
+        viewScheduleTable2.setRowHeight(30);
+        
         viewScheduleTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+            	{"7:00am", null, null, null, null, null, null, null},
+        		{"7:30am", null, null, null, null, null, null, null},
+            {"8:00am", null, null, null, null, null, null, null},
+            {"8:30am", null, null, null, null, null, null, null},
+            {"9:00am", null, null, null, null, null, null, null},
+            {"9:30am", null, null, null, null, null, null, null},
+            {"10:00am", null, null, null, null, null, null, null},
+            {"10:30am", null, null, null, null, null, null, null},
+            {"11:00am", null, null, null, null, null, null, null},
+            {"11:30am", null, null, null, null, null, null, null},
+            {"12:00pm", null, null, null, null, null, null, null},
+            {"12:30pm", null, null, null, null, null, null, null},
+            {"1:00pm", null, null, null, null, null, null, null},
+            {"1:30pm", null, null, null, null, null, null, null},
+            {"2:00pm", null, null, null, null, null, null, null},
+            {"2:30pm", null, null, null, null, null, null, null},
+            {"3:00pm", null, null, null, null, null, null, null},
+            {"3:30pm", null, null, null, null, null, null, null},
+            {"4:00pm", null, null, null, null, null, null, null},
+            {"4:30pm", null, null, null, null, null, null, null},
+            {"5:00pm", null, null, null, null, null, null, null},
+            {"5:30pm", null, null, null, null, null, null, null},
+            {"6:00pm", null, null, null, null, null, null, null},
+            {"6:30pm", null, null, null, null, null, null, null},
+            {"7:00pm", null, null, null, null, null, null, null},
+            {"7:30pm", null, null, null, null, null, null, null},
+            {"8:00pm", null, null, null, null, null, null, null},
+            {"8:30pm", null, null, null, null, null, null, null},
+            {"9:00pm", null, null, null, null, null, null, null},
             },
             new String [] {
                 "Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
