@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -19,50 +18,87 @@ import javax.swing.JTextField;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 
-public class LoginView implements ActionListener {
-	
+/**
+ * Creates a login window for students to retrieve their student schedules from
+ * Banner.
+ * 
+ * @author Alan Sisouphone
+ * @author Marshal Brummel
+ * @author Jake Walton
+ * @version 2.0
+ *
+ */
+public final class LoginView implements ActionListener {
+
+	/** Instance of Login object for Singleton Pattern. */
 	private static LoginView login = null;
 
+	/** Scraper object for scraping Banner. */
 	private BannerSchedScrapper scrapper;
-	
-	private Scheduler scheduler;
-	
 
-	private String[] values = { "201920", "201910", "201830", "201820", "201810", "201730", "201720", "201710",
+	/** Scheduler object for parsing. */
+	private Scheduler scheduler;
+
+	/** Input values for semester year form. */
+	private String[] values = {"201920", "201910", "201830", "201820", "201810", "201730", "201720", "201710",
 			"201630", "201620", "201610", "201530", "201520", "201510", "201430", "201420", "201410", "201330",
 			"201320", "201310", "201230", "201220", "201210", "201130", "201120", "201110", "201030", "201020",
 			"201010", "200930", "200920", "200910", "200830", "200820", "200810" };
-	private String[] display = { "Winter 2019", "Fall 2018", "Spring/Summer 2018", "Winter 2018", "Fall 2017",
+
+	/** View options for semester combo box. */
+	private String[] display = {"Winter 2019", "Fall 2018", "Spring/Summer 2018", "Winter 2018", "Fall 2017",
 			"Spring/Summer 2017", "Winter 2017", "Fall 2016", "Spring/Summer 2016", "Winter 2016", "Fall 2015",
 			"Spring/Summer 2015", "Winter 2015", "Fall 2014", "Spring/Summer 2014", "Winter 2014", "Fall 2013",
 			"Spring/Summer 2013", "Winter 2013", "Fall 2012", "Spring/Summer 2012", "Winter 2012", "Fall 2011",
 			"Spring/Summer 2011", "Winter 2011", "Fall 2010", "Spring/Summer 2010", "Winter 2010", "Fall 2009",
 			"Spring/Summer 2009", "Winter 2009", "Fall 2008", "Spring/Summer 2008", "Winter 2008", "Fall 2007" };
 
+	/** Login Window. */
 	private JFrame frame;
 
+	/** Username label. */
 	private JLabel userLabel;
+
+	/** Password label. */
 	private JLabel passwordLabel;
+
+	/** Description of login form. */
 	private JLabel loginDesc;
+
+	/** Displays error messages. */
 	private JLabel loginStatus;
+
+	/** Username field. */
 	private JTextField userText;
+
+	/** Password field. */
 	private JPasswordField passwordText;
+
+	/** Button to login. */
 	private JButton loginButton;
+
+	/** Combo Box for selecting semester year. */
 	private JComboBox<String> semList;
 
-	private LoginView(Scheduler userSchedule) {
-		
+	/**
+	 * Singleton Pattern constructor which creates login window.
+	 * 
+	 * @param userSchedule
+	 *            The Scheduler object used for parsing
+	 */
+	private LoginView(final Scheduler userSchedule) {
+
 		scheduler = userSchedule;
 
 		frame = new JFrame("Grand Valley Scheduler");
 		frame.setSize(300, 190);
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(new WindowAdapter() {
-			   public void windowClosing(WindowEvent evt) {
-			     login = null;
-			     frame.dispose();
-			   }
-			  });
+			public void windowClosing(final WindowEvent evt) {
+				login = null;
+				frame.dispose();
+			}
+		});
 		frame.setResizable(false);
 
 		JPanel panel = new JPanel();
@@ -103,26 +139,31 @@ public class LoginView implements ActionListener {
 		loginStatus.setBounds(10, 97, 300, 25);
 		loginStatus.setForeground(Color.RED);
 		panel.add(loginStatus);
-		
+
 		frame.getRootPane().setDefaultButton(loginButton);
 		loginButton.requestFocus();
 
 		frame.setVisible(true);
 
 	}
-	
-	public static LoginView getInstance(Scheduler userSchedule) {
+
+	/**
+	 * To instantiate a login object and open a login window.
+	 * @param userSchedule A Scheduler object for parsing HTML
+	 * @return The initialized LoginView object
+	 */
+	public static LoginView getInstance(final Scheduler userSchedule) {
 		if (login == null) {
 			login = new LoginView(userSchedule);
 		}
-		
+
 		return login;
 	}
-	
 
+
+	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(final ActionEvent e) {
 		if (e.getSource() == loginButton) {
 			System.out.println("Login");
 			System.out.println("User: " + userText.getText());
@@ -139,11 +180,11 @@ public class LoginView implements ActionListener {
 						scrapper = new BannerSchedScrapper(userText.getText(),
 								String.valueOf(passwordText.getPassword()));
 					}
-					//System.out.println(scrapper.getScheduleAsText(this.values[semList.getSelectedIndex()]));
-					
-					scheduler.inputHTML(scrapper.getScheduleAsHTML(this.values[semList.getSelectedIndex()]));			
-					
-					//frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+					// System.out.println(scrapper.getScheduleAsText(this.values[semList.getSelectedIndex()]));
+
+					scheduler.inputHTML(scrapper.getScheduleAsHTML(this.values[semList.getSelectedIndex()]));
+
+					// frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 					login = null;
 					frame.dispose();
 				} catch (FailingHttpStatusCodeException e1) {
@@ -168,10 +209,6 @@ public class LoginView implements ActionListener {
 
 		}
 
-	}
-
-	public static void main(String[] args) {
-		//LoginView login = new LoginView();
 	}
 
 }

@@ -1,17 +1,8 @@
 package scheduler;
 
-import java.io.Console;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.logging.Level;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -20,32 +11,47 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSelect;
 import com.gargoylesoftware.htmlunit.html.HtmlTable;
 
+/**
+ * Creates a scraping tool for retrieving HTML elements from Banner.
+ * 
+ * @author Alan Sisouphone
+ * @author Marshal Brummel
+ * @author Jake Walton
+ * @version 2.0
+ *
+ */
 public class BannerSchedScrapper {
-	
+
 	/** Client which navigates GVSU's Banner page. */
 	private final WebClient webClient = new WebClient(BrowserVersion.CHROME);
 
 	/** Current login address for Banner without Recaptcha. */
 	private String loginURL = "https://gvsu.edu/s/0DE";
-	
+
 	/** Address to view Concise Student Schedule. */
 	private String schedURL = "https://mybanner.gvsu.edu/PROD/bwskcrse.P_CrseSchdDetl";
-	
+
 	/** Address to change the current Concise Student Schedule Semester. */
 	private String changeSchedURL = "https://mybanner.gvsu.edu/PROD/bwskflib.P_SelDefTerm";
 
+	/** Address to return to the main menu of Banner. */
 	private String mainMenuURL = "https://mybanner.gvsu.edu/PROD/twbkwbis.P_GenMenu?name=bmenu.P_MainMnu";
 
-	
 	/**
 	 * Uses the input credentials to login to GVSU's Banner website.
+	 * 
 	 * @param username
+	 *            The Banner username of the student.
 	 * @param password
+	 *            The Banner password of the student
 	 * @throws FailingHttpStatusCodeException
+	 *             If the page cannot be retrieved
 	 * @throws MalformedURLException
+	 *             If the URL fails to load
 	 * @throws IOException
+	 *             If the user credentials are invalid
 	 */
-	public BannerSchedScrapper(String username, String password)
+	public BannerSchedScrapper(final String username, final String password)
 			throws FailingHttpStatusCodeException, MalformedURLException, IOException {
 
 		disableLogs();
@@ -54,13 +60,19 @@ public class BannerSchedScrapper {
 
 	/**
 	 * Logins to GVSU Banner with the input credentials.
+	 * 
 	 * @param username
+	 *            The Banner username of the student
 	 * @param password
+	 *            The Banner password of the student
 	 * @throws FailingHttpStatusCodeException
+	 *             If the page cannot be retrieved
 	 * @throws MalformedURLException
+	 *             If the URL fails to load
 	 * @throws IOException
+	 *             If the user credentials are invalid
 	 */
-	private void login(String username, String password)
+	private void login(final String username, final String password)
 			throws FailingHttpStatusCodeException, MalformedURLException, IOException {
 
 		// Allows client to build cookies on login
@@ -84,7 +96,7 @@ public class BannerSchedScrapper {
 
 		// Clicks the submit button
 		page = form.getInputByValue("Sign In").click();
-		
+
 		if (!page.getBaseURI().toString().equals(this.mainMenuURL)) {
 			throw new IOException();
 		}
@@ -94,7 +106,7 @@ public class BannerSchedScrapper {
 	 * Disables unnecessary logging information.
 	 */
 	private void disableLogs() {
-		
+
 		java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
 		java.util.logging.Logger.getLogger("org.apache.commons.httpclient").setLevel(Level.OFF);
 		java.util.logging.Logger.getLogger("org.apache.http.impl.execchain.RetryExec").setLevel(Level.OFF);
@@ -102,20 +114,25 @@ public class BannerSchedScrapper {
 
 	/**
 	 * Finds the concise student schedule table of a particular semester.
+	 * 
 	 * @param semValue
-	 * @return
+	 *            A valid semester year value
+	 * @return A HTMLTable Element which holds the student's schedule
 	 * @throws FailingHttpStatusCodeException
+	 *             If the page cannot be retrieved
 	 * @throws MalformedURLException
+	 *             If the URL fails to load
 	 * @throws IOException
+	 *             If the user credentials are invalid
 	 */
-	private HtmlTable getScheduleTable(String semValue)
+	private HtmlTable getScheduleTable(final String semValue)
 			throws FailingHttpStatusCodeException, MalformedURLException, IOException {
 
 		HtmlPage page = (HtmlPage) webClient.getPage(this.schedURL);
 
 		// Not the semester selection page
 		if (page.getForms().size() == 1) {
-			
+
 			// Redirects to the semester selection page
 			page = (HtmlPage) webClient.getPage(this.changeSchedURL);
 		}
@@ -124,107 +141,63 @@ public class BannerSchedScrapper {
 		HtmlForm form = (HtmlForm) page.getForms().get(1);
 		HtmlSelect select = (HtmlSelect) page.getElementByName("term_in");
 		select.setSelectedAttribute(select.getOptionByValue(semValue), true);
-		
+
 		// Must be enabled in order to proceed to next page
 		webClient.getOptions().setUseInsecureSSL(true);
 		page = form.getInputByValue("Submit").click();
-		
+
 		// Ensure we are on the schedule page
 		page = (HtmlPage) webClient.getPage(this.schedURL);
 		webClient.getOptions().setUseInsecureSSL(false);
-		
+
 		HtmlTable table = (HtmlTable) page.getByXPath("//table[@class='datadisplaytable']").get(1);
 
 		return table;
 	}
 
 	/**
-	 * Finds the valid semester input values from the dropdown menu bar.
-	 * @return
-	 * @throws FailingHttpStatusCodeException
-	 * @throws MalformedURLException
-	 * @throws IOException
-	 */
-	public ArrayList<String> getSemesterValues()
-			throws FailingHttpStatusCodeException, MalformedURLException, IOException {
-
-		ArrayList<String> values = new ArrayList<String>();
-
-		HtmlPage page = (HtmlPage) webClient.getPage(this.schedURL);
-
-		HtmlSelect select = (HtmlSelect) page.getElementByName("term_in");
-
-		Document doc = Jsoup.parse(select.asXml());
-
-		Elements options = doc.getElementsByAttributeValue("name", "term_in").get(0).children();
-
-		for (Element option : options) {
-			values.add(option.attr("value"));
-		}
-
-		return values;
-
-	}
-
-	/**
-	 * Finds semester option details of the dropdown menu.
-	 * @return
-	 * @throws FailingHttpStatusCodeException
-	 * @throws MalformedURLException
-	 * @throws IOException
-	 */
-	public ArrayList<String> getSemesterOptions()
-			throws FailingHttpStatusCodeException, MalformedURLException, IOException {
-		ArrayList<String> semOptions = new ArrayList<String>();
-
-		HtmlPage page = (HtmlPage) webClient.getPage(this.schedURL);
-
-		HtmlSelect select = (HtmlSelect) page.getElementByName("term_in");
-
-		Document doc = Jsoup.parse(select.asXml());
-
-		Elements options = doc.select("select > option");
-
-		for (Element option : options) {
-
-			semOptions.add(option.text().replace(" (View only)", ""));
-		}
-
-		return semOptions;
-	}
-
-	/**
 	 * Retrieves the student schedule as just text.
+	 * 
 	 * @param semValue
-	 * @return
+	 *            A valid semester year value
 	 * @throws FailingHttpStatusCodeException
+	 *             If the page cannot be retrieved
 	 * @throws MalformedURLException
+	 *             If the URL fails to load
 	 * @throws IOException
+	 *             If the user credentials are invalid
+	 * @return The student schedule table as readable text
 	 */
-	public String getScheduleAsText(String semValue)
+	public String getScheduleAsText(final String semValue)
 			throws FailingHttpStatusCodeException, MalformedURLException, IOException {
 		return getScheduleTable(semValue).asText();
 	}
 
 	/**
 	 * Retrieves the student schedule as an HTML output.
+	 * 
 	 * @param semValue
-	 * @return
+	 *            A valid semester year value
+	 * @return The student schedule as a HTML code
 	 * @throws FailingHttpStatusCodeException
+	 *             If the page cannot be retrieved
 	 * @throws MalformedURLException
+	 *             If the URL fails to load
 	 * @throws IOException
+	 *             If the user credentials are invalid
 	 */
-	public String getScheduleAsHTML(String semValue)
+	public String getScheduleAsHTML(final String semValue)
 			throws FailingHttpStatusCodeException, MalformedURLException, IOException {
 		return getScheduleTable(semValue).asXml();
 	}
 
 	/**
 	 * Sees if the input semester value is a valid semester of the student.
-	 * @param semValue
-	 * @return
+	 * 
+	 * @param semValue A valid semester year value
+	 * @return Whether the schedule is valid or not
 	 */
-	public boolean isValidSemesterValue(String semValue) {
+	public boolean isValidSemesterValue(final String semValue) {
 		try {
 			getScheduleTable(semValue);
 		} catch (Exception e) {
@@ -239,37 +212,6 @@ public class BannerSchedScrapper {
 	 */
 	public void closeClient() {
 		this.webClient.close();
-	}
-	
-
-
-	public static void main(String[] args) {
-
-		// Please enter your Banner username and password for "username" and "password" below
-
-		
-		try {
-			BannerSchedScrapper login = new                                                                   BannerSchedScrapper("", "");
-
-			System.out.println("These are valid input values to specify a semester:");
-			System.out.println(login.getSemesterValues());
-			System.out.println("===========================================");
-			System.out.println("These are the descriptors for the semester values:");
-			System.out.println(login.getSemesterOptions());
-			System.out.println("===========================================");
-			System.out.println("This is the HTML of the table element:");
-			System.out.println(login.getScheduleAsHTML("201920"));
-			System.out.println("===========================================");
-			System.out.println("This is the table of the student schedule as a string:");
-			System.out.println(login.getScheduleAsText("201920"));
-
-			login.closeClient();
-			System.out.println("=========Success========");
-
-		} catch (Exception e) {
-			 e.printStackTrace();
-		}
-
 	}
 
 }
