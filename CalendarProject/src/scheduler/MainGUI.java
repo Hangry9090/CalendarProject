@@ -6,6 +6,7 @@ package scheduler;
 import java.io.IOException;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.*;
@@ -77,11 +78,13 @@ public class MainGUI extends NetbeansGUI {
 		int returnVal = dialog.showSaveDialog(getParent());
 		if(returnVal == JFileChooser.APPROVE_OPTION) {
 			savePath = dialog.getSelectedFile().getAbsolutePath();
-			System.out.println("You chose to open this file: " + savePath);
+			
+			try {
+				scheduler.outputFile(savePath);
+			} catch (Exception e) {
+		        JOptionPane.showMessageDialog(null, "Export unsuccessful. Make sure to import a schedule first.", "Error", JOptionPane.INFORMATION_MESSAGE);
+			}
 		}
-	
-		
-		//userSchedule.outputFile(savePath);
 		
 	}
 
