@@ -35,6 +35,8 @@ public final class LoginView implements ActionListener {
 
 	/** Scraper object for scraping Banner. */
 	private BannerSchedScrapper scrapper;
+	
+	private MainGUI gui;
 
 	/** Scheduler object for parsing. */
 	private Scheduler scheduler;
@@ -73,6 +75,9 @@ public final class LoginView implements ActionListener {
 
 	/** Password field. */
 	private JPasswordField passwordText;
+	
+	/** Status field. */
+	private boolean status = false;
 
 	/** Button to login. */
 	private JButton loginButton;
@@ -81,12 +86,20 @@ public final class LoginView implements ActionListener {
 	private JComboBox<String> semList;
 
 	/**
+	 * Flag for what call function to call.
+	 */
+	private int i;
+
+	/**
 	 * Singleton Pattern constructor which creates login window.
 	 * 
 	 * @param userSchedule
 	 *            The Scheduler object used for parsing
+	 * @param i 
 	 */
-	private LoginView(final Scheduler userSchedule) {
+	private LoginView(final Scheduler userSchedule, final MainGUI mainGUI, int i) {
+		this.i= i;
+		this.gui = mainGUI;
 
 		scheduler = userSchedule;
 
@@ -150,17 +163,33 @@ public final class LoginView implements ActionListener {
 	/**
 	 * To instantiate a login object and open a login window.
 	 * @param userSchedule A Scheduler object for parsing HTML
+	 * @param mainGUI 
+	 * @param i 
 	 * @return The initialized LoginView object
 	 */
-	public static LoginView getInstance(final Scheduler userSchedule) {
+	public static LoginView getInstance(final Scheduler userSchedule, MainGUI mainGUI, int i) {
 		if (login == null) {
-			login = new LoginView(userSchedule);
+			login = new LoginView(userSchedule, mainGUI, i);
+
 		}
 
 		return login;
 	}
 
 
+	/**
+	 * Getter for status.
+	 */
+	public boolean getStatus() {
+		return status;
+	}
+	
+	/**
+	 * Setter for status.
+	 */
+	public void setStatus(boolean x) {
+		this.status = x;
+	}
 	
 	@Override
 	public void actionPerformed(final ActionEvent e) {
@@ -183,7 +212,13 @@ public final class LoginView implements ActionListener {
 					// System.out.println(scrapper.getScheduleAsText(this.values[semList.getSelectedIndex()]));
 
 					scheduler.inputHTML(scrapper.getScheduleAsHTML(this.values[semList.getSelectedIndex()]));
-
+					if (i == 0) {
+						gui.callView();
+					}else if (i == 1) {
+						gui.callCompare();
+					}
+					
+					status = true;
 					// frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 					login = null;
 					frame.dispose();
