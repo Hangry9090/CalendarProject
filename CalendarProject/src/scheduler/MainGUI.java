@@ -94,6 +94,7 @@ public class MainGUI extends NetbeansGUI {
 		loginView = LoginView.getInstance(mainScheduler);
 		this.mainViewSchedule = mainScheduler.createSchedule();
 		displaySchedule(viewScheduleTable, mainViewSchedule);
+        JOptionPane.showMessageDialog(null, "Import successful!", "Import Successful", JOptionPane.INFORMATION_MESSAGE);
 
 	}
 
