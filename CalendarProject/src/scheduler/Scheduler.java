@@ -49,12 +49,14 @@ public class Scheduler {
 	private ICSEventBuilder ics = new ICSEventBuilder();
 
 	
+	
 	/**
 	 * Constructor.
 	 */
 	public Scheduler() {
-
+		
 	}
+	
 
 	/**
 	 * Resets the data of all the fields.
