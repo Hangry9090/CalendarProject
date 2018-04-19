@@ -186,7 +186,9 @@ public class MainGUI extends NetbeansGUI {
 	    				start += 12;
 	    				end += 12;
 	    			}else if (start == 12) {
-	    				end += 12;
+	    				if (end != 12) {
+	    					end += 12;
+	    				}
 	    			}
 	    			
 	    			//for minutes
@@ -306,7 +308,9 @@ public class MainGUI extends NetbeansGUI {
 	    				start += 12;
 	    				end += 12;
 	    			}else if (start == 12) {
-	    				end += 12;
+	    				if (end != 12) {
+	    					end += 12;
+	    				}
 	    			}
 	    			
 	    			//for minutes
