@@ -31,7 +31,8 @@ public class MainGUI extends NetbeansGUI {
 	 * List to store schedules that will be compared.
 	 */
 	private ArrayList<Schedule> compareList = new ArrayList<Schedule>();
-	private Scheduler compareSched;
+	private Scheduler compareScheduler;
+	private Schedule compareSchedule;
 
 
 	
@@ -71,21 +72,19 @@ public class MainGUI extends NetbeansGUI {
 	 * Method to respond when import is hit in the compare tab.
 	 */
 	protected void importCompareSchedule() {
-		compareSched = new Scheduler();
-		loginView = LoginView.getInstance(compareSched, this, 1);		
+		compareScheduler = new Scheduler();
+		loginView = LoginView.getInstance(compareScheduler, this, 1);		
 	}
 
 	/*
 	 * Method to compare schedules and create a new one.
 	 */
-	private Schedule compareSchedules() {
-		Schedule sched = new Schedule();
+	private void compareSchedules() {
 		for (Schedule s : compareList) {
 			for (Course c : s.getCourseList()) {
-				sched.appendCourseList(c);
+				compareSchedule.appendCourseList(c);
 			}
 		}
-		return sched;		
 	}
 
 
@@ -129,32 +128,11 @@ public class MainGUI extends NetbeansGUI {
      */
     public void displayCompareSchedule(Schedule sched) {
     	
-    	ArrayList<String> times = new ArrayList<String>();
-    	
-    	for (Course c : sched.getCourseList()) {
-    		for(String time : c.getMeetTimes()) {
-    			times.add(time);
-    		}
-    	}
-    	
-    	times = (ArrayList<String>) times.stream().distinct().collect(Collectors.toList());
-    	
-    	//System.out.print("Times: " + times);
-    	
-    }
-    
-    /*
-     * Function to display a schedule on a table.
-     */
-    public void displayViewSchedule(Schedule sched) {
-    	viewScheduleTable.setValueAt("Test", 2, 2);
-    	
-    	
     	for (Course c : sched.getCourseList()) {
     		ArrayList<String> days = c.getDays();
     		ArrayList<String> times = c.getMeetTimes();
     		int i;
-    		int j;
+    		int j = 1;
     		
     		int spot = 0;
     		
@@ -230,10 +208,126 @@ public class MainGUI extends NetbeansGUI {
 	    			//now numbers are in hundreds format
 	    			numRows += (end - start) * 2;
 	    			
+	    			System.out.println("Day: " + ch + "\nNum rows: " + numRows);
+	    			
+	    			if (startMinutes == 0 || startMinutes == 15 || startMinutes == 50) {
+	    				for (int k = 0; k < numRows; k++ ) {
+	    					viewScheduleTable2.setValueAt("Busy", ((start*2) - 14) + k, j);
+	    				}
+	    			} else if(startMinutes == 30 || startMinutes == 45 ) {
+	    				for (int k = 0; k < numRows; k++ ) {
+	    					viewScheduleTable2.setValueAt("Busy", (((start*2) - 14) + 1) + k, j);
+	    				}
+	    			}
+    			}
+    			spot++;
+    			
+    		}
+    		System.out.println("Meet times: " + c.getMeetTimes());
+    		System.out.println("Meet days: " + c.getDays());
+
+    	}
+
+    }
+    
+    
+    /*
+     * Function to display a schedule on a table.
+     */
+    public void displayViewSchedule(Schedule sched) {
+    	
+    	
+    	for (Course c : sched.getCourseList()) {
+    		ArrayList<String> days = c.getDays();
+    		ArrayList<String> times = c.getMeetTimes();
+    		int i;
+    		int j = 1;
+    		
+    		int spot = 0;
+    		
+    		for (String dayList : days) {
+    			for (char ch : dayList.toCharArray()) {
+	    			//find column
+    				switch (ch) {
+	    			 case 'M':
+	    				 j = 1;
+	    				 break;
+	    			 case 'T':
+	    				 j = 2;
+	    				 break;
+	    			 case 'W':
+	    				 j = 3;
+	    				 break;
+	    			 case 'R':
+	    				 j = 4;
+	    				 break;
+	    			 case 'F':
+	    				 j = 5;
+	    				 break;
+	    			}
+	    			
+	    			//set rows of times[spot] in column j
+	    			String temp = times.get(spot);
+	    			//temp = temp.replaceAll(":", "");
+	    			
+	    			
+	    			String[] hourMin = temp.split(" - ");
+	    			
+	    			String startStr = hourMin[0];
+	    			String endStr = hourMin[1];
+	    			
+	    			String[] startSplit = startStr.split(" ");
+	    			startStr = startSplit[0];
+	    			String startSuffix = startSplit[1];
+	    			
+	    			String[] endSplit = endStr.split(" ");
+	    			endStr = endSplit[0];
+	    			String endSuffix = endSplit[1];
+	    			
+	    			String[] startTimeSplit = startStr.split(":");
+	    			String[] endTimeSplit = endStr.split(":");
+
+
+	    			int end = Integer.parseInt(endTimeSplit[0]);
+	    			int start = Integer.parseInt(startTimeSplit[0]);
+	    		
+	    			
+	    			
+
+	    			//for pm
+	    			if (startSuffix.equals("pm") && start != 12){
+	    				start += 12;
+	    				end += 12;
+	    			}
+	    			
+	    			//for minutes
+	    			int endMinutes = Integer.parseInt(endTimeSplit[1]);
+	    			int startMinutes = Integer.parseInt(startTimeSplit[1]);
+
+	    			int minuteRows = endMinutes - startMinutes;
+	    			
+	    			int numRows = 0;
+	    			
+	    			if (minuteRows <= 30 && minuteRows != 0) {
+	    				numRows += 1;
+	    			} else if (minuteRows > 30) {
+	    				numRows += 2;
+	    			}
+	    			
+	    			//now numbers are in hundreds format
+	    			numRows += (end - start) * 2;
 	    			
 	    			System.out.println("Day: " + ch + "\nNum rows: " + numRows);
 	    			
-	    			
+	    			if (startMinutes == 0 || startMinutes == 15 || startMinutes == 50) {
+	    				for (int k = 0; k < numRows; k++ ) {
+	    					viewScheduleTable.setValueAt(c.getCNum(), ((start*2) - 14) + k, j);
+	    				}
+	    			} else if(startMinutes == 30 || startMinutes == 45 ) {
+	    				for (int k = 0; k < numRows; k++ ) {
+	    					viewScheduleTable.setValueAt(c.getCNum(), (((start*2) - 14) + 1) + k, j);
+	    				}
+	    			}
     			}
     			spot++;
     			
@@ -270,10 +364,11 @@ public class MainGUI extends NetbeansGUI {
 
 	public void callCompare() {
 		// TODO Auto-generated method stub
-		compareList.add(compareSched.createSchedule());
+		compareList.add(compareScheduler.createSchedule());
 		System.out.println("Compare List: " + compareList);
-		Schedule compareSched = compareSchedules();
-		displayCompareSchedule(compareSched);
+		compareSchedules();
+		displayCompareSchedule(compareSchedule);
+        JOptionPane.showMessageDialog(null, "Import successful!", "Import Successful", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 
