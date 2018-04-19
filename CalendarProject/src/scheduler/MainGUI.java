@@ -201,9 +201,11 @@ public class MainGUI extends NetbeansGUI {
 	    			String[] endTimeSplit = endStr.split(":");
 
 
-	    			int end = Integer.parseInt(endTimeSplit[1]);
-	    			int start = Integer.parseInt(startTimeSplit[1]);
+	    			int end = Integer.parseInt(endTimeSplit[0]);
+	    			int start = Integer.parseInt(startTimeSplit[0]);
 	    		
+	    			
+	    			
 
 	    			//for pm
 	    			if (startSuffix.equals("pm") && start != 12){
@@ -211,13 +213,22 @@ public class MainGUI extends NetbeansGUI {
 	    				end += 12;
 	    			}
 	    			
-	    			//adjust end
-	    			if (end % 50 == 0 && ((end/50)%2 != 0)) {
-	    				end += 10;
+	    			//for minutes
+	    			int endMinutes = Integer.parseInt(endTimeSplit[1]);
+	    			int startMinutes = Integer.parseInt(startTimeSplit[1]);
+
+	    			int minuteRows = endMinutes - startMinutes;
+	    			
+	    			int numRows = 0;
+	    			
+	    			if (minuteRows <= 30 && minuteRows != 0) {
+	    				numRows += 1;
+	    			} else if (minuteRows > 30) {
+	    				numRows += 2;
 	    			}
 	    			
 	    			//now numbers are in hundreds format
-	    			int numRows = (end - start) * 2;
+	    			numRows += (end - start) * 2;
 	    			
 	    			
 	    			System.out.println("Day: " + ch + "\nNum rows: " + numRows);
