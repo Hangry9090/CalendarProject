@@ -185,6 +185,8 @@ public class MainGUI extends NetbeansGUI {
 	    			if (startSuffix.equals("pm") && start != 12){
 	    				start += 12;
 	    				end += 12;
+	    			}else if (start == 12) {
+	    				end += 12;
 	    			}
 	    			
 	    			//for minutes
@@ -302,6 +304,8 @@ public class MainGUI extends NetbeansGUI {
 	    			//for pm
 	    			if (startSuffix.equals("pm") && start != 12){
 	    				start += 12;
+	    				end += 12;
+	    			}else if (start == 12) {
 	    				end += 12;
 	    			}
 	    			
