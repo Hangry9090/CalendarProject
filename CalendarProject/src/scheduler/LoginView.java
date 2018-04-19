@@ -211,10 +211,14 @@ public final class LoginView implements ActionListener {
 					}
 					// System.out.println(scrapper.getScheduleAsText(this.values[semList.getSelectedIndex()]));
 
-					scheduler.inputHTML(scrapper.getScheduleAsHTML(this.values[semList.getSelectedIndex()]));
+					String html = scrapper.getScheduleAsHTML(this.values[semList.getSelectedIndex()]);
+					
 					if (i == 0) {
+						scheduler.inputHTML(html);
+						
 						gui.callView();
 					}else if (i == 1) {
+						scheduler.inputCompareHTML(html);
 						gui.callCompare();
 					}
 					

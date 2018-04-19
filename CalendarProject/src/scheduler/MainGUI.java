@@ -30,7 +30,6 @@ public class MainGUI extends NetbeansGUI {
 	/**
 	 * List to store schedules that will be compared.
 	 */
-	private ArrayList<Schedule> compareList = new ArrayList<Schedule>();
 	private Scheduler compareScheduler;
 	private Schedule compareSchedule;
 
@@ -43,6 +42,7 @@ public class MainGUI extends NetbeansGUI {
 		super();
 		
 		mainScheduler = new Scheduler();
+		compareScheduler = new Scheduler();
 		
 		//add Export action listener
 		this.viewExportIcon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -75,18 +75,6 @@ public class MainGUI extends NetbeansGUI {
 		compareScheduler = new Scheduler();
 		loginView = LoginView.getInstance(compareScheduler, this, 1);		
 	}
-
-	/*
-	 * Method to compare schedules and create a new one.
-	 */
-	private void compareSchedules() {
-		for (Schedule s : compareList) {
-			for (Course c : s.getCourseList()) {
-				compareSchedule.appendCourseList(c);
-			}
-		}
-	}
-
 
 	/*
 	 * Method to respond when import button is hit in view window.
@@ -127,6 +115,14 @@ public class MainGUI extends NetbeansGUI {
      * Function to display a schedule on a table.
      */
     public void displayCompareSchedule(Schedule sched) {
+    	
+    	
+    	for (int i = 0; i < this.viewScheduleTable.getRowCount(); i++) {
+    		for (int j = 1; j < this.viewScheduleTable.getColumnCount(); j++) {
+    			this.viewScheduleTable.setValueAt("", i, j);
+    		}
+    		
+    	}
     	
     	for (Course c : sched.getCourseList()) {
     		ArrayList<String> days = c.getDays();
@@ -236,6 +232,15 @@ public class MainGUI extends NetbeansGUI {
      */
     public void displayViewSchedule(Schedule sched) {
     	
+    	// Resets schedule
+    	for (int i = 0; i < this.viewScheduleTable.getRowCount(); i++) {
+    		for (int j = 1; j < this.viewScheduleTable.getColumnCount(); j++) {
+    			this.viewScheduleTable.setValueAt("", i, j);
+    		}
+    		
+    	}
+    	
+    	//
     	
     	for (Course c : sched.getCourseList()) {
     		ArrayList<String> days = c.getDays();
@@ -332,8 +337,8 @@ public class MainGUI extends NetbeansGUI {
     			spot++;
     			
     		}
-    		System.out.println("Meet times: " + c.getMeetTimes());
-    		System.out.println("Meet days: " + c.getDays());
+//    		System.out.println("Meet times: " + c.getMeetTimes());
+//    		System.out.println("Meet days: " + c.getDays());
 
     	}
 
@@ -364,10 +369,13 @@ public class MainGUI extends NetbeansGUI {
 
 	public void callCompare() {
 		// TODO Auto-generated method stub
-		compareList.add(compareScheduler.createSchedule());
-		System.out.println("Compare List: " + compareList);
-		compareSchedules();
+		//compareList.add(compareScheduler.createSchedule());
+		
+		this.compareSchedule = compareScheduler.createSchedule();
+		
+		//compareSchedules();
 		displayCompareSchedule(compareSchedule);
+
         JOptionPane.showMessageDialog(null, "Import successful!", "Import Successful", JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -376,6 +384,10 @@ public class MainGUI extends NetbeansGUI {
 		// TODO Auto-generated method stub
 		this.mainViewSchedule = mainScheduler.createSchedule();
 		displayViewSchedule(mainViewSchedule);
+		
+		this.infoHTMLView.setContentType("text/html");
+		this.infoHTMLView.setText(this.mainScheduler.getScheduleHTML());
+		
         JOptionPane.showMessageDialog(null, "Import successful!", "Import Successful", JOptionPane.INFORMATION_MESSAGE);
 	
 	}

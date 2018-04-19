@@ -726,7 +726,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
     private javax.swing.JLabel helpIcon;
     private javax.swing.JLabel helpLabel;
     private javax.swing.JPanel helpPanel;
-    private javax.swing.JEditorPane infoHTMLView;
+    protected javax.swing.JEditorPane infoHTMLView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

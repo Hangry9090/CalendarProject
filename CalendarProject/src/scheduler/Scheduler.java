@@ -47,6 +47,8 @@ public class Scheduler {
 	 * icd The ics builder for the project.
 	 */
 	private ICSEventBuilder ics = new ICSEventBuilder();
+	
+	private String scheduleHTML;
 
 	
 	
@@ -241,6 +243,13 @@ public class Scheduler {
 
 	public void inputHTML(String html) throws IOException {
 		
+		
+		if (this.mySchedule.size() > 1) {
+			resetSchedule();
+		}
+		
+		this.scheduleHTML = html;
+		
 		mySchedule = parseHTML(html);
 
 		classes = extractClasses(mySchedule);
@@ -255,7 +264,34 @@ public class Scheduler {
 			Course course = new Course();
 			course.loadCourse(str);
 			courseList.add(course);
-			// System.out.println(course.toString());
+			System.out.println(course.toString());
+		}
+	}
+	
+public void inputCompareHTML(String html) throws IOException {
+		
+		
+//		if (this.mySchedule.size() > 1) {
+//			resetSchedule();
+//		}
+	
+		this.scheduleHTML = html;
+		
+		mySchedule = parseHTML(html);
+
+		classes = extractClasses(mySchedule);
+
+		// for (String s : mySchedule) {
+		// System.out.println(s);
+		// }
+
+		// System.out.println();
+
+		for (ArrayList<String> str : classes) {
+			Course course = new Course();
+			course.loadCourse(str);
+			courseList.add(course);
+			System.out.println(course.toString());
 		}
 	}
 	
@@ -337,10 +373,15 @@ public class Scheduler {
 	}
 	
 	public Schedule createSchedule() {
+		System.out.println(courseList);
 		Schedule sched = new Schedule(courseList);
 		
 		return sched;
 		
+	}
+	
+	public String getScheduleHTML() {
+		return this.scheduleHTML;
 	}
 
 	/**
