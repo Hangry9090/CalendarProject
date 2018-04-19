@@ -5,10 +5,12 @@
  */
 package scheduler;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -313,7 +315,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         scheduleNameLabel.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         scheduleNameLabel.setForeground(new java.awt.Color(0, 0, 153));
         scheduleNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        scheduleNameLabel.setText("No Schedule");
+        scheduleNameLabel.setText("View Schedule");
 
         viewImportIcon.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         viewImportIcon.setForeground(new java.awt.Color(0, 0, 153));
@@ -418,7 +420,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         scheduleNameLabel2.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         scheduleNameLabel2.setForeground(new java.awt.Color(0, 0, 153));
         scheduleNameLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        scheduleNameLabel2.setText("No Schedule");
+        scheduleNameLabel2.setText("Compare Schedules");
 
         compareImportIcon.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         compareImportIcon.setForeground(new java.awt.Color(0, 0, 153));
@@ -594,7 +596,10 @@ public class NetbeansGUI extends javax.swing.JFrame {
         scheduleNameLabel3.setText("Class Information");
 
         infoHTMLView.setEditable(false);
-        jScrollPane3.setViewportView(infoHTMLView);
+        
+        JScrollPane HTMLScroll = new JScrollPane(infoHTMLView, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        
+        jScrollPane3.setViewportView(HTMLScroll);
 
         javax.swing.GroupLayout changingInfoPanelLayout = new javax.swing.GroupLayout(changingInfoPanel);
         changingInfoPanel.setLayout(changingInfoPanelLayout);
@@ -632,7 +637,48 @@ public class NetbeansGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+        
+        
+//        javax.swing.GroupLayout changingPanelCardLayout = new javax.swing.GroupLayout(cardPanel);
+//        cardPanel.setLayout(changingPanelCardLayout);
+//        changingPanelCardLayout.setHorizontalGroup(
+//        		changingPanelCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(changingPanelCardLayout.createSequentialGroup()
+//                .addGap(21, 21, 21)
+//                .addGroup(changingPanelCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changingPanelCardLayout.createSequentialGroup()
+//                        .addComponent(scheduleNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                        .addGap(658, 658, 658))
+//                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changingInfoPanelLayout.createSequentialGroup()
+//                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 997, Short.MAX_VALUE)
+//                        .addContainerGap())))
+//        );
+//        changingPanelCardLayout.setVerticalGroup(
+//        		changingPanelCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changingInfoPanelLayout.createSequentialGroup()
+//                .addGap(40, 40, 40)
+//                .addComponent(scheduleNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addGap(18, 18, 18)
+//                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+//                .addGap(35, 35, 35))
+//        );
+        
+        
+        
+        cardPanel = new JPanel();
+        
+        mainPanel.add(cardPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1030, 750));
 
+        cardLayout = new CardLayout();
+		cardPanel.setLayout(cardLayout);
+		
+		cardPanel.add(this.changingViewPanel, "1");
+		cardPanel.add(this.changingComparePanel, "2");
+		cardPanel.add(this.changingInfoPanel, "3");
+		cardPanel.add(this.changingHelpPanel, "4");
+		
+		cardLayout.show(cardPanel, "1");
+        
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -642,22 +688,22 @@ public class NetbeansGUI extends javax.swing.JFrame {
 
     private void viewLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewLabelMouseClicked
         setColor(this.sidePanels, this.viewPanel);
-        handleVisibility(this.changingPanels, this.changingViewPanel);
+        this.cardLayout.show(cardPanel, "1");
     }//GEN-LAST:event_viewLabelMouseClicked
 
     private void compareIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_compareIconMouseClicked
         setColor(this.sidePanels, this.comparePanel);
-        handleVisibility(this.changingPanels, this.changingComparePanel);
+        this.cardLayout.show(cardPanel, "2");
     }//GEN-LAST:event_compareIconMouseClicked
 
     private void classInfoIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classInfoIconMouseClicked
         setColor(this.sidePanels, this.classInfoPanel);
-        handleVisibility(this.changingPanels, this.changingInfoPanel);
+        this.cardLayout.show(cardPanel, "3");
     }//GEN-LAST:event_classInfoIconMouseClicked
 
     private void helpLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpLabelMouseClicked
         setColor(this.sidePanels, this.helpPanel);
-        handleVisibility(this.changingPanels, this.changingHelpPanel);
+        this.cardLayout.show(cardPanel, "4");
     }//GEN-LAST:event_helpLabelMouseClicked
 
     
@@ -668,12 +714,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         panel.setBackground(new Color(204,204,204));
     }
     
-        private void handleVisibility(JPanel[] panels, JPanel vis) {
-        for (JPanel panel : panels) {
-            panel.setVisible(false);
-        }
-        vis.setVisible(true);
-    }
+       
     
     /**
      * @param args the command line arguments
@@ -755,5 +796,9 @@ public class NetbeansGUI extends javax.swing.JFrame {
     protected javax.swing.JTable viewScheduleTable;
     protected javax.swing.JTable viewScheduleTable1;
     protected javax.swing.JTable viewScheduleTable2;
+    
+    protected CardLayout cardLayout;
+    protected javax.swing.JPanel cardPanel;
+    
     // End of variables declaration//GEN-END:variables
 }
