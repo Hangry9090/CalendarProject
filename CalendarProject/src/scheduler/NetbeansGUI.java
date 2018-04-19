@@ -639,32 +639,6 @@ public class NetbeansGUI extends javax.swing.JFrame {
         );
         
         
-//        javax.swing.GroupLayout changingPanelCardLayout = new javax.swing.GroupLayout(cardPanel);
-//        cardPanel.setLayout(changingPanelCardLayout);
-//        changingPanelCardLayout.setHorizontalGroup(
-//        		changingPanelCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//            .addGroup(changingPanelCardLayout.createSequentialGroup()
-//                .addGap(21, 21, 21)
-//                .addGroup(changingPanelCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changingPanelCardLayout.createSequentialGroup()
-//                        .addComponent(scheduleNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                        .addGap(658, 658, 658))
-//                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changingInfoPanelLayout.createSequentialGroup()
-//                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 997, Short.MAX_VALUE)
-//                        .addContainerGap())))
-//        );
-//        changingPanelCardLayout.setVerticalGroup(
-//        		changingPanelCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changingInfoPanelLayout.createSequentialGroup()
-//                .addGap(40, 40, 40)
-//                .addComponent(scheduleNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                .addGap(18, 18, 18)
-//                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
-//                .addGap(35, 35, 35))
-//        );
-        
-        
-        
         cardPanel = new JPanel();
         
         mainPanel.add(cardPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1030, 750));
