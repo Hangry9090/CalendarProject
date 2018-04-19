@@ -473,6 +473,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
         viewScheduleTable2.setRowSelectionAllowed(false);
         jScrollPane5.setViewportView(viewScheduleTable2);
 
+       
         javax.swing.GroupLayout changingComparePanelLayout = new javax.swing.GroupLayout(changingComparePanel);
         changingComparePanel.setLayout(changingComparePanelLayout);
         changingComparePanelLayout.setHorizontalGroup(
@@ -547,7 +548,7 @@ public class NetbeansGUI extends javax.swing.JFrame {
             .addGroup(changingHelpPanelLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(changingHelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scheduleNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scheduleNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(changingHelpPanelLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(changingHelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
