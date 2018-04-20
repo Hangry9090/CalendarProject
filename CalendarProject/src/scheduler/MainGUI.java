@@ -126,12 +126,12 @@ public class MainGUI extends NetbeansGUI {
 	 */
 	public void displayCompareSchedule(Schedule sched) {
 
-		for (int i = 0; i < this.viewScheduleTable.getRowCount(); i++) {
-			for (int j = 1; j < this.viewScheduleTable.getColumnCount(); j++) {
-				this.viewScheduleTable.setValueAt("", i, j);
-			}
-
-		}
+//		for (int i = 0; i < this.viewScheduleTable2.getRowCount(); i++) {
+//			for (int j = 1; j < viewScheduleTable2.getColumnCount(); j++) {
+//				this.viewScheduleTable2.setValueAt("", i, j);
+//			}
+//
+//		}
 
 		for (Course c : sched.getCourseList()) {
 			ArrayList<String> days = c.getDays();
