@@ -1,5 +1,10 @@
 /**
+ * The Main Gui that extends the file created by Netbeans called 
+ * NetbeansGUI.java.
  * 
+ * @author Jacob Walton
+ * @author Alan Sisouphone
+ * @author Marshal Brumell
  */
 package scheduler;
 
