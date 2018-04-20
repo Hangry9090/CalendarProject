@@ -1,8 +1,399 @@
+commit 1b383cd7b83a9570d10045bb454c48eaf75249fe
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Thu Apr 19 21:31:26 2018 -0400
+
+    Checkstyle'd and Javadoc'd GUI for fun.
+
+ CalendarProject/src/scheduler/NetbeansGUI.java | 1580 +++++++++++++-----------
+ 1 file changed, 825 insertions(+), 755 deletions(-)
+
+commit 3864e8ff2556069b8cc720090618788a5e10b0c6
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Thu Apr 19 19:54:05 2018 -0400
+
+    Header alignment adjustments
+
+ CalendarProject/src/scheduler/NetbeansGUI.java | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 70fb1a21624101cde23ecd0890b113d51b92edce
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Thu Apr 19 19:11:56 2018 -0400
+
+    Removed my extra commenting
+
+ CalendarProject/src/scheduler/NetbeansGUI.java | 26 --------------------------
+ 1 file changed, 26 deletions(-)
+
+commit 506201d28232ba5bf0b456bed629ad9f0fd6b11e
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Thu Apr 19 19:10:25 2018 -0400
+
+    Fixed minor graphical glitching
+
+ CalendarProject/src/scheduler/NetbeansGUI.java | 73 +++++++++++++++++++++-----
+ 1 file changed, 59 insertions(+), 14 deletions(-)
+
+commit 4826aa44192e1ae2b67b220074e89759427c52d8
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 12:52:04 2018 -0400
+
+    think I fixed the weird hour issue with 12pm.
+
+ CalendarProject/src/scheduler/MainGUI.java | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+commit 1c065f0b43988a4a3ea42f90a3f19459d22e1934
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 12:50:39 2018 -0400
+
+    think I fixed the weird hour issue with 12pm.
+
+ CalendarProject/src/scheduler/MainGUI.java | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit a5508dc64293c12c18d32c4c293808c01a20cbc4
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Thu Apr 19 08:37:55 2018 -0400
+
+    Compare list and Class Info are now working
+
+ CalendarProject/src/scheduler/LoginView.java   |  6 +++-
+ CalendarProject/src/scheduler/MainGUI.java     | 48 ++++++++++++++++----------
+ CalendarProject/src/scheduler/NetbeansGUI.java |  2 +-
+ CalendarProject/src/scheduler/Scheduler.java   | 43 ++++++++++++++++++++++-
+ 4 files changed, 78 insertions(+), 21 deletions(-)
+
+commit 1d24dd9c91344ceb27fd840d20c334bb9b1415a1
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Apr 18 20:46:38 2018 -0400
+
+    Forgot to add this updated.
+
+ CalendarProject/src/scheduler/Scheduler.java | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 4cf7e1a8e6ab6c2fc1c3c44192795a83a17bd522
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Apr 18 20:42:15 2018 -0400
+
+    Displays view schedule.
+
+ CalendarProject/src/scheduler/MainGUI.java | 141 ++++++++++++++++++++++++-----
+ 1 file changed, 118 insertions(+), 23 deletions(-)
+
+commit 913649261d873aa9cc11d7c30a696283c3915d94
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Apr 18 20:10:28 2018 -0400
+
+    Math for calculating amount of rows is done.
+
+ CalendarProject/src/scheduler/MainGUI.java | 23 +++++++++++++++++------
+ 1 file changed, 17 insertions(+), 6 deletions(-)
+
+commit 68bbfe923b42d32c1bf1407e112b183e568dd117
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Apr 18 17:20:44 2018 -0400
+
+    Display math started.
+
+ CalendarProject/src/scheduler/LoginView.java |  43 ++++++++-
+ CalendarProject/src/scheduler/MainGUI.java   | 135 ++++++++++++++++++++++++---
+ 2 files changed, 160 insertions(+), 18 deletions(-)
+
+commit e4f94f2eda5415f3083cfd4275ed379574d30be3
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Wed Apr 18 15:43:35 2018 -0400
+
+    Added times to table
+
+ CalendarProject/src/scheduler/NetbeansGUI.java | 155 +++++++++++++------------
+ 1 file changed, 81 insertions(+), 74 deletions(-)
+
+commit ada040dbd27e06d91d1f8406ae382f1ce90140e0
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Apr 18 10:42:44 2018 -0400
+
+    Little stuff.
+
+ CalendarProject/src/scheduler/MainGUI.java | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 5c6b80a3dea5ec0fb0851d46ea8a57e3a41509b2
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Apr 18 10:17:45 2018 -0400
+
+    Fixed export button issue. Saves as .ics always.
+
+ CalendarProject/src/scheduler/MainGUI.java | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit 12f6fb0bbd91faf3aebd597faaf46e4441a24292
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Wed Apr 18 02:12:28 2018 -0400
+
+    Checkstyle fixed and Javadoc'd BannerSchedScrapper and LoginView
+
+ .../src/scheduler/BannerSchedScrapper.java         | 174 +++++++--------------
+ CalendarProject/src/scheduler/LoginView.java       |  97 ++++++++----
+ 2 files changed, 125 insertions(+), 146 deletions(-)
+
+commit cf4e436de918d1aa553ea5348fb889d868e1b4f7
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Wed Apr 18 00:09:12 2018 -0400
+
+    Started compare and display functions.
+
+ CalendarProject/src/scheduler/MainGUI.java     | 58 +++++++++++++++++++++-----
+ CalendarProject/src/scheduler/NetbeansGUI.java |  6 +--
+ CalendarProject/src/scheduler/Schedule.java    | 30 +++++++------
+ 3 files changed, 64 insertions(+), 30 deletions(-)
+
+commit 1fe5bb431e043895f3a81dd9f7334500461b311e
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Tue Apr 17 23:38:09 2018 -0400
+
+    Further progress. Created schedules from import buttons.
+
+ CalendarProject/src/scheduler/MainGUI.java   | 18 ++++++++++----
+ CalendarProject/src/scheduler/Schedule.java  | 36 +++++++++++++++++++++++++++-
+ CalendarProject/src/scheduler/Scheduler.java |  7 ++++++
+ 3 files changed, 55 insertions(+), 6 deletions(-)
+
+commit ae33d4047aa94b7d6ed969d2768798c1dbe3433b
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Tue Apr 17 23:04:16 2018 -0400
+
+    Added error handling for export button.
+
+ CalendarProject/src/scheduler/MainGUI.java | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+commit 215aa6428318a8bc15d142a1066196ae4bbe9393
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Tue Apr 17 22:57:46 2018 -0400
+
+    All action listeners added.
+
+ CalendarProject/src/scheduler/MainGUI.java     | 19 +++++++++++++++++--
+ CalendarProject/src/scheduler/NetbeansGUI.java | 20 ++++++++++----------
+ 2 files changed, 27 insertions(+), 12 deletions(-)
+
+commit 0c9d3e91835df797296eadde4fdedba7b8f1472d
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Tue Apr 17 22:52:52 2018 -0400
+
+    Added action listeners.
+
+ CalendarProject/src/scheduler/MainGUI.java | 87 +++++++++++++++++++++++-------
+ 1 file changed, 67 insertions(+), 20 deletions(-)
+
+commit 30855e6bc0e45cf6dc2dee03eef689676134a5fe
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Mon Apr 16 19:05:52 2018 -0400
+
+    Updated GUI
+
+ CalendarProject/src/scheduler/NetbeansGUI.java | 367 ++++++++++++++++++-------
+ 1 file changed, 261 insertions(+), 106 deletions(-)
+
+commit 735b6454d3ad16adab07b47dc5e8efcf613daf00
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Apr 16 10:43:05 2018 -0400
+
+    Added class that extends Marshalls Netbeans GUI. Any code that we hand write needs to be written in this class. Also, remove the main from the Netbeans code for this to work right.
+
+ CalendarProject/src/scheduler/MainGUI.java | 55 ++++++++++++++++++++++++++++++
+ 1 file changed, 55 insertions(+)
+
+commit e83e390bef33848c5d2418bf690a53ac5fba493a
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Apr 16 10:15:21 2018 -0400
+
+    Marshall's GUI updated.
+
+ CalendarProject/src/scheduler/NetbeansGUI.java | 11 -----------
+ 1 file changed, 11 deletions(-)
+
+commit 225ea654ac3e80ee1207238892f013bb86055ddb
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Mon Apr 16 10:11:34 2018 -0400
+
+    Marshall's GUI
+
+ .../{CalProJFrame.java => NetbeansGUI.java}        | 58 +++++++++++++++-------
+ 1 file changed, 40 insertions(+), 18 deletions(-)
+
+commit 9d34b680a772d007ae6729d61a35f2a6f152e4f8
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Sun Apr 15 23:38:46 2018 -0400
+
+    fixed spelling error in nav button
+
+ CalendarProject/src/scheduler/SchedulerWindow.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 7a76d79486cdd2aaf62710ede40a36028d2df09e
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Sun Apr 15 23:33:27 2018 -0400
+
+    Completed GUI. Now we just need to edit the tables and actionlisteners. Remove swt.jar from the build path to make this work.
+
+ CalendarProject/src/scheduler/SchedulerWindow.java | 370 +++++++++++++++++++++
+ 1 file changed, 370 insertions(+)
+
+commit 075a40ba31f870d7ad5eaf7595c02b1e2515a23c
+Merge: 2b39d69 478e317
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Sun Apr 15 11:17:14 2018 -0400
+
+    Merge branch 'master' of https://github.com/Hangry9090/CalendarProject
+
+commit 2b39d692860329e1f6e5d50ba56d4ece4d897b10
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Sun Apr 15 11:16:57 2018 -0400
+
+    Created Schedule class. Can't do much more until I know how to display it.
+
+ CalendarProject/src/scheduler/Schedule.java        | 24 ++++++++++++++++++++++
+ .../src/scheduler/{ => assests}/CalProJFrame.form  |  0
+ 2 files changed, 24 insertions(+)
+
+commit 478e31763581110b04ce322930774e0d8ab4dcff
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Fri Apr 13 14:41:18 2018 -0400
+
+    MainWindow now opens LoginView to import schedules. Converts schedules sucessfully
+
+ CalendarProject/src/scheduler/LoginView.java    | 39 +++++++++++++++---
+ CalendarProject/src/scheduler/MainWindowV2.java | 54 +++++++++++++++----------
+ CalendarProject/src/scheduler/Scheduler.java    | 49 ++++++++++++++++++++++
+ 3 files changed, 116 insertions(+), 26 deletions(-)
+
+commit 48277164b23a41f938269d1b54a24e819e8193fd
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Fri Apr 13 10:17:56 2018 -0400
+
+    Added assests, and form file.
+
+ CalendarProject/src/scheduler/CalProJFrame.form    | 981 +++++++++++++++++++++
+ .../scheduler/assests/Blue_Add_Schedule_Icon.png   | Bin 0 -> 1159 bytes
+ .../src/scheduler/assests/Blue_Export_Icon.png     | Bin 0 -> 916 bytes
+ .../src/scheduler/assests/Blue_Help_Icon.png       | Bin 0 -> 2275 bytes
+ .../src/scheduler/assests/Blue_Menu_icon.png       | Bin 0 -> 552 bytes
+ .../src/scheduler/assests/Blue_info_icon.png       | Bin 0 -> 753 bytes
+ .../src/scheduler/assests/Blue_map_icon.png        | Bin 0 -> 1570 bytes
+ .../src/scheduler/assests/Blues_scales_icon.png    | Bin 0 -> 1676 bytes
+ 8 files changed, 981 insertions(+)
+
+commit f0a55b7fdf5f12393e984b01f9640f90458658fc
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 12 12:33:21 2018 -0400
+
+    Added .jar for Marshall's file.
+
+ AbsoluteLayout.jar | Bin 0 -> 2903 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 9a05ce4268bcee008d3c770f91ddcc98fc818598
+Author: Hangry9090 <mbrummel14@gmail.com>
+Date:   Wed Apr 11 20:39:51 2018 -0400
+
+    uploaded CalProJFrame.java
+
+ CalendarProject/src/scheduler/CalProJFrame.java | 586 ++++++++++++++++++++++++
+ 1 file changed, 586 insertions(+)
+
+commit 65419158580e412403c07ef4e366a3c66b798258
+Author: Hangry9090 <mbrummel14@gmail.com>
+Date:   Wed Apr 11 20:39:12 2018 -0400
+
+    Add files via upload
+
+ CalProJFrame.java | 586 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 586 insertions(+)
+
+commit 8846b8c427dfdf00b55cc2517873ce69d1de98ae
+Author: Hangry9090 <mbrummel14@gmail.com>
+Date:   Wed Apr 11 20:38:52 2018 -0400
+
+    Delete CalProJFrame.java
+
+ CalendarProject/src/scheduler/CalProJFrame.java | 586 ------------------------
+ 1 file changed, 586 deletions(-)
+
+commit fde841bb62beb57ff03705d6cd9960c1f59105de
+Author: Hangry9090 <mbrummel14@gmail.com>
+Date:   Wed Apr 11 20:06:54 2018 -0400
+
+    Added CalProjFrame
+
+ CalendarProject/src/scheduler/CalProJFrame.java | 586 ++++++++++++++++++++++++
+ 1 file changed, 586 insertions(+)
+
+commit 30bf4473d75e0067c90ff29415aa445a1bae49fe
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Sun Apr 8 21:02:35 2018 -0400
+
+    Created a login window along with error checking. LoginView won't work unless you remove the current .swt from the build path.
+
+ .../src/scheduler/BannerSchedScrapper.java         |  20 ++-
+ CalendarProject/src/scheduler/LoginView.java       | 148 +++++++++++++++++++++
+ 2 files changed, 164 insertions(+), 4 deletions(-)
+
+commit 72f497e2c03b65a29535e67857885dc28a9de598
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Sun Apr 1 20:54:54 2018 -0400
+
+    Working Banner Scrapper. Allows users to retrieve their concise student schedule from banner by entering their login credentials. Has a lot of dependacy libraries.
+
+ .../src/scheduler/BannerSchedScrapper.java         | 263 +++++++++++++++++++++
+ .../src/scheduler/commons-codec-1.10.jar           | Bin 0 -> 284184 bytes
+ CalendarProject/src/scheduler/commons-io-2.6.jar   | Bin 0 -> 214788 bytes
+ .../src/scheduler/commons-lang3-3.7.jar            | Bin 0 -> 499634 bytes
+ .../src/scheduler/commons-logging-1.2.jar          | Bin 0 -> 61829 bytes
+ CalendarProject/src/scheduler/commons-net-3.6.jar  | Bin 0 -> 307410 bytes
+ CalendarProject/src/scheduler/commons-text-1.2.jar | Bin 0 -> 136544 bytes
+ CalendarProject/src/scheduler/cssparser-0.9.24.jar | Bin 0 -> 385057 bytes
+ CalendarProject/src/scheduler/htmlunit-2.29.jar    | Bin 0 -> 2036380 bytes
+ .../src/scheduler/htmlunit-core-js-2.28.jar        | Bin 0 -> 1256581 bytes
+ CalendarProject/src/scheduler/httpclient-4.5.4.jar | Bin 0 -> 781831 bytes
+ CalendarProject/src/scheduler/httpcore-4.4.7.jar   | Bin 0 -> 325123 bytes
+ CalendarProject/src/scheduler/httpmime-4.5.4.jar   | Bin 0 -> 41752 bytes
+ .../src/scheduler/jetty-client-9.4.8.v20171121.jar | Bin 0 -> 274529 bytes
+ .../src/scheduler/jetty-http-9.4.8.v20171121.jar   | Bin 0 -> 164892 bytes
+ .../src/scheduler/jetty-io-9.4.8.v20171121.jar     | Bin 0 -> 128560 bytes
+ .../src/scheduler/jetty-util-9.4.8.v20171121.jar   | Bin 0 -> 481910 bytes
+ .../src/scheduler/jetty-xml-9.4.8.v20171121.jar    | Bin 0 -> 52107 bytes
+ .../src/scheduler/neko-htmlunit-2.28.jar           | Bin 0 -> 126050 bytes
+ CalendarProject/src/scheduler/sac-1.3.jar          | Bin 0 -> 15808 bytes
+ CalendarProject/src/scheduler/serializer-2.7.2.jar | Bin 0 -> 276420 bytes
+ .../scheduler/websocket-api-9.4.8.v20171121.jar    | Bin 0 -> 42076 bytes
+ .../scheduler/websocket-client-9.4.8.v20171121.jar | Bin 0 -> 35264 bytes
+ .../scheduler/websocket-common-9.4.8.v20171121.jar | Bin 0 -> 196078 bytes
+ CalendarProject/src/scheduler/xalan-2.7.2.jar      | Bin 0 -> 3154938 bytes
+ .../src/scheduler/xercesImpl-2.11.0.jar            | Bin 0 -> 1367760 bytes
+ CalendarProject/src/scheduler/xml-apis-1.4.01.jar  | Bin 0 -> 220536 bytes
+ 27 files changed, 263 insertions(+)
+
+commit e2e1ca8d71b6a7642b282ef4f6e613f888f491b5
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Fri Mar 2 13:21:15 2018 -0500
+
+    Updated git log
+
+ log.txt | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
 commit 97602f6be34ce6c0fa211abe3bbf36421ef74dcb
 Author: ASisouphone <sisouphone.alan@gmail.com>
 Date:   Fri Mar 2 01:38:52 2018 -0500
 
     Fixed Scheduler tests and added a new improper HTML file for the tests
+
+ CalendarProject/src/scheduler/SchedulerTests.java |  73 +++--
+ badSched.html                                     | 361 ++++++++++++++++++++++
+ 2 files changed, 416 insertions(+), 18 deletions(-)
 
 commit 549873a344fbbe0628eebc14ad135206c45aa0e9
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -10,11 +401,45 @@ Date:   Thu Mar 1 23:05:59 2018 -0500
 
     Somehow the javadocs got messed up before. This is fixed now.
 
+ docs/allclasses-frame.html                    |   7 +-
+ docs/allclasses-noframe.html                  |   7 +-
+ docs/constant-values.html                     |   8 +-
+ docs/deprecated-list.html                     |   8 +-
+ docs/help-doc.html                            |   8 +-
+ docs/index-files/index-1.html                 |  28 +-
+ docs/index-files/index-10.html                | 145 ++++++++
+ docs/index-files/index-2.html                 |  29 +-
+ docs/index-files/index-3.html                 |  31 +-
+ docs/index-files/index-4.html                 | 153 ++++++++
+ docs/index-files/index-5.html                 | 141 ++++++++
+ docs/index-files/index-6.html                 | 129 +++++++
+ docs/index-files/index-7.html                 | 135 +++++++
+ docs/index-files/index-8.html                 | 134 +++++++
+ docs/index-files/index-9.html                 | 154 ++++++++
+ docs/index.html                               |   2 +-
+ docs/overview-tree.html                       |   7 +-
+ docs/scheduler/Course.html                    | 498 ++++++++++++++++++++++++++
+ docs/scheduler/ICSEventBuilder.html           | 467 ++++++++++++++++++++++++
+ docs/scheduler/MainWindowV2.html              |  12 +-
+ docs/scheduler/Scheduler.html                 | 360 +++++++++++++++++++
+ docs/scheduler/class-use/Course.html          | 122 +++++++
+ docs/scheduler/class-use/ICSEventBuilder.html | 122 +++++++
+ docs/scheduler/class-use/MainWindowV2.html    |   8 +-
+ docs/scheduler/class-use/Scheduler.html       | 122 +++++++
+ docs/scheduler/package-frame.html             |   7 +-
+ docs/scheduler/package-summary.html           |  23 +-
+ docs/scheduler/package-tree.html              |   7 +-
+ docs/scheduler/package-use.html               |   4 +-
+ 29 files changed, 2799 insertions(+), 79 deletions(-)
+
 commit 13a8d9ed52c73a8af98d8ca55039be611b426a6f
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Thu Mar 1 17:59:54 2018 -0500
 
     Pushed git log
+
+ log.txt | 500 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 500 insertions(+)
 
 commit f462e06bb96e0a455b8b11c58b4ad5dffe368d12
 Author: Marshal Brummel <mbrummel14@gmail.com>
@@ -24,11 +449,18 @@ Date:   Thu Mar 1 17:57:02 2018 -0500
     
     Append was not working so I put it back to setText because it looked cleaner.
 
+ CalendarProject/src/scheduler/MainWindowV2.java | 17 ++++++++---------
+ 1 file changed, 8 insertions(+), 9 deletions(-)
+
 commit 89f0b5964e68b59f32140658646d2203f2f0a680
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Wed Feb 28 16:39:07 2018 -0500
 
     Removed Potential Bugs
+
+ CalendarProject/src/scheduler/ICSEventBuilder.java | 8 ++++++--
+ CalendarProject/src/scheduler/Scheduler.java       | 8 ++++++--
+ 2 files changed, 12 insertions(+), 4 deletions(-)
 
 commit 8499cbeaea639eb6ea8c34cf17d3376af9a2dfed
 Author: Marshal Brummel <mbrummel14@gmail.com>
@@ -36,11 +468,35 @@ Date:   Wed Feb 28 16:20:43 2018 -0500
 
     Messed with newlines
 
+ CalendarProject/src/scheduler/MainWindowV2.java | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
 commit e2ed74378d03daea0e7c72ecd8962baffcb53d76
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Wed Feb 28 16:03:38 2018 -0500
 
     Javadoc folder.
+
+ docs/allclasses-frame.html                 |  19 +
+ docs/allclasses-noframe.html               |  19 +
+ docs/constant-values.html                  | 122 ++++++
+ docs/deprecated-list.html                  | 122 ++++++
+ docs/help-doc.html                         | 223 +++++++++++
+ docs/index-files/index-1.html              | 135 +++++++
+ docs/index-files/index-2.html              | 129 +++++++
+ docs/index-files/index-3.html              | 130 +++++++
+ docs/index.html                            |  71 ++++
+ docs/overview-tree.html                    | 135 +++++++
+ docs/package-list                          |   1 +
+ docs/scheduler/MainWindowV2.html           | 297 +++++++++++++++
+ docs/scheduler/class-use/MainWindowV2.html | 122 ++++++
+ docs/scheduler/package-frame.html          |  20 +
+ docs/scheduler/package-summary.html        | 157 ++++++++
+ docs/scheduler/package-tree.html           | 131 +++++++
+ docs/scheduler/package-use.html            | 122 ++++++
+ docs/script.js                             |  30 ++
+ docs/stylesheet.css                        | 574 +++++++++++++++++++++++++++++
+ 19 files changed, 2559 insertions(+)
 
 commit 24e7a6c665048e616a3abd64021d052c982b4cdd
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -50,11 +506,79 @@ Date:   Wed Feb 28 15:44:17 2018 -0500
     
     This reverts commit 2d9df01909edfcc4b9965e4bf0f2bb640ceb7615.
 
+ {docs => doc}/allclasses-frame.html                    | 0
+ {docs => doc}/allclasses-noframe.html                  | 0
+ {docs => doc}/constant-values.html                     | 0
+ {docs => doc}/deprecated-list.html                     | 0
+ {docs => doc}/help-doc.html                            | 0
+ {docs => doc}/index-files/index-1.html                 | 0
+ {docs => doc}/index-files/index-10.html                | 0
+ {docs => doc}/index-files/index-2.html                 | 0
+ {docs => doc}/index-files/index-3.html                 | 0
+ {docs => doc}/index-files/index-4.html                 | 0
+ {docs => doc}/index-files/index-5.html                 | 0
+ {docs => doc}/index-files/index-6.html                 | 0
+ {docs => doc}/index-files/index-7.html                 | 0
+ {docs => doc}/index-files/index-8.html                 | 0
+ {docs => doc}/index-files/index-9.html                 | 0
+ {docs => doc}/index.html                               | 0
+ {docs => doc}/overview-tree.html                       | 0
+ {docs => doc}/package-list                             | 0
+ {docs => doc}/scheduler/Course.html                    | 0
+ {docs => doc}/scheduler/ICSEventBuilder.html           | 0
+ {docs => doc}/scheduler/MainWindowV2.html              | 0
+ {docs => doc}/scheduler/Scheduler.html                 | 0
+ {docs => doc}/scheduler/class-use/Course.html          | 0
+ {docs => doc}/scheduler/class-use/ICSEventBuilder.html | 0
+ {docs => doc}/scheduler/class-use/MainWindowV2.html    | 0
+ {docs => doc}/scheduler/class-use/Scheduler.html       | 0
+ {docs => doc}/scheduler/package-frame.html             | 0
+ {docs => doc}/scheduler/package-summary.html           | 0
+ {docs => doc}/scheduler/package-tree.html              | 0
+ {docs => doc}/scheduler/package-use.html               | 0
+ {docs => doc}/script.js                                | 0
+ {docs => doc}/stylesheet.css                           | 0
+ 32 files changed, 0 insertions(+), 0 deletions(-)
+
 commit 2d9df01909edfcc4b9965e4bf0f2bb640ceb7615
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Wed Feb 28 15:14:08 2018 -0500
 
     rename doc to docs.
+
+ {doc => docs}/allclasses-frame.html                    | 0
+ {doc => docs}/allclasses-noframe.html                  | 0
+ {doc => docs}/constant-values.html                     | 0
+ {doc => docs}/deprecated-list.html                     | 0
+ {doc => docs}/help-doc.html                            | 0
+ {doc => docs}/index-files/index-1.html                 | 0
+ {doc => docs}/index-files/index-10.html                | 0
+ {doc => docs}/index-files/index-2.html                 | 0
+ {doc => docs}/index-files/index-3.html                 | 0
+ {doc => docs}/index-files/index-4.html                 | 0
+ {doc => docs}/index-files/index-5.html                 | 0
+ {doc => docs}/index-files/index-6.html                 | 0
+ {doc => docs}/index-files/index-7.html                 | 0
+ {doc => docs}/index-files/index-8.html                 | 0
+ {doc => docs}/index-files/index-9.html                 | 0
+ {doc => docs}/index.html                               | 0
+ {doc => docs}/overview-tree.html                       | 0
+ {doc => docs}/package-list                             | 0
+ {doc => docs}/scheduler/Course.html                    | 0
+ {doc => docs}/scheduler/ICSEventBuilder.html           | 0
+ {doc => docs}/scheduler/MainWindowV2.html              | 0
+ {doc => docs}/scheduler/Scheduler.html                 | 0
+ {doc => docs}/scheduler/class-use/Course.html          | 0
+ {doc => docs}/scheduler/class-use/ICSEventBuilder.html | 0
+ {doc => docs}/scheduler/class-use/MainWindowV2.html    | 0
+ {doc => docs}/scheduler/class-use/Scheduler.html       | 0
+ {doc => docs}/scheduler/package-frame.html             | 0
+ {doc => docs}/scheduler/package-summary.html           | 0
+ {doc => docs}/scheduler/package-tree.html              | 0
+ {doc => docs}/scheduler/package-use.html               | 0
+ {doc => docs}/script.js                                | 0
+ {doc => docs}/stylesheet.css                           | 0
+ 32 files changed, 0 insertions(+), 0 deletions(-)
 
 commit bdd0cf4b761f3056dac3c6f89e2bf5a13eaba008
 Merge: 45552c0 0e79207
@@ -71,11 +595,51 @@ Date:   Wed Feb 28 15:07:32 2018 -0500
 
     Javadoc folder added.
 
+ doc/allclasses-frame.html                    |  22 +
+ doc/allclasses-noframe.html                  |  22 +
+ doc/constant-values.html                     | 122 ++++++
+ doc/deprecated-list.html                     | 122 ++++++
+ doc/help-doc.html                            | 223 +++++++++++
+ doc/index-files/index-1.html                 | 129 ++++++
+ doc/index-files/index-10.html                | 145 +++++++
+ doc/index-files/index-2.html                 | 136 +++++++
+ doc/index-files/index-3.html                 | 133 +++++++
+ doc/index-files/index-4.html                 | 153 +++++++
+ doc/index-files/index-5.html                 | 141 +++++++
+ doc/index-files/index-6.html                 | 129 ++++++
+ doc/index-files/index-7.html                 | 135 +++++++
+ doc/index-files/index-8.html                 | 134 +++++++
+ doc/index-files/index-9.html                 | 157 ++++++++
+ doc/index.html                               |  71 ++++
+ doc/overview-tree.html                       | 138 +++++++
+ doc/package-list                             |   1 +
+ doc/scheduler/Course.html                    | 498 +++++++++++++++++++++++
+ doc/scheduler/ICSEventBuilder.html           | 467 ++++++++++++++++++++++
+ doc/scheduler/MainWindowV2.html              | 297 ++++++++++++++
+ doc/scheduler/Scheduler.html                 | 363 +++++++++++++++++
+ doc/scheduler/class-use/Course.html          | 122 ++++++
+ doc/scheduler/class-use/ICSEventBuilder.html | 122 ++++++
+ doc/scheduler/class-use/MainWindowV2.html    | 122 ++++++
+ doc/scheduler/class-use/Scheduler.html       | 122 ++++++
+ doc/scheduler/package-frame.html             |  23 ++
+ doc/scheduler/package-summary.html           | 179 +++++++++
+ doc/scheduler/package-tree.html              | 134 +++++++
+ doc/scheduler/package-use.html               | 122 ++++++
+ doc/script.js                                |  30 ++
+ doc/stylesheet.css                           | 574 +++++++++++++++++++++++++++
+ 32 files changed, 5288 insertions(+)
+
 commit 0e79207ad39b4d4b9ce0b2ffe3f79eb007951f54
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Wed Feb 28 15:05:41 2018 -0500
 
     Deleted Junk HTML files
+
+ CSS-Marshal.html                 | 341 -----------------------------------
+ CalendarProject/AlanSched.html   | 379 ---------------------------------------
+ CalendarProject/BadFile.html     | 361 -------------------------------------
+ CalendarProject/CSS-Marshal.html | 341 -----------------------------------
+ 4 files changed, 1422 deletions(-)
 
 commit bd5a8431c4c4793c0d43a2ea1355af7b577bfcfb
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -83,11 +647,23 @@ Date:   Wed Feb 28 14:55:39 2018 -0500
 
     Polished code a bit.
 
+ CalendarProject/src/scheduler/Course.java         | 10 ++--
+ CalendarProject/src/scheduler/MainWindowV2.java   | 64 +++++++++++------------
+ CalendarProject/src/scheduler/Scheduler.java      | 12 +++--
+ CalendarProject/src/scheduler/SchedulerTests.java |  8 ++-
+ CalendarProject/RodSched.html => RodSched.html    |  0
+ CalendarProject/sched.htm => sched.htm            |  0
+ CalendarProject/sched.html => sched.html          |  0
+ 7 files changed, 48 insertions(+), 46 deletions(-)
+
 commit 9e856a3b1438255298018603eb16a98ac57e7553
 Author: ASisouphone <sisouphone.alan@gmail.com>
 Date:   Wed Feb 28 10:53:22 2018 -0500
 
     Added exception handling for if you cancel import or export
+
+ CalendarProject/src/scheduler/MainWindowV2.java | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 commit ed07b0ef9d1b88173701064b5adc7df64ab9873f
 Author: Marshal Brummel <mbrummel14@gmail.com>
@@ -95,11 +671,17 @@ Date:   Wed Feb 28 10:42:06 2018 -0500
 
     quick fix to outputs
 
+ CalendarProject/src/scheduler/MainWindowV2.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 commit e322803660d1dfc62159e3c7203cba3ceb120b42
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Wed Feb 28 10:38:43 2018 -0500
 
     Added missing user interaction
+
+ CalendarProject/src/scheduler/MainWindowV2.java | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
 commit 75323e0fc0216cec623500e5a9e066b4f3dbb9e0
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -107,11 +689,22 @@ Date:   Wed Feb 28 10:24:53 2018 -0500
 
     Fixed 'unused variable' error in ShedTest by printing them out. Error checking complete.
 
+ CalendarProject/src/scheduler/SchedulerTests.java | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
 commit 7bd2db58be1a7883ed4585cbb1113d0ff53324c6
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Wed Feb 28 10:20:28 2018 -0500
 
     Created new package called scheduler.
+
+ CalendarProject/src/{ => scheduler}/Course.java          | 1 +
+ CalendarProject/src/{ => scheduler}/ICSEventBuilder.java | 1 +
+ CalendarProject/src/{ => scheduler}/MainWindowV2.java    | 1 +
+ CalendarProject/src/{ => scheduler}/Scheduler.java       | 1 +
+ CalendarProject/src/{ => scheduler}/SchedulerTests.java  | 1 +
+ CalendarProject/src/scheduler/package-info.java          | 9 +++++++++
+ 6 files changed, 14 insertions(+)
 
 commit 9327c8068d7ab8b861ccb6a5ff42dc484d923e9e
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -119,11 +712,17 @@ Date:   Wed Feb 28 10:10:59 2018 -0500
 
     Last bit of Javadoccing.
 
+ CalendarProject/src/Scheduler.java | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
 commit b29588041a4871cbaea8056f31b332720a107577
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Tue Feb 27 16:42:39 2018 -0500
 
     Re-added instructions
+
+ CalendarProject/src/MainWindowV2.java | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
 commit 66fd9e78b53fe5fa79c3eb9e259eb3f9ae83beba
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -131,11 +730,22 @@ Date:   Mon Feb 26 11:01:39 2018 -0500
 
     Just did some javadox.
 
+ CalendarProject/src/MainWindowV2.java | 84 +++++++++++++----------------------
+ 1 file changed, 32 insertions(+), 52 deletions(-)
+
 commit 74b7c945d10a9ba0ac207a14dfb4d23b539cdd58
 Author: ASisouphone <sisouphone.alan@gmail.com>
 Date:   Sun Feb 25 22:23:09 2018 -0500
 
     Added Junits tests and modified exceptions and exception handling in Scheduler and GUI. Also added additional html files for testing. ECLEmma coverage: 95.9%
+
+ CalendarProject/BadFile.html            | 361 +++++++++++++++++++++++++++++++
+ CalendarProject/CSS-Marshal.html        | 341 +++++++++++++++++++++++++++++
+ CalendarProject/sched.htm               | 361 +++++++++++++++++++++++++++++++
+ CalendarProject/src/MainWindowV2.java   |  67 +++---
+ CalendarProject/src/Scheduler.java      |  72 ++++---
+ CalendarProject/src/SchedulerTests.java | 369 ++++++++++++++++++++++++++++++++
+ 6 files changed, 1510 insertions(+), 61 deletions(-)
 
 commit 76f360c846eaf92e5dd3d8cd6660126b55625c3f
 Author: ASisouphone <sisouphone.alan@gmail.com>
@@ -143,11 +753,19 @@ Date:   Sat Feb 24 12:42:25 2018 -0500
 
     Scheduler now uses ICSEventBuilder Functions. Added a ToString() and ToStringICS to Scheduler.
 
+ CalendarProject/src/Course.java          |  55 +++--
+ CalendarProject/src/ICSEventBuilder.java |   9 +
+ CalendarProject/src/Scheduler.java       | 359 +++++--------------------------
+ 3 files changed, 104 insertions(+), 319 deletions(-)
+
 commit 7667b67bd086656a0efd62749b4435108a2a62c3
 Author: ASisouphone <sisouphone.alan@gmail.com>
 Date:   Fri Feb 23 20:17:40 2018 -0500
 
     Added ICSEventBuilder class and improved function implementations
+
+ CalendarProject/src/ICSEventBuilder.java | 334 +++++++++++++++++++++++++++++++
+ 1 file changed, 334 insertions(+)
 
 commit a9a31939a1f37e7f44ac10a1eab6f00bbc709dc6
 Author: Marshal Brummel <mbrummel14@gmail.com>
@@ -157,11 +775,17 @@ Date:   Fri Feb 23 19:46:54 2018 -0500
     
     Instructions added and welcome message updated.
 
+ CalendarProject/src/MainWindowV2.java | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
 commit 1bb54339e001a42d5bfe9eeccd3bf933fe94fcc2
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Fri Feb 23 17:50:33 2018 -0500
 
     Added user feedback in message dialog
+
+ CalendarProject/src/MainWindowV2.java | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 commit 76b3567958e85e88842da41ffb4239e6e70ed47d
 Author: Marshal Brummel <mbrummel14@gmail.com>
@@ -169,11 +793,18 @@ Date:   Wed Feb 21 17:39:35 2018 -0500
 
     Java documentation
 
+ CalendarProject/src/MainWindowV2.java | 25 ++++++++++++++++++-------
+ 1 file changed, 18 insertions(+), 7 deletions(-)
+
 commit 70de2c8d8a603871bd6730681009b39b2af3dd34
 Author: ASisouphone <sisouphone.alan@gmail.com>
 Date:   Wed Feb 21 17:19:39 2018 -0500
 
     Schedule now ends by the given end date in the student schedule
+
+ CalendarProject/src/Course.java    |  4 ++
+ CalendarProject/src/Scheduler.java | 78 ++++++++++++++++++++------------------
+ 2 files changed, 46 insertions(+), 36 deletions(-)
 
 commit a492f004ea26a302da1839428ce576fa4b064a7b
 Author: Marshal Brummel <mbrummel14@gmail.com>
@@ -181,11 +812,17 @@ Date:   Wed Feb 21 16:04:05 2018 -0500
 
     Changed author names and added some checkstyle fixes
 
+ CalendarProject/src/MainWindowV2.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 commit 83c2aa51a258e5dcb613ccb74c9454d379752a75
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Wed Feb 21 15:57:57 2018 -0500
 
     Javadocced course.
+
+ CalendarProject/src/Course.java | 107 ++++++++++++++++++++++++++++------------
+ 1 file changed, 75 insertions(+), 32 deletions(-)
 
 commit 8c2bc95b069d720d026d5604d62b36cd41739314
 Author: ASisouphone <sisouphone.alan@gmail.com>
@@ -193,11 +830,17 @@ Date:   Wed Feb 21 15:33:56 2018 -0500
 
     Added Javadoc comments for the methods. Need to work on toString methods now
 
+ CalendarProject/src/Scheduler.java | 129 ++++++++++++++++++++++---------------
+ 1 file changed, 78 insertions(+), 51 deletions(-)
+
 commit 6d0b9d647747a2957afe2a983969d21ab1440f87
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Wed Feb 21 10:59:13 2018 -0500
 
     Reverting back to stable file
+
+ CalendarProject/src/MainWindowV2.java | 67 +++++++----------------------------
+ 1 file changed, 13 insertions(+), 54 deletions(-)
 
 commit 32ded7bc104f8b016a3a7264a13fabcabe506d46
 Merge: 710801c 5c86fce
@@ -212,11 +855,19 @@ Date:   Wed Feb 21 10:28:04 2018 -0500
 
     Added comments
 
+ CalendarProject/src/MainWindowV2.java | 42 ++++++++++++++++++++++++-----------
+ 1 file changed, 29 insertions(+), 13 deletions(-)
+
 commit 5c86fce0c3d73e3adf801f7ffb2a40e59354da05
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Wed Feb 21 10:22:44 2018 -0500
 
     Javadoccing
+
+ CalendarProject/src/Course.java       | 95 +++++++++++++++++++++++------------
+ CalendarProject/src/MainWindowV2.java | 28 ++++++-----
+ CalendarProject/src/Scheduler.java    | 55 +++++++++++++-------
+ 3 files changed, 115 insertions(+), 63 deletions(-)
 
 commit e8f906028dca9425b93f124305f3551dae36de49
 Author: ASisouphone <sisouphone.alan@gmail.com>
@@ -224,11 +875,17 @@ Date:   Tue Feb 20 16:25:40 2018 -0500
 
     Fixed bug to work with my schedule and hybrid schedules. Still need to un-hardcode the end of semester date
 
+ CalendarProject/src/Scheduler.java | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
 commit 11c1bbcf07cf3e5465bd823df2285a0cbe1ac213
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Mon Feb 19 21:26:22 2018 -0500
 
     Changed application name
+
+ CalendarProject/src/MainWindowV2.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit ff83bf3eb8d1a6b4864930aea644edf7ca624c53
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -236,11 +893,21 @@ Date:   Mon Feb 19 16:13:16 2018 -0500
 
     Started Checkstyle fixes. I modified the checkstyle config a bit and exported it into the src folder. You guys can import it.
 
+ CalendarProject/src/Course.java           |  41 +++++++-----
+ CalendarProject/src/MainWindowV2.java     |  10 ++-
+ CalendarProject/src/Our Checkstyle Config | 104 ++++++++++++++++++++++++++++++
+ CalendarProject/src/Scheduler.java        |  26 ++------
+ 4 files changed, 139 insertions(+), 42 deletions(-)
+
 commit 2a6f53ab83df700eda033b2417a72cbf9949d96a
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Mon Feb 19 15:55:46 2018 -0500
 
     Added error handling for Output button.
+
+ CalendarProject/src/MainWindowV2.java |  6 ++++
+ CalendarProject/src/Scheduler.java    | 54 +++++++++++++++++++----------------
+ 2 files changed, 36 insertions(+), 24 deletions(-)
 
 commit d5d24a8ac06efb32ceafa983e337100a035cdd8e
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -248,11 +915,18 @@ Date:   Mon Feb 19 15:47:07 2018 -0500
 
     Output button has full functionality.
 
+ CalendarProject/src/MainWindowV2.java | 10 +++++++
+ CalendarProject/src/Scheduler.java    | 54 +++++++++++++++++------------------
+ 2 files changed, 37 insertions(+), 27 deletions(-)
+
 commit 18e6a1bf9821c82d0388ef7ae2ae85dbd41fa4d9
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Mon Feb 19 14:10:08 2018 -0500
 
     Working on printing ics to file.
+
+ CalendarProject/src/Scheduler.java | 45 ++++++++++++++++++++++----------------
+ 1 file changed, 26 insertions(+), 19 deletions(-)
 
 commit e224c4f54eab36d2cbbec7d802cc4b8ea39b1d62
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -260,11 +934,18 @@ Date:   Mon Feb 19 10:49:27 2018 -0500
 
     Added output button save as function.
 
+ CalendarProject/src/MainWindowV2.java | 63 ++++++++++++++++++-----------------
+ 1 file changed, 33 insertions(+), 30 deletions(-)
+
 commit 7c99f3d91ab81e344123af4d99a422d8e837e085
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Mon Feb 19 10:38:20 2018 -0500
 
     Button now loads the file. Opens the file regardless of what folder it is in.
+
+ CalendarProject/src/MainWindowV2.java | 31 ++++++++++++++++++++++++++-----
+ CalendarProject/src/Scheduler.java    | 28 ++++++++++++++++++++++++++++
+ 2 files changed, 54 insertions(+), 5 deletions(-)
 
 commit 7e1e415b65aa45bf46a6e0378dc76525fc142c88
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -272,11 +953,17 @@ Date:   Mon Feb 19 10:16:36 2018 -0500
 
     Removed unused imports.
 
+ CalendarProject/src/MainWindowV2.java | 16 ----------------
+ 1 file changed, 16 deletions(-)
+
 commit e646a161161add27bdf422cf150b1cc6ef73d844
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Mon Feb 19 10:05:57 2018 -0500
 
     Cleaned up code
+
+ CalendarProject/src/MainWindowV2.java | 7 -------
+ 1 file changed, 7 deletions(-)
 
 commit 2be553a33ad991363375fdc322941fb6293cc82f
 Author: ASisouphone <sisouphone.alan@gmail.com>
@@ -284,17 +971,29 @@ Date:   Sun Feb 18 21:47:55 2018 -0500
 
     Added a few simple comments to the code. Still need to implement a way for the schedule to end at a specific date relevant to the semester.
 
+ CalendarProject/src/Scheduler.java | 265 +++++++++++++++----------------------
+ 1 file changed, 106 insertions(+), 159 deletions(-)
+
 commit d74aaa8860380b10f1a47c246959f4fa042618cc
 Author: ASisouphone <sisouphone.alan@gmail.com>
 Date:   Sun Feb 18 21:12:02 2018 -0500
 
     Removed a lot of the hardcoding so that the program uses only information its given. My friend's schedule with the hybrid class now works. Still needs commenting
 
+ CalendarProject/RodSched.html      | 397 +++++++++++++++++++++++++++++++++++++
+ CalendarProject/src/Course.java    |  90 ++++++---
+ CalendarProject/src/Scheduler.java | 158 +++++++++++----
+ 3 files changed, 576 insertions(+), 69 deletions(-)
+
 commit d9a0d64f0d370f15d3655258340ad3f9ae78e06d
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Sun Feb 18 15:19:40 2018 -0500
 
     Different file chooser that works.
+
+ .../src/CSS-Marshal.html => CSS-Marshal.html       |  0
+ CalendarProject/src/MainWindowV2.java              | 28 ++++++++++++++++++----
+ 2 files changed, 23 insertions(+), 5 deletions(-)
 
 commit 9914d364194238b09343bab933e9cf233d763568
 Merge: fedeaf8 464886d
@@ -309,11 +1008,18 @@ Date:   Sat Feb 17 18:09:39 2018 -0500
 
     Working code that prints out ICS format for the current class schedule. No comments yet
 
+ CalendarProject/src/Course.java    |  22 +++
+ CalendarProject/src/Scheduler.java | 356 ++++++++++++++++++++++++++++++-------
+ 2 files changed, 315 insertions(+), 63 deletions(-)
+
 commit 464886d23445a5cdec13527e829e00317e3d6189
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Fri Feb 16 11:02:27 2018 -0500
 
     Trying to make workon Mac.
+
+ CalendarProject/src/MainWindowV2.java | 56 +++++++++++++++++++----------------
+ 1 file changed, 30 insertions(+), 26 deletions(-)
 
 commit dd21e7cfca0624e67daab683e86bab78606f27d3
 Author: Marshal Brummel <mbrummel14@gmail.com>
@@ -323,11 +1029,17 @@ Date:   Thu Feb 15 16:59:44 2018 -0500
     
     Created new instance of Scheduler, added var for filename, and added try-catch to run the parseFile function
 
+ CalendarProject/src/MainWindowV2.java | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
 commit 6b632a7fd20034062f6453bf6895491178c28efb
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Wed Feb 14 17:06:11 2018 -0500
 
     updated MainWindowV2 with fileChooser
+
+ CalendarProject/src/MainWindowV2.java | 51 +++++++++++++++++++++++------------
+ 1 file changed, 34 insertions(+), 17 deletions(-)
 
 commit ed7e9f22ff5268e5ae51fccc998ef05f6bf2a334
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -335,11 +1047,19 @@ Date:   Mon Feb 12 11:17:48 2018 -0500
 
     Added libraries.
 
+ CalendarProject/jsoup-1.11.2.jar | Bin 0 -> 392350 bytes
+ CalendarProject/swt.jar          | Bin 0 -> 1754179 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
 commit 01a00240e9806e0895ace5c4e45f9f475d3a9ee8
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Mon Feb 12 10:47:19 2018 -0500
 
     Removed stuff that doesn't work.
+
+ CalendarProject/src/MainWindow.java         |  94 ------
+ CalendarProject/src/SWTResourceManager.java | 445 ----------------------------
+ 2 files changed, 539 deletions(-)
 
 commit 6ca50790f4d25a0e070093025cf0ba56d3c34754
 Author: Marshal Brummel <mbrummel14@gmail.com>
@@ -347,11 +1067,34 @@ Date:   Wed Feb 7 18:41:55 2018 -0500
 
     Reattempted to create the UI
 
+ .metadata/.mylyn/tasks.xml.zip                     | Bin 235 -> 235 bytes
+ .../.safetable/org.eclipse.core.resources          | Bin 910 -> 1124 bytes
+ .../.settings/org.eclipse.jdt.launching.prefs      |   2 +-
+ .../.settings/org.eclipse.jdt.ui.prefs             |   2 +
+ .../org.eclipse.e4.workbench/workbench.xmi         |  50 ++++++++---
+ .../server-config.json                             |   2 +-
+ .../org.eclipse.jdt.core/externalLibsTimeStamps    | Bin 2229 -> 2229 bytes
+ .../org.eclipse.jdt.core/nonChainingJarsCache      | Bin 1001 -> 1088 bytes
+ .../org.eclipse.jdt.core/savedIndexNames.txt       |  44 ++++-----
+ .../SavedExternalPluginList.txt                    |   2 +-
+ .../org.eclipse.ui.workbench/dialog_settings.xml   |   2 +-
+ .metadata/version.ini                              |   2 +-
+ CalendarProject/.classpath                         |   2 +
+ CalendarProject/jgoodies-common-1.8.0-sources.jar  | Bin 0 -> 81564 bytes
+ CalendarProject/jgoodies-common-1.8.0.jar          | Bin 0 -> 44844 bytes
+ CalendarProject/jgoodies-forms-1.8.0-sources.jar   | Bin 0 -> 174169 bytes
+ CalendarProject/jgoodies-forms-1.8.0.jar           | Bin 0 -> 131605 bytes
+ CalendarProject/src/MainWindowV2.java              | 100 +++++++++++++++++++++
+ 18 files changed, 170 insertions(+), 38 deletions(-)
+
 commit 7dc5719f7ac696712b974353db3d299a803962c2
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Mon Feb 5 10:48:25 2018 -0500
 
     Modified Alan's schedule to have 3 meet times for testing.
+
+ CalendarProject/AlanSched.html | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
 commit 4ff103bdf155723dd6d46edefa779dc0e4c85aeb
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -359,11 +1102,19 @@ Date:   Mon Feb 5 10:47:01 2018 -0500
 
     Added possibility of third meet time.
 
+ CalendarProject/src/Course.java | 60 ++++++++++++++++++++++++-----------------
+ 1 file changed, 35 insertions(+), 25 deletions(-)
+
 commit 7770c9060583019b823c89c70163de80c9172928
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Mon Feb 5 10:28:56 2018 -0500
 
     Added the ability to have multiple meet times.
+
+ CalendarProject/{src => }/AlanSched.html |  0
+ CalendarProject/src/Course.java          | 52 +++++++++++++++++++++++---------
+ CalendarProject/src/Scheduler.java       |  5 +--
+ 3 files changed, 40 insertions(+), 17 deletions(-)
 
 commit 21f5159bb79980d5cf44b033fad216a6c9bcf42b
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -371,17 +1122,28 @@ Date:   Sun Feb 4 22:58:50 2018 -0500
 
     Added course class.
 
+ CalendarProject/{src => }/sched.html |  0
+ CalendarProject/src/Course.java      | 83 ++++++++++++++++++++++++++++++++++++
+ CalendarProject/src/Scheduler.java   | 11 +++--
+ 3 files changed, 88 insertions(+), 6 deletions(-)
+
 commit 45b00d073f64af4c437c5f5d479e93e895e2bce7
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Fri Feb 2 10:44:57 2018 -0500
 
     Changed .gitignore
 
+ CalendarProject/.gitignore | 1 +
+ 1 file changed, 1 insertion(+)
+
 commit ffd09c4ec26c0f48908eb2a334a89232f2d2d146
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Fri Feb 2 10:27:18 2018 -0500
 
     Added swt Lib
+
+ swt.jar | Bin 0 -> 1754179 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
 
 commit 9ec15d49ee57aae95e973a827c290f081a471c59
 Author: Marshal Brummel <mbrummel14@gmail.com>
@@ -391,6 +1153,281 @@ Date:   Wed Jan 31 15:19:41 2018 -0500
     
     Recreated the package and organized some files.
 
+ .DS_Store                                          |  Bin 6148 -> 0 bytes
+ .gitignore                                         |    1 +
+ .metadata/.mylyn/.taskListIndex/segments_1         |  Bin 71 -> 71 bytes
+ .metadata/.mylyn/.tasks.xml.zip                    |  Bin 235 -> 0 bytes
+ .metadata/.mylyn/repositories.xml.zip              |  Bin 567 -> 567 bytes
+ .metadata/.mylyn/tasks.xml.zip                     |  Bin 235 -> 235 bytes
+ .../.history/32/90fc11d08a03001811cabed4bcb2a12b   |  105 -
+ .../.history/42/4035ff818503001811cabed4bcb2a12b   |   72 -
+ .../.history/43/600e820c7f03001811cabed4bcb2a12b   |    7 -
+ .../.history/5d/e0f19b09e10300181bf0f6e07b65829f   |  105 -
+ .../.history/77/10c878c38003001811cabed4bcb2a12b   |   48 -
+ .../.history/8/906ccad08903001811cabed4bcb2a12b    |   91 -
+ .../.history/83/50749f09e10300181bf0f6e07b65829f   |  105 -
+ .../.history/96/f02031008a03001811cabed4bcb2a12b   |  102 -
+ .../.history/a9/505967377f03001811cabed4bcb2a12b   |    0
+ .../.history/b1/50c1c320070500181d26e6d9da4bd4f2   |  447 ---
+ .../.history/b8/508015428103001811cabed4bcb2a12b   |   65 -
+ .../.history/f1/907a394f8903001811cabed4bcb2a12b   |   90 -
+ .../calendarProjectW/.indexes/7/history.index      |  Bin 144 -> 0 bytes
+ .../calendarProjectW/.indexes/af/history.index     |  Bin 70 -> 0 bytes
+ .../calendarProjectW/.indexes/e4/44/history.index  |  Bin 471 -> 0 bytes
+ .../.indexes/e4/44/properties.index                |  Bin 196 -> 0 bytes
+ .../.indexes/e4/e4/b9/cb/90/history.index          |  Bin 80 -> 0 bytes
+ .../calendarProjectW/.indexes/e4/fb/history.index  |  Bin 92 -> 0 bytes
+ .../calendarProjectW/.indexes/e4/history.index     |  Bin 144 -> 0 bytes
+ .../calendarProjectW/.indexes/properties.index     |  Bin 80 -> 0 bytes
+ .../.projects/calendarProjectW/.markers            |  Bin 7477 -> 0 bytes
+ .../GitProjectData.properties                      |    3 -
+ .../org.eclipse.jdt.core/state.dat                 |  Bin 165316 -> 0 bytes
+ .../org.eclipse.core.resources/.root/12.tree       |  Bin 1332 -> 0 bytes
+ .../.safetable/org.eclipse.core.resources          |  Bin 1136 -> 910 bytes
+ .../org.eclipse.epp.logging.aeri.ide.prefs         |    3 +-
+ .../.settings/org.eclipse.epp.mpc.ui.prefs         |    2 -
+ .../.settings/org.eclipse.jdt.core.prefs           |    1 -
+ .../.settings/org.eclipse.jdt.launching.prefs      |    2 +-
+ .../.settings/org.eclipse.jdt.ui.prefs             |    8 -
+ .../.settings/org.eclipse.pde.core.prefs           |    2 +-
+ .../.settings/org.eclipse.ui.ide.prefs             |    2 +
+ .../.settings/org.eclipse.ui.prefs                 |    2 -
+ .../.settings/org.eclipse.ui.workbench.prefs       |    2 +-
+ .../.settings/org.eclipse.wb.core.prefs            |    3 -
+ .../org.eclipse.e4.workbench/workbench.xmi         | 3782 ++++++++++----------
+ .../http-cache.lucene60/segments_1                 |  Bin 71 -> 71 bytes
+ .../http-cache/segments.gen                        |  Bin 20 -> 0 bytes
+ .../http-cache/segments_1                          |  Bin 32 -> 0 bytes
+ .../local-history.lucene60/_0.cfe                  |  Bin 129 -> 129 bytes
+ .../local-history.lucene60/_0.cfs                  |  Bin 314 -> 314 bytes
+ .../local-history.lucene60/_0.si                   |  Bin 362 -> 362 bytes
+ .../local-history.lucene60/segments_1              |  Bin 136 -> 136 bytes
+ .../local-history/_0.fdt                           |  Bin 11 -> 0 bytes
+ .../local-history/_0.fdx                           |  Bin 12 -> 0 bytes
+ .../local-history/_0.fnm                           |    1 -
+ .../local-history/_0.frq                           |    0
+ .../local-history/_0.nrm                           |    1 -
+ .../local-history/_0.tii                           |  Bin 24 -> 0 bytes
+ .../local-history/_0.tis                           |  Bin 24 -> 0 bytes
+ .../local-history/segments.gen                     |  Bin 20 -> 0 bytes
+ .../local-history/segments_1                       |  Bin 241 -> 0 bytes
+ .../local-history/write.lock                       |    0
+ .../remote-history/_0.fdt                          |  Bin 11 -> 0 bytes
+ .../remote-history/_0.fdx                          |  Bin 12 -> 0 bytes
+ .../remote-history/_0.fnm                          |    1 -
+ .../remote-history/_0.frq                          |    0
+ .../remote-history/_0.nrm                          |    1 -
+ .../remote-history/_0.tii                          |  Bin 24 -> 0 bytes
+ .../remote-history/_0.tis                          |  Bin 24 -> 0 bytes
+ .../remote-history/segments.gen                    |  Bin 20 -> 0 bytes
+ .../remote-history/segments_1                      |  Bin 241 -> 0 bytes
+ .../server-config.json                             |    2 +-
+ .../org.eclipse.epp.mpc.ui/dialog_settings.xml     |   10 -
+ .../org.eclipse.equinox.p2.ui/dialog_settings.xml  |   35 -
+ .../.plugins/org.eclipse.jdt.core/1971487145.index |  Bin 7364 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/242583998.index  |  Bin 8455 -> 0 bytes
+ .../org.eclipse.jdt.core/externalLibsTimeStamps    |  Bin 2229 -> 2229 bytes
+ .../org.eclipse.jdt.core/indexNamesMap.txt         |    1 -
+ .../org.eclipse.jdt.core/nonChainingJarsCache      |  Bin 1034 -> 1001 bytes
+ .../org.eclipse.jdt.core/savedIndexNames.txt       |   45 +-
+ .../variablesAndContainers.dat                     |  Bin 32362 -> 32361 bytes
+ .../org.eclipse.jdt.ui/dialog_settings.xml         |   16 +-
+ .../.workspace/2018/1/5/refactorings.history       |    4 -
+ .../.workspace/2018/1/5/refactorings.index         |    1 -
+ .../calendarProject/2018/1/4/refactorings.history  |    3 -
+ .../calendarProject/2018/1/4/refactorings.index    |    4 -
+ .../calendarProject/2018/1/5/refactorings.history  |    3 -
+ .../calendarProject/2018/1/5/refactorings.index    |    4 -
+ .../calendarProjectW/2018/1/5/refactorings.history |    3 -
+ .../calendarProjectW/2018/1/5/refactorings.index   |    4 -
+ .../dialog_settings.xml                            |   11 -
+ .../logback.1.7.0.20160603-1933.xml                |   43 -
+ .../.local_targets/1517070484209.target            |   12 -
+ .../SavedExternalPluginList.txt                    |    2 +-
+ .../org.eclipse.ui.ide/dialog_settings.xml         |   14 -
+ .metadata/.plugins/org.eclipse.ui.intro/introstate |    2 +-
+ .../org.eclipse.ui.workbench/dialog_settings.xml   |    6 +-
+ .../org.eclipse.ui.workbench/workingsets.xml       |    2 +-
+ .../org.eclipse.wb.rcp.cached-presentations.dat    |  Bin 166939 -> 0 bytes
+ .../org.eclipse.wb.core/dialog_settings.xml        |   22 -
+ .../palettes/org.eclipse.wb.rcp.commands           |   12 -
+ .../org.eclipse.wb.swing/dialog_settings.xml       |    9 -
+ .../org.eclipse.wst.sse.core/task-tags.properties  |    3 -
+ .metadata/version.ini                              |    2 +-
+ CalendarProject/.classpath                         |   18 +
+ CalendarProject/.gitignore                         |    1 +
+ {code/calendarProject => CalendarProject}/.project |    2 +-
+ .../.settings/org.eclipse.jdt.core.prefs           |    0
+ .../bin => CalendarProject/src}/AlanSched.html     |    0
+ .../bin => CalendarProject/src}/CSS-Marshal.html   |    0
+ .../src/MainWindow.java                            |   43 +-
+ .../src/SWTResourceManager.java                    |    4 +-
+ .../src}/Scheduler.java                            |    2 -
+ .../bin => CalendarProject/src}/sched.html         |    0
+ .../bin/calendarProjectW/MainWindow.class          |  Bin 3219 -> 0 bytes
+ .../bin/calendarProjectW/SWTResourceManager.class  |  Bin 11085 -> 0 bytes
+ .../bin/calendarProjectW/Scheduler.class           |  Bin 2017 -> 0 bytes
+ code/.DS_Store                                     |  Bin 6148 -> 0 bytes
+ code/.metadata/.lock                               |    0
+ code/.metadata/.mylyn/.taskListIndex/segments.gen  |  Bin 20 -> 0 bytes
+ code/.metadata/.mylyn/.taskListIndex/segments_1    |  Bin 32 -> 0 bytes
+ code/.metadata/.mylyn/.tasks.xml.zip               |  Bin 235 -> 0 bytes
+ code/.metadata/.mylyn/repositories.xml.zip         |  Bin 563 -> 0 bytes
+ code/.metadata/.mylyn/tasks.xml.zip                |  Bin 235 -> 0 bytes
+ .../.history/12/7004214a1c0100181ce4dbc3a9308121   |   63 -
+ .../.history/15/d0a4d8731c0100181ce4dbc3a9308121   |   68 -
+ .../.history/17/9038101c1b0100181ce4dbc3a9308121   |   18 -
+ .../.history/22/90b044931a0100181ce4dbc3a9308121   |    1 -
+ .../.history/26/8072bab51b0100181ce4dbc3a9308121   |   27 -
+ .../.history/2d/102602b4190100181ce4dbc3a9308121   |    7 -
+ .../.history/30/204dea931f0100181ce4dbc3a9308121   |   62 -
+ .../.history/40/20a8d7401b0100181ce4dbc3a9308121   |   20 -
+ .../.history/41/d06cd9281c0100181ce4dbc3a9308121   |   61 -
+ .../.history/48/80620c931a0100181ce4dbc3a9308121   |   13 -
+ .../.history/4a/30ce07f21c0100181ce4dbc3a9308121   |   70 -
+ .../.history/4e/d06ed48a1c0100181ce4dbc3a9308121   |   70 -
+ .../.history/53/800813b81b0100181ce4dbc3a9308121   |   30 -
+ .../.history/56/403f5eab1d0100181ce4dbc3a9308121   |   63 -
+ .../.history/58/2028a2f41c0100181ce4dbc3a9308121   |   69 -
+ .../.history/5b/100dd0ec1c0100181ce4dbc3a9308121   |   71 -
+ .../.history/60/e0083ab21c0100181ce4dbc3a9308121   |   72 -
+ .../.history/69/9073be6f1a0100181ce4dbc3a9308121   |    0
+ .../.history/6d/90ac27081c0100181ce4dbc3a9308121   |   30 -
+ .../.history/7a/b0802af71c0100181ce4dbc3a9308121   |   68 -
+ .../.history/8/a0b4eefa1c0100181ce4dbc3a9308121    |   67 -
+ .../.history/90/10d955631d0100181ce4dbc3a9308121   |   60 -
+ .../.history/90/b01a52141b0100181ce4dbc3a9308121   |   13 -
+ .../.history/96/e02b501f1c0100181ce4dbc3a9308121   |   60 -
+ .../.history/97/70b51f351d0100181ce4dbc3a9308121   |   60 -
+ .../.history/98/3072da021d0100181ce4dbc3a9308121   |   66 -
+ .../.history/99/30259b9d1d0100181ce4dbc3a9308121   |   60 -
+ .../.history/a0/90f467a81b0100181ce4dbc3a9308121   |   26 -
+ .../.history/bc/6077d07a1a0100181ce4dbc3a9308121   |   12 -
+ .../.history/bf/b06f23101c0100181ce4dbc3a9308121   |   59 -
+ .../.history/c1/b03f9ab31d0100181ce4dbc3a9308121   |   63 -
+ .../.history/ce/100e960d1c0100181ce4dbc3a9308121   |   57 -
+ .../.history/cf/80e03d221d0100181ce4dbc3a9308121   |   60 -
+ .../.history/d1/20728aef1c0100181ce4dbc3a9308121   |   71 -
+ .../.history/d1/d075701a1c0100181ce4dbc3a9308121   |   59 -
+ .../.history/d4/606c141c1d0100181ce4dbc3a9308121   |   66 -
+ .../.history/e/d06103931a0100181ce4dbc3a9308121    |   13 -
+ .../.history/fc/a03fa9991f0100181ce4dbc3a9308121   |   63 -
+ .../.history/fe/10c20d931a0100181ce4dbc3a9308121   |   13 -
+ .../calendarProject/.indexes/af/history.index      |  Bin 70 -> 0 bytes
+ .../calendarProject/.indexes/fb/history.index      |  Bin 267 -> 0 bytes
+ .../calendarProject/.indexes/properties.index      |  Bin 80 -> 0 bytes
+ .../.projects/calendarProject/.markers             |  Bin 16324 -> 0 bytes
+ .../.projects/calendarProject/.markers.snap        |  Bin 35007 -> 0 bytes
+ .../.projects/calendarProject/.syncinfo.snap       |  Bin 32 -> 0 bytes
+ .../.projects/calendarProject/1.tree               |  Bin 627 -> 0 bytes
+ .../GitProjectData.properties                      |    3 -
+ .../.root/.indexes/properties.index                |  Bin 108 -> 0 bytes
+ .../org.eclipse.core.resources/.root/.markers.snap |  Bin 139 -> 0 bytes
+ .../.safetable/org.eclipse.core.resources          |  Bin 3581 -> 0 bytes
+ .../.plugins/org.eclipse.core.resources/0.snap     |  Bin 1814 -> 0 bytes
+ .../.settings/org.eclipse.core.resources.prefs     |    2 -
+ .../.settings/org.eclipse.debug.ui.prefs           |    3 -
+ .../.settings/org.eclipse.egit.core.prefs          |    3 -
+ .../.settings/org.eclipse.jdt.core.prefs           |   11 -
+ .../.settings/org.eclipse.jdt.launching.prefs      |    2 -
+ .../.settings/org.eclipse.jdt.ui.prefs             |   19 -
+ .../.settings/org.eclipse.mylyn.context.core.prefs |    2 -
+ .../.settings/org.eclipse.mylyn.monitor.ui.prefs   |    2 -
+ .../.settings/org.eclipse.mylyn.tasks.ui.prefs     |    4 -
+ .../.settings/org.eclipse.pde.api.tools.prefs      |    2 -
+ .../.settings/org.eclipse.ui.prefs                 |    2 -
+ .../.launches/Scheduler.launch                     |   11 -
+ .../.launches/project.launch                       |   13 -
+ .../launchConfigurationHistory.xml                 |   23 -
+ .../org.eclipse.e4.workbench/workbench.xmi         | 2740 --------------
+ .../http-cache/write.lock                          |    0
+ .../local-history/_0.fdt                           |  Bin 11 -> 0 bytes
+ .../local-history/_0.fdx                           |  Bin 12 -> 0 bytes
+ .../local-history/_0.fnm                           |    1 -
+ .../local-history/_0.frq                           |    0
+ .../local-history/_0.nrm                           |    1 -
+ .../local-history/_0.tii                           |  Bin 24 -> 0 bytes
+ .../local-history/_0.tis                           |  Bin 24 -> 0 bytes
+ .../local-history/segments.gen                     |  Bin 20 -> 0 bytes
+ .../local-history/segments_1                       |  Bin 242 -> 0 bytes
+ .../local-history/write.lock                       |    0
+ .../remote-history/_0.fdt                          |  Bin 11 -> 0 bytes
+ .../remote-history/_0.fdx                          |  Bin 12 -> 0 bytes
+ .../remote-history/_0.fnm                          |    1 -
+ .../remote-history/_0.frq                          |    0
+ .../remote-history/_0.nrm                          |    1 -
+ .../remote-history/_0.tii                          |  Bin 24 -> 0 bytes
+ .../remote-history/_0.tis                          |  Bin 24 -> 0 bytes
+ .../remote-history/segments.gen                    |  Bin 20 -> 0 bytes
+ .../remote-history/segments_1                      |  Bin 242 -> 0 bytes
+ .../server-config.json                             |   72 -
+ .../.plugins/org.eclipse.jdt.core/1040376109.index |  Bin 150531 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/1242869121.index |  Bin 87493 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/1271342938.index |  Bin 17221 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/1384487945.index |  Bin 8162 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/1511570354.index |  Bin 178051 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/156905802.index  |  Bin 20450 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/1761014631.index |  Bin 5781 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/1819685514.index |  Bin 117463 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/1831474627.index |  Bin 167407 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/1833648217.index |  Bin 69590 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/2171826273.index |  Bin 408838 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/2376625133.index |  Bin 19506 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/2545238116.index |  Bin 241194 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/2783648097.index |  Bin 28650918 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/2802271970.index |  Bin 2004011 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/300302936.index  |  Bin 1126 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/306326927.index  |  Bin 234758 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/3085072714.index |  Bin 7180890 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/3266567714.index |  Bin 95681 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/3302703152.index |  Bin 1171802 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/3321539481.index |  Bin 672570 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/3357112224.index |  Bin 269888 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/3683318637.index |  Bin 60719 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/3712507179.index |  Bin 993077 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/419607439.index  |  Bin 25 -> 0 bytes
+ .../.plugins/org.eclipse.jdt.core/4291364629.index |  Bin 151300 -> 0 bytes
+ .../org.eclipse.jdt.core/externalLibsTimeStamps    |  Bin 1983 -> 0 bytes
+ .../org.eclipse.jdt.core/javaLikeNames.txt         |    1 -
+ .../org.eclipse.jdt.core/savedIndexNames.txt       |    2 -
+ .../variablesAndContainers.dat                     |  Bin 43846 -> 0 bytes
+ .../org.eclipse.jdt.launching/.install.xml         |    5 -
+ .../org.eclipse.jdt.launching/libraryInfos.xml     |   47 -
+ .../.plugins/org.eclipse.jdt.ui/jdt-images/0.png   |  Bin 635 -> 0 bytes
+ .../calendarProject/2018/1/4/refactorings.history  |    3 -
+ .../calendarProject/2018/1/4/refactorings.index    |    2 -
+ .../org.eclipse.m2e.logback.configuration/0.log    |    1 -
+ .../logback.1.7.0.20160603-1933.xml                |   43 -
+ .../org.eclipse.oomph.setup/workspace.setup        |    6 -
+ .../.plugins/org.eclipse.ui.intro/introstate       |    2 -
+ .../org.eclipse.ui.workbench/workingsets.xml       |    4 -
+ code/.metadata/version.ini                         |    3 -
+ code/.project                                      |   11 -
+ .../_0.fdt                                         |  Bin 5021699 -> 0 bytes
+ .../_0.fdx                                         |  Bin 92028 -> 0 bytes
+ .../_0.fnm                                         |    3 -
+ .../_0.frq                                         | 1109 ------
+ .../_0.nrm                                         |    1 -
+ .../_0.prx                                         |  Bin 129208 -> 0 bytes
+ .../_0.tii                                         |  Bin 21142 -> 0 bytes
+ .../_0.tis                                         |  Bin 1324039 -> 0 bytes
+ .../segments.gen                                   |  Bin 20 -> 0 bytes
+ .../segments_1                                     |  Bin 244 -> 0 bytes
+ .../write.lock                                     |    0
+ code/calendarProject/.DS_Store                     |  Bin 6148 -> 0 bytes
+ code/calendarProject/.classpath                    |    7 -
+ code/calendarProject/calendarProject/.classpath    |    5 -
+ code/calendarProject/calendarProject/.gitignore    |    2 -
+ code/calendarProject/calendarProject/.project      |   17 -
+ .../calendarProject/calendarProject/AlanSched.html |  365 --
+ .../calendarProject/CSS-Marshal.html               |  341 --
+ .../calendarProject/MainWindow.java                |  114 -
+ .../calendarProject/SWTResourceManager.java        |  447 ---
+ .../calendarProject/jsoup-1.11.2.jar               |  Bin 392350 -> 0 bytes
+ code/calendarProject/calendarProject/sched.html    |  361 --
+ code/calendarProject/sched.html                    |  361 --
+ 273 files changed, 1880 insertions(+), 11531 deletions(-)
+
 commit 1a10c4f6465cfe021aae2cf9bdaddd9a17426e3c
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Wed Jan 31 10:59:16 2018 -0500
@@ -398,6 +1435,175 @@ Date:   Wed Jan 31 10:59:16 2018 -0500
     Pushing metadata
     
     Hope this works....
+
+ .metadata/.lock                                    |    0
+ .metadata/.mylyn/.taskListIndex/segments_1         |  Bin 0 -> 71 bytes
+ .metadata/.mylyn/.taskListIndex/write.lock         |    0
+ .metadata/.mylyn/.tasks.xml.zip                    |  Bin 0 -> 235 bytes
+ .metadata/.mylyn/repositories.xml.zip              |  Bin 0 -> 567 bytes
+ .metadata/.mylyn/tasks.xml.zip                     |  Bin 0 -> 235 bytes
+ .../.history/2/a0a9a920070500181d26e6d9da4bd4f2    |  115 +
+ .../.history/32/90fc11d08a03001811cabed4bcb2a12b   |  105 +
+ .../.history/42/4035ff818503001811cabed4bcb2a12b   |   72 +
+ .../.history/43/600e820c7f03001811cabed4bcb2a12b   |    7 +
+ .../.history/5b/d04ccc20070500181d26e6d9da4bd4f2   |  447 ++++
+ .../.history/5d/e0f19b09e10300181bf0f6e07b65829f   |  105 +
+ .../.history/77/10c878c38003001811cabed4bcb2a12b   |   48 +
+ .../.history/8/906ccad08903001811cabed4bcb2a12b    |   91 +
+ .../.history/83/50749f09e10300181bf0f6e07b65829f   |  105 +
+ .../.history/96/f02031008a03001811cabed4bcb2a12b   |  102 +
+ .../.history/a9/505967377f03001811cabed4bcb2a12b   |    0
+ .../.history/b1/50c1c320070500181d26e6d9da4bd4f2   |  447 ++++
+ .../.history/b8/508015428103001811cabed4bcb2a12b   |   65 +
+ .../.history/f1/907a394f8903001811cabed4bcb2a12b   |   90 +
+ .../calendarProjectW/.indexes/7/history.index      |  Bin 0 -> 144 bytes
+ .../calendarProjectW/.indexes/af/history.index     |  Bin 0 -> 70 bytes
+ .../calendarProjectW/.indexes/e4/44/history.index  |  Bin 0 -> 471 bytes
+ .../.indexes/e4/44/properties.index                |  Bin 0 -> 196 bytes
+ .../.indexes/e4/e4/b9/cb/90/history.index          |  Bin 0 -> 80 bytes
+ .../calendarProjectW/.indexes/e4/fb/history.index  |  Bin 0 -> 92 bytes
+ .../calendarProjectW/.indexes/e4/history.index     |  Bin 0 -> 144 bytes
+ .../calendarProjectW/.indexes/properties.index     |  Bin 0 -> 80 bytes
+ .../.projects/calendarProjectW/.markers            |  Bin 0 -> 7477 bytes
+ .../GitProjectData.properties                      |    3 +
+ .../org.eclipse.jdt.core/state.dat                 |  Bin 0 -> 165316 bytes
+ .../.root/.indexes/history.version                 |    1 +
+ .../.root/.indexes/properties.index                |  Bin 0 -> 151 bytes
+ .../.root/.indexes/properties.version              |    1 +
+ .../org.eclipse.core.resources/.root/12.tree       |  Bin 0 -> 1332 bytes
+ .../.safetable/org.eclipse.core.resources          |  Bin 0 -> 1136 bytes
+ .../.settings/org.eclipse.core.resources.prefs     |    2 +
+ .../.settings/org.eclipse.debug.ui.prefs           |    3 +
+ .../.settings/org.eclipse.egit.core.prefs          |    3 +
+ .../org.eclipse.epp.logging.aeri.ide.prefs         |    5 +
+ .../.settings/org.eclipse.epp.mpc.ui.prefs         |    2 +
+ .../.settings/org.eclipse.jdt.core.prefs           |    9 +
+ .../.settings/org.eclipse.jdt.junit.prefs          |    2 +
+ .../.settings/org.eclipse.jdt.launching.prefs      |    2 +
+ .../.settings/org.eclipse.jdt.ui.prefs             |   16 +
+ .../.settings/org.eclipse.m2e.discovery.prefs      |    2 +
+ .../.settings/org.eclipse.mylyn.context.core.prefs |    2 +
+ .../.settings/org.eclipse.mylyn.monitor.ui.prefs   |    2 +
+ .../.settings/org.eclipse.mylyn.tasks.ui.prefs     |    5 +
+ .../.settings/org.eclipse.pde.api.tools.prefs      |    2 +
+ .../.settings/org.eclipse.pde.core.prefs           |    2 +
+ .../.settings/org.eclipse.team.ui.prefs            |    2 +
+ .../.settings/org.eclipse.ui.editors.prefs         |    2 +
+ .../.settings/org.eclipse.ui.ide.prefs             |    5 +
+ .../.settings/org.eclipse.ui.prefs                 |    2 +
+ .../.settings/org.eclipse.ui.workbench.prefs       |    3 +
+ .../.settings/org.eclipse.wb.core.prefs            |    3 +
+ .../org.eclipse.e4.workbench/workbench.xmi         | 2632 ++++++++++++++++++++
+ .../http-cache.lucene60/segments_1                 |  Bin 0 -> 71 bytes
+ .../http-cache.lucene60/write.lock                 |    0
+ .../http-cache/segments.gen                        |  Bin 0 -> 20 bytes
+ .../http-cache/segments_1                          |  Bin 0 -> 32 bytes
+ .../local-history.lucene60/_0.cfe                  |  Bin 0 -> 129 bytes
+ .../local-history.lucene60/_0.cfs                  |  Bin 0 -> 314 bytes
+ .../local-history.lucene60/_0.si                   |  Bin 0 -> 362 bytes
+ .../local-history.lucene60/segments_1              |  Bin 0 -> 136 bytes
+ .../local-history.lucene60/write.lock              |    0
+ .../local-history/_0.fdt                           |  Bin 0 -> 11 bytes
+ .../local-history/_0.fdx                           |  Bin 0 -> 12 bytes
+ .../local-history/_0.fnm                           |    1 +
+ .../local-history/_0.frq                           |    0
+ .../local-history/_0.nrm                           |    1 +
+ .../local-history/_0.tii                           |  Bin 0 -> 24 bytes
+ .../local-history/_0.tis                           |  Bin 0 -> 24 bytes
+ .../local-history/segments.gen                     |  Bin 0 -> 20 bytes
+ .../local-history/segments_1                       |  Bin 0 -> 241 bytes
+ .../local-history/write.lock                       |    0
+ .../remote-history/_0.fdt                          |  Bin 0 -> 11 bytes
+ .../remote-history/_0.fdx                          |  Bin 0 -> 12 bytes
+ .../remote-history/_0.fnm                          |    1 +
+ .../remote-history/_0.frq                          |    0
+ .../remote-history/_0.nrm                          |    1 +
+ .../remote-history/_0.tii                          |  Bin 0 -> 24 bytes
+ .../remote-history/_0.tis                          |  Bin 0 -> 24 bytes
+ .../remote-history/segments.gen                    |  Bin 0 -> 20 bytes
+ .../remote-history/segments_1                      |  Bin 0 -> 241 bytes
+ .../server-config.json                             |   72 +
+ .../org.eclipse.epp.mpc.ui/dialog_settings.xml     |   10 +
+ .../org.eclipse.equinox.p2.ui/dialog_settings.xml  |   35 +
+ .../.plugins/org.eclipse.jdt.core/1009656669.index |  Bin 0 -> 107480 bytes
+ .../.plugins/org.eclipse.jdt.core/1055679481.index |  Bin 0 -> 109709 bytes
+ .../.plugins/org.eclipse.jdt.core/1230538165.index |  Bin 0 -> 180470 bytes
+ .../.plugins/org.eclipse.jdt.core/1329257546.index |  Bin 0 -> 60719 bytes
+ .../.plugins/org.eclipse.jdt.core/1524676592.index |  Bin 0 -> 281166 bytes
+ .../.plugins/org.eclipse.jdt.core/1580166048.index |  Bin 0 -> 271873 bytes
+ .../.plugins/org.eclipse.jdt.core/1817174908.index |  Bin 0 -> 989929 bytes
+ .../.plugins/org.eclipse.jdt.core/1860642593.index |  Bin 0 -> 66720 bytes
+ .../.plugins/org.eclipse.jdt.core/1971487145.index |  Bin 0 -> 7364 bytes
+ .../.plugins/org.eclipse.jdt.core/2235946159.index |  Bin 0 -> 2936423 bytes
+ .../.plugins/org.eclipse.jdt.core/242583998.index  |  Bin 0 -> 8455 bytes
+ .../.plugins/org.eclipse.jdt.core/2429332019.index |  Bin 0 -> 25 bytes
+ .../.plugins/org.eclipse.jdt.core/2589955883.index |  Bin 0 -> 27634072 bytes
+ .../.plugins/org.eclipse.jdt.core/2692035760.index |  Bin 0 -> 150531 bytes
+ .../.plugins/org.eclipse.jdt.core/2916426105.index |  Bin 0 -> 408838 bytes
+ .../.plugins/org.eclipse.jdt.core/2956378016.index |  Bin 0 -> 30181 bytes
+ .../.plugins/org.eclipse.jdt.core/315890579.index  |  Bin 0 -> 245025 bytes
+ .../.plugins/org.eclipse.jdt.core/3177447853.index |  Bin 0 -> 99069 bytes
+ .../.plugins/org.eclipse.jdt.core/3488139473.index |  Bin 0 -> 272553 bytes
+ .../.plugins/org.eclipse.jdt.core/3637040476.index |  Bin 0 -> 2018131 bytes
+ .../.plugins/org.eclipse.jdt.core/3643608266.index |  Bin 0 -> 186210 bytes
+ .../.plugins/org.eclipse.jdt.core/3693261185.index |  Bin 0 -> 88710 bytes
+ .../.plugins/org.eclipse.jdt.core/3739531483.index |  Bin 0 -> 985790 bytes
+ .../.plugins/org.eclipse.jdt.core/3808123788.index |  Bin 0 -> 135368 bytes
+ .../.plugins/org.eclipse.jdt.core/3947521672.index |  Bin 0 -> 168906 bytes
+ .../.plugins/org.eclipse.jdt.core/4006212715.index |  Bin 0 -> 1081843 bytes
+ .../.plugins/org.eclipse.jdt.core/421022922.index  |  Bin 0 -> 19577 bytes
+ .../.plugins/org.eclipse.jdt.core/4232500288.index |  Bin 0 -> 5781 bytes
+ .../.plugins/org.eclipse.jdt.core/4277315091.index |  Bin 0 -> 1829063 bytes
+ .../.plugins/org.eclipse.jdt.core/43718198.index   |  Bin 0 -> 1772658 bytes
+ .../.plugins/org.eclipse.jdt.core/468264067.index  |  Bin 0 -> 77034 bytes
+ .../.plugins/org.eclipse.jdt.core/592600685.index  |  Bin 0 -> 7178004 bytes
+ .../org.eclipse.jdt.core/assumedExternalFilesCache |  Bin 0 -> 4 bytes
+ .../org.eclipse.jdt.core/externalFilesCache        |  Bin 0 -> 1989 bytes
+ .../org.eclipse.jdt.core/externalLibsTimeStamps    |  Bin 0 -> 2229 bytes
+ .metadata/.plugins/org.eclipse.jdt.core/index.db   |    0
+ .../org.eclipse.jdt.core/indexNamesMap.txt         |    1 +
+ .../org.eclipse.jdt.core/javaLikeNames.txt         |    1 +
+ .../org.eclipse.jdt.core/nonChainingJarsCache      |  Bin 0 -> 1034 bytes
+ .../org.eclipse.jdt.core/savedIndexNames.txt       |   33 +
+ .../variablesAndContainers.dat                     |  Bin 0 -> 32362 bytes
+ .../org.eclipse.jdt.launching/.install.xml         |    4 +
+ .../org.eclipse.jdt.launching/libraryInfos.xml     |   22 +
+ .../org.eclipse.jdt.ui/OpenTypeHistory.xml         |    2 +
+ .../QualifiedTypeNameHistory.xml                   |    2 +
+ .../org.eclipse.jdt.ui/dialog_settings.xml         |   30 +
+ .../.workspace/2018/1/5/refactorings.history       |    4 +
+ .../.workspace/2018/1/5/refactorings.index         |    1 +
+ .../calendarProject/2018/1/4/refactorings.history  |    3 +
+ .../calendarProject/2018/1/4/refactorings.index    |    4 +
+ .../calendarProject/2018/1/5/refactorings.history  |    3 +
+ .../calendarProject/2018/1/5/refactorings.index    |    4 +
+ .../calendarProjectW/2018/1/5/refactorings.history |    3 +
+ .../calendarProjectW/2018/1/5/refactorings.index   |    4 +
+ .../dialog_settings.xml                            |   11 +
+ .../logback.1.7.0.20160603-1933.xml                |   43 +
+ .../logback.1.8.2.20171007-0217.xml                |   43 +
+ .../org.eclipse.oomph.setup/workspace.setup        |    6 +
+ .../.local_targets/1517070484209.target            |   12 +
+ .../SavedExternalPluginList.txt                    |  573 +++++
+ ...A%2F%2Fwww.eclipse.org%2Fhome%2Feclipsenews.rss |  349 +++
+ ...ww.eclipse.org%2Frecommenders%2Ffeeds%2Fide.rss |   13 +
+ .../org.eclipse.ui.ide/dialog_settings.xml         |   14 +
+ .metadata/.plugins/org.eclipse.ui.intro/introstate |    2 +
+ .../org.eclipse.ui.workbench/dialog_settings.xml   |   27 +
+ .../org.eclipse.ui.workbench/workingsets.xml       |    4 +
+ .../org.eclipse.wb.rcp.cached-presentations.dat    |  Bin 0 -> 166939 bytes
+ .../org.eclipse.wb.core/dialog_settings.xml        |   25 +
+ .../palettes/org.eclipse.wb.rcp.commands           |   12 +
+ .../org.eclipse.wb.swing/dialog_settings.xml       |    9 +
+ .../org.eclipse.wst.sse.core/task-tags.properties  |    3 +
+ .metadata/version.ini                              |    3 +
+ calendarProjectW/bin/AlanSched.html                |  365 +++
+ calendarProjectW/bin/CSS-Marshal.html              |  341 +++
+ .../bin/calendarProjectW/MainWindow.class          |  Bin 0 -> 3219 bytes
+ .../bin/calendarProjectW/SWTResourceManager.class  |  Bin 0 -> 11085 bytes
+ .../bin/calendarProjectW/Scheduler.class           |  Bin 0 -> 2017 bytes
+ calendarProjectW/bin/sched.html                    |  361 +++
+ 167 files changed, 6970 insertions(+)
 
 commit de93180cdd62b14d86148d5002bd7cdb7d6c117a
 Merge: 84882a0 33bc566
@@ -414,11 +1620,23 @@ Date:   Mon Jan 29 14:54:33 2018 -0500
 
     Added an 'extractClasses' function to help with separating the class info from the mySchedule arraylist
 
+ .DS_Store                                          | Bin 0 -> 6148 bytes
+ code/.DS_Store                                     | Bin 0 -> 6148 bytes
+ code/.project                                      |  11 ++++
+ code/calendarProject/.DS_Store                     | Bin 0 -> 6148 bytes
+ code/calendarProject/.classpath                    |   1 +
+ code/calendarProject/.project                      |   6 --
+ .../calendarProject/calendarProject/Scheduler.java |  67 ++++++++++++++++++++-
+ 7 files changed, 76 insertions(+), 9 deletions(-)
+
 commit 33bc566241e5f6f030efc0229275281875ad6f8f
 Author: Hangry9090 <mbrummel14@gmail.com>
 Date:   Mon Jan 29 14:05:39 2018 -0500
 
     Rename SWTResourceManager.java to code/calendarProject/calendarProject/SWTResourceManager.java
+
+ .../calendarProject/calendarProject/SWTResourceManager.java               | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
 
 commit d48c4451f0709841adcdc25a2a2e6954b84c9110
 Author: Hangry9090 <mbrummel14@gmail.com>
@@ -426,11 +1644,17 @@ Date:   Mon Jan 29 14:05:24 2018 -0500
 
     file moved
 
+ MainWindow.java => code/calendarProject/calendarProject/MainWindow.java | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
 commit 089178b7ad0d48493ce8dcd61248ad91dcd11e50
 Author: Hangry9090 <mbrummel14@gmail.com>
 Date:   Mon Jan 29 11:58:34 2018 -0500
 
     Updated package name for compatability
+
+ SWTResourceManager.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 commit 333ead137968fb7ec3176c0ce5dfede932848592
 Author: Hangry9090 <mbrummel14@gmail.com>
@@ -438,11 +1662,18 @@ Date:   Mon Jan 29 11:57:43 2018 -0500
 
     Changed package name to be compatable
 
+ MainWindow.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit a99271fe4655b3b156e0acbc8eb4cee6d57c4efd
 Author: Hangry9090 <mbrummel14@gmail.com>
 Date:   Mon Jan 29 11:50:34 2018 -0500
 
     Added GUI functionality
+
+ MainWindow.java         | 114 ++++++++++++
+ SWTResourceManager.java | 447 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 561 insertions(+)
 
 commit d788a57b19a097d6479582dca446b9532a7b7a55
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -450,11 +1681,17 @@ Date:   Mon Jan 29 10:49:44 2018 -0500
 
     Removed Checkstyle warnings.
 
+ code/calendarProject/calendarProject/Scheduler.java | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
 commit 436f70432469e7547571c8e1355c3a94c28047c0
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Mon Jan 29 10:44:43 2018 -0500
 
     Restructured main for testing and moved code to parseFile function.
+
+ .../calendarProject/calendarProject/Scheduler.java | 65 +++++++++++-----------
+ 1 file changed, 34 insertions(+), 31 deletions(-)
 
 commit 4c011f6746f4f4246cb89aa46bbed30ddab30222
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -462,11 +1699,17 @@ Date:   Mon Jan 29 10:31:09 2018 -0500
 
     More checkstyle fixed.
 
+ .../calendarProject/calendarProject/Scheduler.java | 29 ++++++++++++++++------
+ 1 file changed, 22 insertions(+), 7 deletions(-)
+
 commit c1dceacc9f5c62280f16b0d561911e045099723f
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Mon Jan 29 10:20:28 2018 -0500
 
     Only add and commit the .java file everytime now. Removed old comments and fixed some checkstyle.
+
+ code/calendarProject/calendarProject/Scheduler.java | 14 +++-----------
+ 1 file changed, 3 insertions(+), 11 deletions(-)
 
 commit abba0b939a9aa8c336f2591f0d19795e6dcad7be
 Author: ASisouphone <sisouphone.alan@gmail.com>
@@ -474,11 +1717,20 @@ Date:   Fri Jan 26 11:52:43 2018 -0500
 
     Added Jsoup API and makes it extract schedule from HTML
 
+ code/calendarProject/calendarProject/.classpath    |   5 ++
+ code/calendarProject/calendarProject/.project      |  17 +++++++
+ .../calendarProject/calendarProject/Scheduler.java |  53 ++++++++++++++++++---
+ .../calendarProject/jsoup-1.11.2.jar               | Bin 0 -> 392350 bytes
+ 4 files changed, 69 insertions(+), 6 deletions(-)
+
 commit 07cd5ed7b27551538e45d418e633b9117feafce2
 Author: Hangry9090 <mbrummel14@gmail.com>
 Date:   Thu Jan 25 13:22:13 2018 -0500
 
     Added concise student schedule
+
+ .../calendarProject/CSS-Marshal.html               | 341 +++++++++++++++++++++
+ 1 file changed, 341 insertions(+)
 
 commit c36e83153bcff691085b2ba2be06f6d91069bf7f
 Author: ASisouphone <33473173+ASisouphone@users.noreply.github.com>
@@ -486,17 +1738,112 @@ Date:   Wed Jan 24 12:10:12 2018 -0500
 
     Added my schedule html file
 
+ .../calendarProject/calendarProject/AlanSched.html | 365 +++++++++++++++++++++
+ 1 file changed, 365 insertions(+)
+
 commit b070f791d98dfcd16cedb955e7673240ab52ed46
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Wed Jan 24 11:01:04 2018 -0500
 
     More progress. Parses file into ArrayList.
 
+ code/.metadata/.mylyn/.tasks.xml.zip               |  Bin 0 -> 235 bytes
+ code/.metadata/.mylyn/tasks.xml.zip                |  Bin 235 -> 235 bytes
+ .../.history/12/7004214a1c0100181ce4dbc3a9308121   |   63 +
+ .../.history/15/d0a4d8731c0100181ce4dbc3a9308121   |   68 +
+ .../.history/17/9038101c1b0100181ce4dbc3a9308121   |   18 +
+ .../.history/26/8072bab51b0100181ce4dbc3a9308121   |   27 +
+ .../.history/30/204dea931f0100181ce4dbc3a9308121   |   62 +
+ .../.history/40/20a8d7401b0100181ce4dbc3a9308121   |   20 +
+ .../.history/41/d06cd9281c0100181ce4dbc3a9308121   |   61 +
+ .../.history/4a/30ce07f21c0100181ce4dbc3a9308121   |   70 +
+ .../.history/4e/d06ed48a1c0100181ce4dbc3a9308121   |   70 +
+ .../.history/53/800813b81b0100181ce4dbc3a9308121   |   30 +
+ .../.history/56/403f5eab1d0100181ce4dbc3a9308121   |   63 +
+ .../.history/58/2028a2f41c0100181ce4dbc3a9308121   |   69 +
+ .../.history/5b/100dd0ec1c0100181ce4dbc3a9308121   |   71 +
+ .../.history/60/e0083ab21c0100181ce4dbc3a9308121   |   72 +
+ .../.history/6d/90ac27081c0100181ce4dbc3a9308121   |   30 +
+ .../.history/7a/b0802af71c0100181ce4dbc3a9308121   |   68 +
+ .../.history/8/a0b4eefa1c0100181ce4dbc3a9308121    |   67 +
+ .../.history/90/10d955631d0100181ce4dbc3a9308121   |   60 +
+ .../.history/90/b01a52141b0100181ce4dbc3a9308121   |   13 +
+ .../.history/96/e02b501f1c0100181ce4dbc3a9308121   |   60 +
+ .../.history/97/70b51f351d0100181ce4dbc3a9308121   |   60 +
+ .../.history/98/3072da021d0100181ce4dbc3a9308121   |   66 +
+ .../.history/99/30259b9d1d0100181ce4dbc3a9308121   |   60 +
+ .../.history/a0/90f467a81b0100181ce4dbc3a9308121   |   26 +
+ .../.history/bf/b06f23101c0100181ce4dbc3a9308121   |   59 +
+ .../.history/c1/b03f9ab31d0100181ce4dbc3a9308121   |   63 +
+ .../.history/ce/100e960d1c0100181ce4dbc3a9308121   |   57 +
+ .../.history/cf/80e03d221d0100181ce4dbc3a9308121   |   60 +
+ .../.history/d1/20728aef1c0100181ce4dbc3a9308121   |   71 +
+ .../.history/d1/d075701a1c0100181ce4dbc3a9308121   |   59 +
+ .../.history/d4/606c141c1d0100181ce4dbc3a9308121   |   66 +
+ .../.history/fc/a03fa9991f0100181ce4dbc3a9308121   |   63 +
+ .../.projects/calendarProject/.markers             |  Bin 0 -> 16324 bytes
+ .../.projects/calendarProject/.markers.snap        |  Bin 32 -> 35007 bytes
+ .../.projects/calendarProject/1.tree               |  Bin 0 -> 627 bytes
+ .../org.eclipse.core.resources/.root/.markers.snap |  Bin 32 -> 139 bytes
+ .../.safetable/org.eclipse.core.resources          |  Bin 650 -> 3581 bytes
+ .../.plugins/org.eclipse.core.resources/0.snap     |  Bin 521 -> 1814 bytes
+ .../.settings/org.eclipse.debug.ui.prefs           |    3 +
+ .../.settings/org.eclipse.pde.api.tools.prefs      |    2 +
+ .../.launches/Scheduler.launch                     |   11 +
+ .../.launches/project.launch                       |   13 +
+ .../launchConfigurationHistory.xml                 |   23 +
+ .../org.eclipse.e4.workbench/workbench.xmi         | 3453 ++++++++++----------
+ .../.plugins/org.eclipse.jdt.core/300302936.index  |  Bin 336 -> 1126 bytes
+ .../org.eclipse.jdt.core/externalLibsTimeStamps    |  Bin 1983 -> 1983 bytes
+ .../org.eclipse.jdt.core/savedIndexNames.txt       |   26 +-
+ .../.plugins/org.eclipse.jdt.ui/jdt-images/0.png   |  Bin 0 -> 635 bytes
+ .../_0.fdt                                         |  Bin 0 -> 5021699 bytes
+ .../_0.fdx                                         |  Bin 0 -> 92028 bytes
+ .../_0.fnm                                         |    3 +
+ .../_0.frq                                         | 1109 +++++++
+ .../_0.nrm                                         |    1 +
+ .../_0.prx                                         |  Bin 0 -> 129208 bytes
+ .../_0.tii                                         |  Bin 0 -> 21142 bytes
+ .../_0.tis                                         |  Bin 0 -> 1324039 bytes
+ .../segments.gen                                   |  Bin 0 -> 20 bytes
+ .../segments_1                                     |  Bin 0 -> 244 bytes
+ .../write.lock                                     |    0
+ code/calendarProject/.project                      |    6 +
+ .../calendarProject/calendarProject/Scheduler.java |   53 +-
+ .../calendarProject/calendarProject/sched.html     |    0
+ code/calendarProject/sched.html                    |  361 ++
+ 65 files changed, 5112 insertions(+), 1724 deletions(-)
+
 commit 9a4e455b1609c536e4d3528ee4057cc3eca9935f
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Wed Jan 24 10:23:59 2018 -0500
 
     Created first file.
+
+ .../.history/22/90b044931a0100181ce4dbc3a9308121   |    1 +
+ .../.history/48/80620c931a0100181ce4dbc3a9308121   |   13 +
+ .../.history/69/9073be6f1a0100181ce4dbc3a9308121   |    0
+ .../.history/bc/6077d07a1a0100181ce4dbc3a9308121   |   12 +
+ .../.history/e/d06103931a0100181ce4dbc3a9308121    |   13 +
+ .../.history/fe/10c20d931a0100181ce4dbc3a9308121   |   13 +
+ .../calendarProject/.indexes/af/history.index      |  Bin 0 -> 70 bytes
+ .../calendarProject/.indexes/fb/history.index      |  Bin 0 -> 267 bytes
+ .../.projects/calendarProject/.markers.snap        |  Bin 16 -> 32 bytes
+ .../.projects/calendarProject/.syncinfo.snap       |  Bin 16 -> 32 bytes
+ .../.root/.indexes/properties.index                |  Bin 108 -> 108 bytes
+ .../org.eclipse.core.resources/.root/.markers.snap |  Bin 16 -> 32 bytes
+ .../.safetable/org.eclipse.core.resources          |  Bin 325 -> 650 bytes
+ .../.plugins/org.eclipse.core.resources/0.snap     |  Bin 323 -> 521 bytes
+ .../.settings/org.eclipse.jdt.core.prefs           |    1 +
+ .../.settings/org.eclipse.jdt.ui.prefs             |    8 +
+ .../org.eclipse.e4.workbench/workbench.xmi         | 2683 ++++++++++++++++++++
+ .../.plugins/org.eclipse.jdt.core/300302936.index  |  Bin 25 -> 336 bytes
+ .../org.eclipse.jdt.core/savedIndexNames.txt       |    1 -
+ .../calendarProject/2018/1/4/refactorings.history  |    3 +-
+ .../calendarProject/2018/1/4/refactorings.index    |    1 +
+ code/calendarProject/calendarProject/.gitignore    |    2 +
+ .../calendarProject/calendarProject/Scheduler.java |   13 +
+ 23 files changed, 2761 insertions(+), 3 deletions(-)
 
 commit 0b2d3d84cb5a67dde2d36fb76f9600c6bbf87128
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
@@ -505,14 +1852,109 @@ Date:   Wed Jan 24 10:18:07 2018 -0500
     Created eclipse project. You guys should be able to switch to the code folder as
     an eclipse workspace that we can share.
 
+ code/.metadata/.lock                               |   0
+ code/.metadata/.mylyn/.taskListIndex/segments.gen  | Bin 0 -> 20 bytes
+ code/.metadata/.mylyn/.taskListIndex/segments_1    | Bin 0 -> 32 bytes
+ code/.metadata/.mylyn/repositories.xml.zip         | Bin 0 -> 563 bytes
+ code/.metadata/.mylyn/tasks.xml.zip                | Bin 0 -> 235 bytes
+ .../.history/2d/102602b4190100181ce4dbc3a9308121   |   7 ++
+ .../calendarProject/.indexes/properties.index      | Bin 0 -> 80 bytes
+ .../.projects/calendarProject/.markers.snap        | Bin 0 -> 16 bytes
+ .../.projects/calendarProject/.syncinfo.snap       | Bin 0 -> 16 bytes
+ .../GitProjectData.properties                      |   3 +
+ .../.root/.indexes/properties.index                | Bin 0 -> 108 bytes
+ .../org.eclipse.core.resources/.root/.markers.snap | Bin 0 -> 16 bytes
+ .../.safetable/org.eclipse.core.resources          | Bin 0 -> 325 bytes
+ .../.plugins/org.eclipse.core.resources/0.snap     | Bin 0 -> 323 bytes
+ .../.settings/org.eclipse.core.resources.prefs     |   2 +
+ .../.settings/org.eclipse.egit.core.prefs          |   3 +
+ .../.settings/org.eclipse.jdt.core.prefs           |  10 +++
+ .../.settings/org.eclipse.jdt.launching.prefs      |   2 +
+ .../.settings/org.eclipse.jdt.ui.prefs             |  11 ++++
+ .../.settings/org.eclipse.mylyn.context.core.prefs |   2 +
+ .../.settings/org.eclipse.mylyn.monitor.ui.prefs   |   2 +
+ .../.settings/org.eclipse.mylyn.tasks.ui.prefs     |   4 ++
+ .../.settings/org.eclipse.ui.prefs                 |   2 +
+ .../http-cache/write.lock                          |   0
+ .../local-history/_0.fdt                           | Bin 0 -> 11 bytes
+ .../local-history/_0.fdx                           | Bin 0 -> 12 bytes
+ .../local-history/_0.fnm                           |   1 +
+ .../local-history/_0.frq                           |   0
+ .../local-history/_0.nrm                           |   1 +
+ .../local-history/_0.tii                           | Bin 0 -> 24 bytes
+ .../local-history/_0.tis                           | Bin 0 -> 24 bytes
+ .../local-history/segments.gen                     | Bin 0 -> 20 bytes
+ .../local-history/segments_1                       | Bin 0 -> 242 bytes
+ .../local-history/write.lock                       |   0
+ .../remote-history/_0.fdt                          | Bin 0 -> 11 bytes
+ .../remote-history/_0.fdx                          | Bin 0 -> 12 bytes
+ .../remote-history/_0.fnm                          |   1 +
+ .../remote-history/_0.frq                          |   0
+ .../remote-history/_0.nrm                          |   1 +
+ .../remote-history/_0.tii                          | Bin 0 -> 24 bytes
+ .../remote-history/_0.tis                          | Bin 0 -> 24 bytes
+ .../remote-history/segments.gen                    | Bin 0 -> 20 bytes
+ .../remote-history/segments_1                      | Bin 0 -> 242 bytes
+ .../server-config.json                             |  72 +++++++++++++++++++++
+ .../.plugins/org.eclipse.jdt.core/1040376109.index | Bin 0 -> 150531 bytes
+ .../.plugins/org.eclipse.jdt.core/1242869121.index | Bin 0 -> 87493 bytes
+ .../.plugins/org.eclipse.jdt.core/1271342938.index | Bin 0 -> 17221 bytes
+ .../.plugins/org.eclipse.jdt.core/1384487945.index | Bin 0 -> 8162 bytes
+ .../.plugins/org.eclipse.jdt.core/1511570354.index | Bin 0 -> 178051 bytes
+ .../.plugins/org.eclipse.jdt.core/156905802.index  | Bin 0 -> 20450 bytes
+ .../.plugins/org.eclipse.jdt.core/1761014631.index | Bin 0 -> 5781 bytes
+ .../.plugins/org.eclipse.jdt.core/1819685514.index | Bin 0 -> 117463 bytes
+ .../.plugins/org.eclipse.jdt.core/1831474627.index | Bin 0 -> 167407 bytes
+ .../.plugins/org.eclipse.jdt.core/1833648217.index | Bin 0 -> 69590 bytes
+ .../.plugins/org.eclipse.jdt.core/2171826273.index | Bin 0 -> 408838 bytes
+ .../.plugins/org.eclipse.jdt.core/2376625133.index | Bin 0 -> 19506 bytes
+ .../.plugins/org.eclipse.jdt.core/2545238116.index | Bin 0 -> 241194 bytes
+ .../.plugins/org.eclipse.jdt.core/2783648097.index | Bin 0 -> 28650918 bytes
+ .../.plugins/org.eclipse.jdt.core/2802271970.index | Bin 0 -> 2004011 bytes
+ .../.plugins/org.eclipse.jdt.core/300302936.index  | Bin 0 -> 25 bytes
+ .../.plugins/org.eclipse.jdt.core/306326927.index  | Bin 0 -> 234758 bytes
+ .../.plugins/org.eclipse.jdt.core/3085072714.index | Bin 0 -> 7180890 bytes
+ .../.plugins/org.eclipse.jdt.core/3266567714.index | Bin 0 -> 95681 bytes
+ .../.plugins/org.eclipse.jdt.core/3302703152.index | Bin 0 -> 1171802 bytes
+ .../.plugins/org.eclipse.jdt.core/3321539481.index | Bin 0 -> 672570 bytes
+ .../.plugins/org.eclipse.jdt.core/3357112224.index | Bin 0 -> 269888 bytes
+ .../.plugins/org.eclipse.jdt.core/3683318637.index | Bin 0 -> 60719 bytes
+ .../.plugins/org.eclipse.jdt.core/3712507179.index | Bin 0 -> 993077 bytes
+ .../.plugins/org.eclipse.jdt.core/419607439.index  | Bin 0 -> 25 bytes
+ .../.plugins/org.eclipse.jdt.core/4291364629.index | Bin 0 -> 151300 bytes
+ .../org.eclipse.jdt.core/externalLibsTimeStamps    | Bin 0 -> 1983 bytes
+ .../org.eclipse.jdt.core/javaLikeNames.txt         |   1 +
+ .../org.eclipse.jdt.core/savedIndexNames.txt       |  27 ++++++++
+ .../variablesAndContainers.dat                     | Bin 0 -> 43846 bytes
+ .../org.eclipse.jdt.launching/.install.xml         |   5 ++
+ .../org.eclipse.jdt.launching/libraryInfos.xml     |  47 ++++++++++++++
+ .../calendarProject/2018/1/4/refactorings.history  |   4 ++
+ .../calendarProject/2018/1/4/refactorings.index    |   1 +
+ .../org.eclipse.m2e.logback.configuration/0.log    |   1 +
+ .../logback.1.7.0.20160603-1933.xml                |  43 ++++++++++++
+ .../org.eclipse.oomph.setup/workspace.setup        |   6 ++
+ .../.plugins/org.eclipse.ui.intro/introstate       |   2 +
+ .../org.eclipse.ui.workbench/workingsets.xml       |   4 ++
+ code/.metadata/version.ini                         |   3 +
+ code/calendarProject/.classpath                    |   6 ++
+ code/calendarProject/.project                      |  17 +++++
+ .../.settings/org.eclipse.jdt.core.prefs           |  11 ++++
+ 87 files changed, 302 insertions(+)
+
 commit 5099b4e67774307791fc1c090117113e84672719
 Author: Jacob Walton <waltojac@mail.gvsu.edu>
 Date:   Wed Jan 24 10:14:11 2018 -0500
 
     Testing git. Added test html file.
 
+ Concise Student Schedule.html | 361 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 361 insertions(+)
+
 commit 8c84a5b0f7e65bdf21c6bdfa8a510e63dd605171
 Author: Marshal Brummel <mbrummel14@gmail.com>
 Date:   Fri Jan 19 10:49:12 2018 -0500
 
     first commit
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
