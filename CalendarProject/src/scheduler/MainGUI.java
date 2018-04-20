@@ -1,10 +1,3 @@
-/**
- * Description: The main GUI that extends the file created by Netbeans called NetbeansGUI.java.
- * 
- * @author Jacob Walton
- * @author Alan Sisouphone
- * @author Marshal Brumell
- */
 package scheduler;
 
 import java.util.ArrayList;
@@ -16,8 +9,11 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- * @author jacobwalton
- *
+ * Description: The main GUI that extends the file created by Netbeans called NetbeansGUI.java.
+ * 
+ * @author Jacob Walton
+ * @author Alan Sisouphone
+ * @author Marshal Brumell
  */
 public class MainGUI extends NetbeansGUI {
 	/**
