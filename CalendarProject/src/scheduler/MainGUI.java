@@ -1,6 +1,5 @@
 /**
- * The Main Gui that extends the file created by Netbeans called 
- * NetbeansGUI.java.
+ * Description: The main GUI that extends the file created by Netbeans called NetbeansGUI.java.
  * 
  * @author Jacob Walton
  * @author Alan Sisouphone
