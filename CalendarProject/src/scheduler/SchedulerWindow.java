@@ -3,8 +3,6 @@ package scheduler;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FileDialog;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -13,8 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -331,7 +327,7 @@ public class SchedulerWindow extends JFrame implements ActionListener {
 			this.cardLayout.show(cardPanel, "4");
 		} else if (e.getSource() == this.viewImportButton) {
 			System.out.println("Pressed");
-			this.loginView = LoginView.getInstance(this.scheduler);
+			//this.loginView = LoginView.getInstance(this.scheduler, this, 0);
 		} else if (e.getSource() == this.viewExportButton) {
 
 			// TODO: Fix this to properly export ICS file

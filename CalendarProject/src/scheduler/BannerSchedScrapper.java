@@ -1,8 +1,5 @@
 package scheduler;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.logging.Level;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -10,6 +7,9 @@ import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSelect;
 import com.gargoylesoftware.htmlunit.html.HtmlTable;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.logging.Level;
 
 /**
  * Creates a scraping tool for retrieving HTML elements from Banner.
@@ -194,7 +194,8 @@ public class BannerSchedScrapper {
 	/**
 	 * Sees if the input semester value is a valid semester of the student.
 	 * 
-	 * @param semValue A valid semester year value
+	 * @param semValue
+	 *            A valid semester year value
 	 * @return Whether the schedule is valid or not
 	 */
 	public boolean isValidSemesterValue(final String semValue) {

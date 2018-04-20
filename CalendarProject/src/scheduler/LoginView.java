@@ -36,6 +36,9 @@ public final class LoginView implements ActionListener {
 	/** Scraper object for scraping Banner. */
 	private BannerSchedScrapper scrapper;
 	
+	/**
+	 * An instance of the MainGui.
+	 */
 	private MainGUI gui;
 
 	/** Scheduler object for parsing. */
@@ -76,8 +79,6 @@ public final class LoginView implements ActionListener {
 	/** Password field. */
 	private JPasswordField passwordText;
 	
-	/** Status field. */
-	private boolean status = false;
 
 	/** Button to login. */
 	private JButton loginButton;
@@ -95,10 +96,12 @@ public final class LoginView implements ActionListener {
 	 * 
 	 * @param userSchedule
 	 *            The Scheduler object used for parsing
-	 * @param i 
+	 * @param i The option for what display function to call.
+	 * @param mainGUI Our instance of the GUI
+	 * 
 	 */
-	private LoginView(final Scheduler userSchedule, final MainGUI mainGUI, int i) {
-		this.i= i;
+	private LoginView(final Scheduler userSchedule, final MainGUI mainGUI, final int i) {
+		this.i = i;
 		this.gui = mainGUI;
 
 		scheduler = userSchedule;
@@ -163,32 +166,17 @@ public final class LoginView implements ActionListener {
 	/**
 	 * To instantiate a login object and open a login window.
 	 * @param userSchedule A Scheduler object for parsing HTML
-	 * @param mainGUI 
-	 * @param i 
+	 * @param mainGUI Our gui instance.
+	 * @param i Option for display function call.
 	 * @return The initialized LoginView object
 	 */
-	public static LoginView getInstance(final Scheduler userSchedule, MainGUI mainGUI, int i) {
+	public static LoginView getInstance(final Scheduler userSchedule, final MainGUI mainGUI, final int i) {
 		if (login == null) {
 			login = new LoginView(userSchedule, mainGUI, i);
 
 		}
 
 		return login;
-	}
-
-
-	/**
-	 * Getter for status.
-	 */
-	public boolean getStatus() {
-		return status;
-	}
-	
-	/**
-	 * Setter for status.
-	 */
-	public void setStatus(boolean x) {
-		this.status = x;
 	}
 	
 	@Override
@@ -217,12 +205,11 @@ public final class LoginView implements ActionListener {
 						scheduler.inputHTML(html);
 						
 						gui.callView();
-					}else if (i == 1) {
+					} else if (i == 1) {
 						scheduler.inputCompareHTML(html);
 						gui.callCompare();
 					}
 					
-					status = true;
 					// frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 					login = null;
 					frame.dispose();

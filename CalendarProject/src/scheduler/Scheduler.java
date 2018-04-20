@@ -47,18 +47,18 @@ public class Scheduler {
 	 * icd The ics builder for the project.
 	 */
 	private ICSEventBuilder ics = new ICSEventBuilder();
-	
+
+	/**
+	 * The HTML Schedule.
+	 */
 	private String scheduleHTML;
 
-	
-	
 	/**
 	 * Constructor.
 	 */
 	public Scheduler() {
-		
+
 	}
-	
 
 	/**
 	 * Resets the data of all the fields.
@@ -108,13 +108,18 @@ public class Scheduler {
 		return mySchedule;
 
 	}
-	
-	
+
+	/**
+	 * Converts HTML to a schedule ArrayList.
+	 * 
+	 * @param html The html file.
+	 * @return The ArrayList of HTML.
+	 */
 	private ArrayList<String> parseHTML(String html) {
 		ArrayList<String> mySchedule = new ArrayList<String>();
 
 		Document doc = Jsoup.parse(html);
-		
+
 		Elements schedTable = doc.getElementsByClass("datadisplaytable");
 
 		// It will now separate the rows and columns of the table
@@ -131,7 +136,7 @@ public class Scheduler {
 			}
 
 		}
-		
+
 		System.out.println(mySchedule);
 		return mySchedule;
 	}
@@ -241,15 +246,20 @@ public class Scheduler {
 		// System.out.println(ics.toString());
 	}
 
+	/**
+	 * Grabs HTML.
+	 * 
+	 * @param html 
+	 * @throws IOException If file is bad.
+	 */
 	public void inputHTML(String html) throws IOException {
-		
-		
+
 		if (this.mySchedule.size() > 1) {
 			resetSchedule();
 		}
-		
+
 		this.scheduleHTML = html;
-		
+
 		mySchedule = parseHTML(html);
 
 		classes = extractClasses(mySchedule);
@@ -267,16 +277,21 @@ public class Scheduler {
 			System.out.println(course.toString());
 		}
 	}
-	
-public void inputCompareHTML(String html) throws IOException {
-		
-		
-//		if (this.mySchedule.size() > 1) {
-//			resetSchedule();
-//		}
-	
+
+	/**
+	 * Inputs a compare HTML schedule.
+	 * 
+	 * @param html 
+	 * @throws IOException 
+	 */
+	public void inputCompareHTML(String html) throws IOException {
+
+		// if (this.mySchedule.size() > 1) {
+		// resetSchedule();
+		// }
+
 		this.scheduleHTML = html;
-		
+
 		mySchedule = parseHTML(html);
 
 		classes = extractClasses(mySchedule);
@@ -294,8 +309,7 @@ public void inputCompareHTML(String html) throws IOException {
 			System.out.println(course.toString());
 		}
 	}
-	
-	
+
 	/**
 	 * Function that loads a file and creates course objects for each class.
 	 * 
@@ -371,15 +385,21 @@ public void inputCompareHTML(String html) throws IOException {
 		}
 
 	}
-	
+
+	/**
+	 * @return Schedule.
+	 */
 	public Schedule createSchedule() {
 		System.out.println(courseList);
 		Schedule sched = new Schedule(courseList);
-		
+
 		return sched;
-		
+
 	}
-	
+
+	/**
+	 * @return scheduleHTML.
+	 */
 	public String getScheduleHTML() {
 		return this.scheduleHTML;
 	}
@@ -401,14 +421,12 @@ public void inputCompareHTML(String html) throws IOException {
 	 */
 	public String toString() {
 
-		
-
 		StringBuffer buf = new StringBuffer();
-		
+
 		for (Course c : this.courseList) {
 			buf.append(c.toString());
 		}
-		
+
 		String tString = buf.toString();
 
 		return tString;
