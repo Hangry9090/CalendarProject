@@ -1,3 +1,348 @@
+commit 40bde356d13279bc4eec1b4c18abc48e93515619
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Fri Apr 20 02:12:22 2018 -0400
+
+    Created Junit tests. EclEmma 96.8%. Also fixed small bug in MainGUI concering clearing table values
+
+ CalendarProject/src/scheduler/MainGUI.java        |   12 +-
+ CalendarProject/src/scheduler/SchedulerTests.java | 1119 +++++++++++++++++++++
+ 2 files changed, 1125 insertions(+), 6 deletions(-)
+
+commit e8b7b363baf1fe5804dc1f24547dca38fbd58ef9
+Author: ASisouphone <sisouphone.alan@gmail.com>
+Date:   Thu Apr 19 23:03:25 2018 -0400
+
+    Removed old GUIs and placed them in 'Old GUIs' folder
+
+ CalendarProject/src/scheduler/MainWindowV2.java    | 201 ---------------------
+ OtherGUIs/MainWindowV2.java                        | 201 +++++++++++++++++++++
+ .../scheduler => OtherGUIs}/SchedulerWindow.java   |   0
+ 3 files changed, 201 insertions(+), 201 deletions(-)
+
+commit 0cc5746d42beb1c7860e383db203635fc380b84a
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 22:32:55 2018 -0400
+
+    Last time, I promise.
+
+ docs/allclasses-frame.html                        | 2 +-
+ docs/allclasses-noframe.html                      | 2 +-
+ docs/constant-values.html                         | 2 +-
+ docs/deprecated-list.html                         | 2 +-
+ docs/help-doc.html                                | 2 +-
+ docs/index-files/index-1.html                     | 2 +-
+ docs/index-files/index-10.html                    | 2 +-
+ docs/index-files/index-11.html                    | 2 +-
+ docs/index-files/index-12.html                    | 2 +-
+ docs/index-files/index-13.html                    | 2 +-
+ docs/index-files/index-2.html                     | 2 +-
+ docs/index-files/index-3.html                     | 2 +-
+ docs/index-files/index-4.html                     | 2 +-
+ docs/index-files/index-5.html                     | 2 +-
+ docs/index-files/index-6.html                     | 2 +-
+ docs/index-files/index-7.html                     | 2 +-
+ docs/index-files/index-8.html                     | 2 +-
+ docs/index-files/index-9.html                     | 6 ++++--
+ docs/index.html                                   | 2 +-
+ docs/overview-tree.html                           | 2 +-
+ docs/scheduler/BannerSchedScrapper.html           | 2 +-
+ docs/scheduler/Course.html                        | 2 +-
+ docs/scheduler/ICSEventBuilder.html               | 2 +-
+ docs/scheduler/LoginView.html                     | 2 +-
+ docs/scheduler/MainGUI.html                       | 5 +++--
+ docs/scheduler/NetbeansGUI.html                   | 2 +-
+ docs/scheduler/Schedule.html                      | 2 +-
+ docs/scheduler/Scheduler.html                     | 2 +-
+ docs/scheduler/class-use/BannerSchedScrapper.html | 2 +-
+ docs/scheduler/class-use/Course.html              | 2 +-
+ docs/scheduler/class-use/ICSEventBuilder.html     | 2 +-
+ docs/scheduler/class-use/LoginView.html           | 2 +-
+ docs/scheduler/class-use/MainGUI.html             | 2 +-
+ docs/scheduler/class-use/NetbeansGUI.html         | 6 ++++--
+ docs/scheduler/class-use/Schedule.html            | 2 +-
+ docs/scheduler/class-use/Scheduler.html           | 2 +-
+ docs/scheduler/package-frame.html                 | 2 +-
+ docs/scheduler/package-summary.html               | 6 ++++--
+ docs/scheduler/package-tree.html                  | 2 +-
+ docs/scheduler/package-use.html                   | 6 ++++--
+ docs/serialized-form.html                         | 2 +-
+ 41 files changed, 55 insertions(+), 46 deletions(-)
+
+commit 47a6d5c7186bad318336c04c7c30c3d383d6b5d5
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 22:32:43 2018 -0400
+
+    Last time, I promise.
+
+ CalendarProject/src/scheduler/MainGUI.java | 14 +++++---------
+ 1 file changed, 5 insertions(+), 9 deletions(-)
+
+commit 19b5f6dc71cc2642ec52ac2b6c6be9e2988b15e7
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 22:29:50 2018 -0400
+
+    Javadocs updated again.
+
+ docs/allclasses-frame.html                        | 2 +-
+ docs/allclasses-noframe.html                      | 2 +-
+ docs/constant-values.html                         | 2 +-
+ docs/deprecated-list.html                         | 2 +-
+ docs/help-doc.html                                | 2 +-
+ docs/index-files/index-1.html                     | 2 +-
+ docs/index-files/index-10.html                    | 2 +-
+ docs/index-files/index-11.html                    | 2 +-
+ docs/index-files/index-12.html                    | 2 +-
+ docs/index-files/index-13.html                    | 2 +-
+ docs/index-files/index-2.html                     | 2 +-
+ docs/index-files/index-3.html                     | 2 +-
+ docs/index-files/index-4.html                     | 2 +-
+ docs/index-files/index-5.html                     | 2 +-
+ docs/index-files/index-6.html                     | 2 +-
+ docs/index-files/index-7.html                     | 2 +-
+ docs/index-files/index-8.html                     | 2 +-
+ docs/index-files/index-9.html                     | 2 +-
+ docs/index.html                                   | 2 +-
+ docs/overview-tree.html                           | 2 +-
+ docs/scheduler/BannerSchedScrapper.html           | 2 +-
+ docs/scheduler/Course.html                        | 2 +-
+ docs/scheduler/ICSEventBuilder.html               | 2 +-
+ docs/scheduler/LoginView.html                     | 2 +-
+ docs/scheduler/MainGUI.html                       | 2 +-
+ docs/scheduler/NetbeansGUI.html                   | 2 +-
+ docs/scheduler/Schedule.html                      | 2 +-
+ docs/scheduler/Scheduler.html                     | 2 +-
+ docs/scheduler/class-use/BannerSchedScrapper.html | 2 +-
+ docs/scheduler/class-use/Course.html              | 2 +-
+ docs/scheduler/class-use/ICSEventBuilder.html     | 2 +-
+ docs/scheduler/class-use/LoginView.html           | 2 +-
+ docs/scheduler/class-use/MainGUI.html             | 2 +-
+ docs/scheduler/class-use/NetbeansGUI.html         | 2 +-
+ docs/scheduler/class-use/Schedule.html            | 2 +-
+ docs/scheduler/class-use/Scheduler.html           | 2 +-
+ docs/scheduler/package-frame.html                 | 2 +-
+ docs/scheduler/package-summary.html               | 2 +-
+ docs/scheduler/package-tree.html                  | 2 +-
+ docs/scheduler/package-use.html                   | 2 +-
+ docs/serialized-form.html                         | 2 +-
+ 41 files changed, 41 insertions(+), 41 deletions(-)
+
+commit 9434e14b38aa927cf6df2ab44e4f0986a050f66e
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 22:27:48 2018 -0400
+
+    Javadocs updated again.
+
+ CalendarProject/src/scheduler/MainGUI.java | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit ce45b6149ceadd9385b32e6f5508576c7fb558c6
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 22:16:41 2018 -0400
+
+    Javadocs updated again.
+
+ docs/allclasses-frame.html                        | 2 +-
+ docs/allclasses-noframe.html                      | 2 +-
+ docs/constant-values.html                         | 2 +-
+ docs/deprecated-list.html                         | 2 +-
+ docs/help-doc.html                                | 2 +-
+ docs/index-files/index-1.html                     | 2 +-
+ docs/index-files/index-10.html                    | 2 +-
+ docs/index-files/index-11.html                    | 2 +-
+ docs/index-files/index-12.html                    | 2 +-
+ docs/index-files/index-13.html                    | 2 +-
+ docs/index-files/index-2.html                     | 2 +-
+ docs/index-files/index-3.html                     | 2 +-
+ docs/index-files/index-4.html                     | 2 +-
+ docs/index-files/index-5.html                     | 2 +-
+ docs/index-files/index-6.html                     | 2 +-
+ docs/index-files/index-7.html                     | 2 +-
+ docs/index-files/index-8.html                     | 2 +-
+ docs/index-files/index-9.html                     | 2 +-
+ docs/index.html                                   | 2 +-
+ docs/overview-tree.html                           | 2 +-
+ docs/scheduler/BannerSchedScrapper.html           | 2 +-
+ docs/scheduler/Course.html                        | 2 +-
+ docs/scheduler/ICSEventBuilder.html               | 2 +-
+ docs/scheduler/LoginView.html                     | 2 +-
+ docs/scheduler/MainGUI.html                       | 2 +-
+ docs/scheduler/NetbeansGUI.html                   | 2 +-
+ docs/scheduler/Schedule.html                      | 2 +-
+ docs/scheduler/Scheduler.html                     | 2 +-
+ docs/scheduler/class-use/BannerSchedScrapper.html | 2 +-
+ docs/scheduler/class-use/Course.html              | 2 +-
+ docs/scheduler/class-use/ICSEventBuilder.html     | 2 +-
+ docs/scheduler/class-use/LoginView.html           | 2 +-
+ docs/scheduler/class-use/MainGUI.html             | 2 +-
+ docs/scheduler/class-use/NetbeansGUI.html         | 2 +-
+ docs/scheduler/class-use/Schedule.html            | 2 +-
+ docs/scheduler/class-use/Scheduler.html           | 2 +-
+ docs/scheduler/package-frame.html                 | 2 +-
+ docs/scheduler/package-summary.html               | 2 +-
+ docs/scheduler/package-tree.html                  | 2 +-
+ docs/scheduler/package-use.html                   | 2 +-
+ docs/serialized-form.html                         | 2 +-
+ 41 files changed, 41 insertions(+), 41 deletions(-)
+
+commit 1ac45bfeb3ed4cd1710b0d16da0ea6bd1a4c37d1
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 22:15:37 2018 -0400
+
+    Added class info for MainGUI
+
+ CalendarProject/src/scheduler/MainGUI.java | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit d567e412c153860ea56bef10d294218962b39e7f
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 22:12:44 2018 -0400
+
+    Javadocs done.
+
+ docs/allclasses-frame.html                        |  4 +--
+ docs/allclasses-noframe.html                      |  4 +--
+ docs/constant-values.html                         |  6 ++--
+ docs/deprecated-list.html                         |  6 ++--
+ docs/help-doc.html                                |  6 ++--
+ docs/index-files/index-1.html                     | 12 ++++----
+ docs/index-files/index-10.html                    |  6 ++--
+ docs/index-files/index-11.html                    | 10 ++-----
+ docs/index-files/index-12.html                    | 18 ++++++------
+ docs/index-files/index-13.html                    |  6 ++--
+ docs/index-files/index-2.html                     |  6 ++--
+ docs/index-files/index-3.html                     | 14 ++++++----
+ docs/index-files/index-4.html                     | 14 ++++++----
+ docs/index-files/index-5.html                     |  6 ++--
+ docs/index-files/index-6.html                     | 10 ++++---
+ docs/index-files/index-7.html                     | 14 ++++++----
+ docs/index-files/index-8.html                     |  6 ++--
+ docs/index-files/index-9.html                     | 20 ++-----------
+ docs/index.html                                   |  2 +-
+ docs/overview-tree.html                           |  4 +--
+ docs/scheduler/BannerSchedScrapper.html           |  2 +-
+ docs/scheduler/Course.html                        |  2 +-
+ docs/scheduler/ICSEventBuilder.html               |  2 +-
+ docs/scheduler/LoginView.html                     |  2 +-
+ docs/scheduler/MainGUI.html                       | 34 ++++++++++++++++++-----
+ docs/scheduler/NetbeansGUI.html                   |  6 ++--
+ docs/scheduler/Schedule.html                      | 34 +++++++++++++++++++----
+ docs/scheduler/Scheduler.html                     | 30 ++++++++++++++++----
+ docs/scheduler/class-use/BannerSchedScrapper.html |  6 ++--
+ docs/scheduler/class-use/Course.html              | 18 ++++++++----
+ docs/scheduler/class-use/ICSEventBuilder.html     |  6 ++--
+ docs/scheduler/class-use/LoginView.html           |  6 ++--
+ docs/scheduler/class-use/MainGUI.html             |  6 ++--
+ docs/scheduler/class-use/NetbeansGUI.html         |  6 ++--
+ docs/scheduler/class-use/Schedule.html            | 14 ++++++----
+ docs/scheduler/class-use/Scheduler.html           |  6 ++--
+ docs/scheduler/package-frame.html                 |  4 +--
+ docs/scheduler/package-summary.html               | 16 ++---------
+ docs/scheduler/package-tree.html                  |  4 +--
+ docs/scheduler/package-use.html                   |  2 +-
+ docs/serialized-form.html                         | 12 +++++---
+ 41 files changed, 221 insertions(+), 171 deletions(-)
+
+commit 25ac0ba313550559204b97f3a58f7b1bb59786e9
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 22:08:16 2018 -0400
+
+    Checkstyle done.
+
+ .../src/scheduler/BannerSchedScrapper.java         |   9 +-
+ CalendarProject/src/scheduler/LoginView.java       |  37 +-
+ CalendarProject/src/scheduler/MainGUI.java         | 621 +++++++++++----------
+ CalendarProject/src/scheduler/Schedule.java        |  41 +-
+ CalendarProject/src/scheduler/Scheduler.java       |  82 +--
+ CalendarProject/src/scheduler/SchedulerWindow.java |   6 +-
+ 6 files changed, 399 insertions(+), 397 deletions(-)
+
+commit 28cc33ad72d31a3c7e4c5d1f6ea49837ef276022
+Author: Marshal Brummel <mbrummel14@gmail.com>
+Date:   Thu Apr 19 21:49:21 2018 -0400
+
+    Pushed new log
+
+ log.txt | 1442 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 1442 insertions(+)
+
+commit a7a5264fac0fdca0b9959b0be3175ec849dacb49
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 21:44:41 2018 -0400
+
+    Javadocs test update.
+
+ docs/allclasses-frame.html                        |  11 +-
+ docs/allclasses-noframe.html                      |  11 +-
+ docs/constant-values.html                         |   6 +-
+ docs/deprecated-list.html                         |   6 +-
+ docs/help-doc.html                                |   6 +-
+ docs/index-files/index-1.html                     |  16 +-
+ docs/index-files/index-10.html                    |  38 +-
+ docs/index-files/index-11.html                    | 134 ++++++
+ docs/index-files/index-12.html                    | 166 +++++++
+ docs/index-files/index-13.html                    | 145 ++++++
+ docs/index-files/index-2.html                     |  28 +-
+ docs/index-files/index-3.html                     |  38 +-
+ docs/index-files/index-4.html                     |  29 +-
+ docs/index-files/index-5.html                     |  30 +-
+ docs/index-files/index-6.html                     |  58 ++-
+ docs/index-files/index-7.html                     |  38 +-
+ docs/index-files/index-8.html                     |  24 +-
+ docs/index-files/index-9.html                     |  53 +--
+ docs/index.html                                   |   2 +-
+ docs/overview-tree.html                           |  34 +-
+ docs/scheduler/BannerSchedScrapper.html           | 376 ++++++++++++++++
+ docs/scheduler/Course.html                        |   8 +-
+ docs/scheduler/ICSEventBuilder.html               |   8 +-
+ docs/scheduler/LoginView.html                     |  18 +-
+ docs/scheduler/MainGUI.html                       | 472 ++++++++++++++++++++
+ docs/scheduler/MainWindowV2.html                  |  12 +-
+ docs/scheduler/NetbeansGUI.html                   | 425 ++++++++++++++++++
+ docs/scheduler/Schedule.html                      | 300 +++++++++++++
+ docs/scheduler/Scheduler.html                     |  82 +++-
+ docs/scheduler/SchedulerWindow.html               | 439 ++++++++++++++++++
+ docs/scheduler/class-use/BannerSchedScrapper.html | 122 +++++
+ docs/scheduler/class-use/Course.html              |  55 ++-
+ docs/scheduler/class-use/ICSEventBuilder.html     |   4 +-
+ docs/scheduler/class-use/LoginView.html           |  10 +-
+ docs/scheduler/class-use/MainGUI.html             | 151 +++++++
+ docs/scheduler/class-use/MainWindowV2.html        |   4 +-
+ docs/scheduler/class-use/NetbeansGUI.html         | 147 ++++++
+ docs/scheduler/class-use/Schedule.html            | 164 +++++++
+ docs/scheduler/class-use/Scheduler.html           |  35 +-
+ docs/scheduler/class-use/SchedulerWindow.html     | 122 +++++
+ docs/scheduler/package-frame.html                 |  11 +-
+ docs/scheduler/package-summary.html               |  53 ++-
+ docs/scheduler/package-tree.html                  |  34 +-
+ docs/scheduler/package-use.html                   |  20 +-
+ docs/serialized-form.html                         | 516 ++++++++++++++++++++++
+ 45 files changed, 4247 insertions(+), 214 deletions(-)
+
+commit 1de15df26ce803873c0abc67a36eff72171f841a
+Author: Jacob Walton <waltojac@mail.gvsu.edu>
+Date:   Thu Apr 19 21:41:57 2018 -0400
+
+    Javadocs test update.
+
+ docs/allclasses-frame.html              |   9 +-
+ docs/allclasses-noframe.html            |   9 +-
+ docs/constant-values.html               |   8 +-
+ docs/deprecated-list.html               |   8 +-
+ docs/help-doc.html                      |   8 +-
+ docs/index-files/index-1.html           |  24 ++-
+ docs/index-files/index-2.html           |  29 ++--
+ docs/index-files/index-3.html           |  27 ++-
+ docs/index-files/index-4.html           |  51 ++----
+ docs/index.html                         |   2 +-
+ docs/overview-tree.html                 |   9 +-
+ docs/scheduler/LoginView.html           | 280 ++++++++++++++++++++++++++++++++
+ docs/scheduler/class-use/LoginView.html | 151 +++++++++++++++++
+ docs/scheduler/package-frame.html       |   9 +-
+ docs/scheduler/package-summary.html     |  28 +---
+ docs/scheduler/package-tree.html        |   9 +-
+ docs/scheduler/package-use.html         |  35 +++-
+ 17 files changed, 544 insertions(+), 152 deletions(-)
+
 commit 1b383cd7b83a9570d10045bb454c48eaf75249fe
 Author: ASisouphone <sisouphone.alan@gmail.com>
 Date:   Thu Apr 19 21:31:26 2018 -0400
